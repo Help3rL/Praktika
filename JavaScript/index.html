@@ -9,6 +9,7 @@
     <script src="./uzduotis_0.js"></script>
     <script src="./uzduotis_1.js"></script>
     <script src="./uzduotis_2.js"></script>
+    <script src="./uzduotis_3.js"></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -84,12 +85,6 @@
     <div id="uzduotis" class="u3">
         <div class="task1">Nr1<br>
             <div id="creatingInfo" class="player">
-                <button onclick="test()">TestLocalStorage</button>
-                <script>
-                    function test(){
-                        localStorage.setItem(hell, "test")
-                    }
-                </script>
                 <fieldset>
                     <legend>Futbolisto informacija</legend>
                     <label for="playerName">Vardas</label>
@@ -104,25 +99,17 @@
                     <label for="playerSpeed">Grietis</label>
                     <input type="number" name="playerSpeed" id="playerSpeed"><br>
                     <label for="playerSpeed">m/s</label>
-                    <button onclick="addFootballPlayer()">Prideti zaideja</button>
+                    <button onclick="addFootballPlayer()">Prideti/atnaujanti zaideja</button>
                 </fieldset>
             </div>
-
-            <script>
-                $("#playerTable").load(window.location.href + "#playerTable")
-                var temphold;
-                localStorage.getItem().forEach(element => {
-                    temphold+= "<tr> <th>"+ element.name + "</th> <th>" + element.surname + "</th><th>" + element.height + "</th><th>" + element.age + "</th><th>" + element.age + "</th><th>" + element.speed + "</th></tr>"                  
-                });
-                document.getElementById("players").innerHTML = temphold
-            </script>
             <div class="table" id="playerTable">
+                <div id="testload"></div>
+                <button onclick="loadPlayers()">Perkrauti sarasa</button>
                 <table>
                     <thead>
                         <tr>
                             <th>Vardas</th>
                             <th>Pavarde</th>
-                            <th>ID</th>
                             <th>Ugis</th>
                             <th>Amzius</th>
                             <th>Grietis</th>
