@@ -650,7 +650,7 @@
 
             div.member {
                 position: relative;
-                
+
                 display: inline-block;
                 margin: 30px;
                 background-size: auto;
@@ -746,7 +746,7 @@
                 }
             }
 
-            div.member:hover .photo{
+            div.member:hover .photo {
                 box-shadow: 10px 10px 0 0 rgb(var(--teal));
 
                 div.socialmedia {
@@ -788,12 +788,12 @@
             .photo {
                 height: 25vw;
                 width: 25vw;
-
+                position: relative;
                 img {
-                    position: absolute;
                     overflow: hidden;
                     margin: auto;
-
+                    width: 100%;
+                    height: 100%
                 }
             }
 
@@ -818,6 +818,7 @@
 
                 .left {
                     max-height: 100%;
+
                     img {
                         max-width: 100%;
                         height: 100%;
@@ -1038,6 +1039,7 @@
                 max-width: 30%;
                 margin: 1.5%;
                 vertical-align: middle;
+
                 div.photo {
                     position: relative;
 
@@ -2661,6 +2663,47 @@
                 .eapps-instagram-feed-posts-view {
                     margin: auto;
                 }
+            }
+        }
+    }
+}
+
+div#story {
+    div.photo {
+        .hover {
+            position: absolute;
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    div.photo:hover{
+        overflow: hidden;
+        .hover {
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(var(--red),0.9), rgba(var(--yellow), 0.9));
+            top:0;
+            img {
+                position: relative;
+                top: 25%;
+                margin: auto;
+                height: 3vw;
+            }
+
+            .hoverText {
+                position: relative;
+                font-size: large;
+                color: black;
+                font-family: var(--montserrat);
+                left: 100%;
+                vertical-align: bottom;
+                padding-bottom: 12px;
+                padding-top: 3vw;
+                left: 25%;
+                top: 50%
             }
         }
     }
