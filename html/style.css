@@ -1,0 +1,400 @@
+body.u8{
+    background-image: 
+        radial-gradient(rgba(59, 59, 59, 0.61),#000000c5), 
+        url(https://imgs.search.brave.com/cPArNdIQi6JL2Rw_ANpVYfK319a7Uj0cKxCBArBDBc0/rs:fit:509:338:1/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vcGhvdG9z/L2VtcHR5LXdvb2Rl/bi10YWJsZS10b3At/d2l0aC1ibHVyLWNv/ZmZlZS1zaG9wLW9y/LXJlc3RhdXJhbnQt/aW50ZXJpb3ItcGlj/dHVyZS1pZDEwNTc1/OTM5NDA_az02Jm09/MTA1NzU5Mzk0MCZz/PTE3MDY2N2Emdz0w/Jmg9RTlHTm9SQUxJ/aG9tTzk1WXhkN1c0/VmJjZ1JRMWNlSy03/Y3VCSFlWanprYz0);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: static;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body.u8 div.text{
+    color: white;
+    text-align: center;
+    vertical-align: top;
+    padding-top: 2rem;
+}
+body.u8 div.master{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+body.u8 div.child{
+    width: 49%;
+    display: inline-block;
+    text-align: center;
+    top: 0;
+    margin: auto;
+}
+body.u8 fieldset button{
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    background-color: orange;
+    border: none;
+    color: white;
+    box-shadow: 0 3px darkorange;
+    border-radius: 3px;
+    font-weight: 700;
+}
+body.u8 fieldset input, body.u8 textarea{
+    width: 93%;
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: black;
+    font-weight: 700;
+}
+body.u8 div p{
+    color: gray;
+    font-size: small;
+}
+body.u8 fieldset{
+    border: none;
+}
+body.u9{
+    position: static;
+    background-image: 
+    radial-gradient(rgba(0, 0, 0, 0.596),black),
+    url(https://imgs.search.brave.com/Ue-VOk8jmzm3Zl8Z883GmRtep8k7CFfk3WfFe0G7-p4/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMucGV4ZWxzLmNv/bS9waG90b3MvOTQx/ODY0L3BleGVscy1w/aG90by05NDE4NjQu/anBlZz9jcz1zcmdi/JmRsPWFsY29ob2wt/YmFyLWJlZXItOTQx/ODY0LmpwZyZmbT1q/cGc);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body.u9 div.content{
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 20%;
+    right: 30%;
+    transform: translate(0,-50%);
+}
+body.u9 div.text p{
+    color: gray;
+    font-weight: 300;
+    font-size: small;
+}
+body.u9 div.content button{
+    padding: 10px;
+    color: white;
+    background-color: orange;
+    border: none;
+    border-radius: 4px;
+}
+:root{
+    --background: lightgray;
+    --norm: rgb(49, 110, 110);
+    --prem: orange;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body.u0{
+    background-color: white;
+    padding: 0% 1%;
+}
+ul.eclipse{
+    list-style-type: none;
+    padding: 0;
+}
+ul li span.dot::after{
+    content: "+";
+    background-color: forestgreen;
+    border-radius: 100%;
+    border: 1px solid black;
+    color: white;
+    font-weight: 800;
+}
+table thead th{
+    background-color: rgb(93, 141, 168);
+    color: white;
+    border-bottom: 3px solid rgb(32, 120, 155);
+}
+table, tbody th, tbody tr{
+    border: 1px solid gray;
+    padding: 0%;
+    margin: 8px;
+    border-collapse: collapse;
+}
+
+.rounded{
+    border-radius: 15px;
+}
+.regform{
+    border: 2px solid black;
+    width: max-content;
+    margin-top: 3px;
+}
+.regform label{
+    padding: 2px;
+    margin: 5px;
+    align-items: left;
+}
+.regform input, .regform select{
+    margin: 2px;
+    align-items: right;
+}
+div.left{
+    width: auto;
+}
+body.u1{
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+}
+div.content{
+    margin: 0 15%;
+}
+nav.menu{
+    background-color: black;
+    color: white;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0 10px 15%;
+    position: sticky;
+}
+a span.menu{
+    border-right: 1px solid var(--background);
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+}
+div.align{
+    padding: 2%;
+    background-color: white;
+    margin: 10px 0;
+    
+}
+div.align p{
+    text-indent: 20px;
+}
+a {
+    text-decoration: none;
+}
+h1{
+    margin: 0;
+}
+div.align#dual{
+    max-width: 50%;
+    /* margin: 10px 0; */
+    display: inline-block;
+}
+
+/* .align h1, .align p {
+    font-size: 15px;
+} */
+
+body.u2{
+    background-color: lightgray;
+    position: static;
+}
+div.spacor{
+    background-color: transparent;
+    width: 4rem;
+}
+body.u2 div.content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+}
+div.gass, div.bass{
+    text-align: center;
+    border: 1px solid rgb(139, 139, 139);
+    border-radius: 3px;
+    color: lightgray;
+    font-weight: 200;
+    padding: 15px;
+    font-size: 3vh;
+}
+div.bass{
+    margin-left: 30px;
+}
+h2.norm{
+    color: var(--norm);
+}
+h2.prem{
+    color: var(--prem);
+}
+button.norm{
+    background-color: var(--norm);
+    color: white;
+    border-radius: 3px;
+    padding: 15px;
+    border: none;
+    font-weight: 700;
+    margin-top: 1%;
+}
+button.prem{
+    background-color: var(--prem);
+    color: white;
+    border-radius: 3px;
+    padding: 15px;
+    border: none;
+    font-weight: 700;
+    margin-top: 1%;
+}
+div.content h3{
+    color: gray;
+    font-weight: 700;
+    padding-bottom: 25px;
+}
+.footnote{
+    font-size: small;
+    font-weight: 300;
+    color: lightgray;
+    padding: 0;
+    margin: 5px;
+}
+body.u3 div.fromreg{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    transform: translatey(-50%);
+    padding: 50% 500px 50% 10px;
+}
+body.u3{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+body.u3 div.u3bg{
+    background-image: url(https://freedomgenesis.com/wp-content/uploads/2019/11/woman-doing-mountain-pose-at-the-top-of-a-mountain.jpg);
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body.u3 h1{
+    font-size: 50px;
+}
+body.u3 h5{
+    font-weight: 500;
+    font-size: 15px;
+
+}
+body.u3 fieldset input{
+    margin: 5px ;
+    width: 90%;
+    border: 2px solid lightgray;
+    border-radius: 3px;
+    color: black;
+    font-size: 13px;
+    font-weight: 800;
+    height: 30px;
+    text-align: left;
+    padding: 3px;
+}
+body.u3 fieldset button{
+    background-color: yellowgreen;
+    color: white;
+    box-shadow: 0 4px rgb(80, 107, 27);
+    border: none;
+    width: 90%;
+    text-align: center;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 700;
+}
+body.u3 fieldset{
+    border: none;
+}
+body.u4 table th{
+    text-align: top;
+}
+body.u4 table{
+    width: 100%;
+}
+body.u5{
+    background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2b27c7d7-b63e-42ef-8128-f00b0084986d/d4ibrno-4801e500-e896-44bf-81ff-4d1039432cd3.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzJiMjdjN2Q3LWI2M2UtNDJlZi04MTI4LWYwMGIwMDg0OTg2ZFwvZDRpYnJuby00ODAxZTUwMC1lODk2LTQ0YmYtODFmZi00ZDEwMzk0MzJjZDMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.XieZSXtVmCeyY_L03s2AkZBZjK3kck4YIbm_gkYgJM0);
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+    padding-top: 30vh;
+    position: static;
+}
+body.u5 div.container5{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #99999980;
+    border-radius: 20px;
+    align-items: center;
+}
+body.u5 span.bg{
+    padding: 5px;
+    border-radius: 10px;
+    max-width: 48%;
+    display: inline-block;
+    position: relative;
+    margin: 5px;
+}
+body.u6{
+    background-image: 
+    linear-gradient(rgba(36, 36, 36, 0.404), rgba(34, 75, 128, 0.61)),
+    url(https://thumbs.dreamstime.com/b/cracked-boards-wood-planks-background-texture-abstract-style-rough-structure-vintage-floor-wallpaper-brown-wooden-table-cracked-170098847.jpg);
+    padding: 100px 20%;
+    color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+body.u6 div.master{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+body.u6 div.grayedout{
+    background-color: #999999AA;
+    padding: 10px;
+    max-width: fit-content;
+    border-radius: 10px;
+}
+body.u6 div.moved{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+body.u6 div.grayedout input{
+    border-radius: 5px;
+}
+body.u6 div.grayedout button{
+    background-color: aqua;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+body.u7{
+    background-color: white;
+    margin: 5%;
+}
+body.u7 table, body.u7 tbody, body.u7 th, body.u7 tr{
+    border: none;
+}
+body.u7 table.yellow svg{
+    stroke: darkgoldenrod;
+    fill: darkgoldenrod;
+    width: 50px;
+}
+body.u7 table.green svg{
+    stroke: green;
+    fill: green;
+    width: 150px;
+}

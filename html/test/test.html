@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Change navbar colour on Scroll</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 200vh;
+        }
+
+        .bg {
+            background-color: pink;
+            height: 200px;
+        }
+
+        li {
+            display: inline;
+            padding: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .navbar {
+            color: white;
+            position: fixed;
+            padding: 30px 0;
+            right: 0;
+            left: 0;
+            background-color: transparent;
+        }
+
+        .BgColour {
+            color: black;
+            transition: all 1s;
+            background-color: lightcyan;
+            border-bottom: 1px solid lightgray;
+        }
+    </style>
+    <script>
+        function scrollValue() {
+            var navbar = document.getElementById('navbar');
+            var scroll = window.scrollY;
+            if (scroll < 200) {
+                navbar.classList.remove('BgColour');
+            } else {
+                navbar.classList.add('BgColour');
+            }
+        }
+
+        window.addEventListener('scroll', scrollValue);
+    </script>
+</head>
+
+<body>
+    <div class="bg">
+        <div id="navbar" class="navbar">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact Us</li>
+            </ul>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

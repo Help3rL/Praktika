@@ -1,0 +1,79 @@
+body{
+    background-color: lightgray;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+}
+div{
+    padding: 0;
+    margin: 0;
+}
+#uzduotis{
+    background-color: rgba(0, 0, 0, 0.164);
+    border: 1px solid black;
+    border-radius: 5px;
+    position: relative;
+    padding: 2%;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 2%;
+    overflow: hidden;
+}
+.name{
+    font-size: 1.5rem;
+    padding-left: 4%;
+    color: gray;
+}
+.u0 *{
+    vertical-align: middle;
+}
+fieldset{
+    max-width: 35%;
+    display: inline-block;
+}
+.output{
+    display: inline-block;
+    max-width: 50%;
+    width: 100%;
+    vertical-align: middle;
+}
+.u0 .output *{
+    width: 100%;
+}
+ul{
+    list-style-type: square;
+    padding: 0 9%;
+    margin: auto;
+}
+iframe{
+    margin: auto;
+    display: block;
+}
+#iframe{
+    width: 100%;
+}
+div.task2 *{
+    padding-left: 2%;
+}
+span{
+    display: inline-block;
+}
+.bluetext{
+    color: blue;
+}
+.whitetext{
+    color: white;
+}
+table{
+    border-spacing: 0;
+    width: 100%;
+}
+thead{
+    background-color: rgba(0, 0, 0, 0.247);
+    font-size: 18px;
+}
+th,td{
+    border: 1px solid white;
+    padding: 0 2%;
+    margin: 0 2%;
+}

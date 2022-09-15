@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./uzduotis_0.js"></script>
+    <script src="./uzduotis_1.js"></script>
+    <script src="./uzduotis_2.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="name">1JS 0 Maryte js uzduotis</div>
+    <div id="uzduotis" class="u0">
+        
+        <fieldset class="input">
+            <legend>Uzduotis 0</legend>
+            <label for="mar">Maryte:</label>
+            <input type="number" name="mar" id="mary"><br>
+            <label for="jon">Jonukas:</label>
+            <input type="number" name="jon" id="jony">
+            <button type="submit" id="u0" onclick="u0Count()">skaiciuoti</button>
+        </fieldset>
+        <div class="output">
+            <div class="howmany">Kiek obuoliu turite: <span id="totallist"></span></div>
+            <div class="total">Is Viso obuoliu:<span id="totalOut"></span></div>
+            <div class="most">Kas turi daugiau obuoliu? :<span id="most"></span></div>
+            <div class="fruit">3 & 5 <span id="third" style="color: green;"></span> <span id="fifth"
+                    style="color: red;"></span>
+                <br>Fruit List: <ul id="fruitlist">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="name">1JS 1Js Uzduotis</div>
+    <div id="uzduotis" class="u1">
+        <button onclick="task1()">Uzduotis 1</button>
+        <div class="task1"> 
+            <div id="moku"></div>
+        </div>
+        <button onclick="task2()">Uzduotis 2</button>
+        <div class="task2">
+            <div id="moku1"></div>
+        </div>
+        <button id="KARAMBA" onclick="task3()">Uzduotis 3</button>
+        <div class="task3">
+            <div id="iframe"></div>
+        </div>
+    </div>
+    <div class="name">1JS 2 Js Uzduotis</div>
+    <div id="uzduotis" class="u2">
+        <div class="task1">Uzduotis 1
+            <button onclick="u2task1()">Alert :P</button>
+        </div>
+        <div class="task2">Uzduotis 2 & Uzduotis 3<br>
+            <fieldset>
+                <legend style="color: gray;">Task2 Input</legend>
+                <label for="name">Pav.</label>
+                <input type="text" name="name" id="name"><br>
+                <label for="price">Kaina</label>
+                <input type="number" name="price" id="price" step="0.1"><br>
+                <label for="amount">Kiekis</label>
+                <input type="number" name="amount" id="amount">
+                <button onclick="u2task2()">Suskaiciuoti</button>
+            </fieldset>
+            <div class="output">
+                <span id="u2name"></span>
+                <span id="u2amount"></span>
+                <span id="u2total"></span>
+            </div>
+        </div>
+        <button onclick="u2task4()">Uzduotis 4</button>
+        <div class="task4">Uzduotis 4<br>
+            <ul id="heros">
+
+            </ul>
+        </div>
+    </div>
+    <div class="name">1JS 3 papildoma JS uzduotis</div>
+    <div id="uzduotis" class="u3">
+        <div class="task1">Nr1<br>
+            <div id="creatingInfo" class="player">
+                <button onclick="test()">TestLocalStorage</button>
+                <script>
+                    function test(){
+                        localStorage.setItem(hell, "test")
+                    }
+                </script>
+                <fieldset>
+                    <legend>Futbolisto informacija</legend>
+                    <label for="playerName">Vardas</label>
+                    <input type="text" name="playerName" id="playerName"><br>
+                    <label for="playerSurname">Pavarde</label>
+                    <input type="text" name="playerSurname" id="playerSurname"><br>
+                    <label for="playerHeight">Ugis</label>
+                    <input type="number" name="playerHeight" id="playerHeight" max="250" min="100"><br>
+                    <label for="playerHeight">cm</label>
+                    <label for="playerAge">Amzius</label>
+                    <input type="number" name="playerAge" id="playerAge" max="99" min="0"><br>
+                    <label for="playerSpeed">Grietis</label>
+                    <input type="number" name="playerSpeed" id="playerSpeed"><br>
+                    <label for="playerSpeed">m/s</label>
+                    <button onclick="addFootballPlayer()">Prideti zaideja</button>
+                </fieldset>
+            </div>
+
+            <script>
+                $("#playerTable").load(window.location.href + "#playerTable")
+                var temphold;
+                localStorage.getItem().forEach(element => {
+                    temphold+= "<tr> <th>"+ element.name + "</th> <th>" + element.surname + "</th><th>" + element.height + "</th><th>" + element.age + "</th><th>" + element.age + "</th><th>" + element.speed + "</th></tr>"                  
+                });
+                document.getElementById("players").innerHTML = temphold
+            </script>
+            <div class="table" id="playerTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vardas</th>
+                            <th>Pavarde</th>
+                            <th>ID</th>
+                            <th>Ugis</th>
+                            <th>Amzius</th>
+                            <th>Grietis</th>
+                        </tr>
+                    </thead>
+                    <tbody id="players"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="task2">Nr2<br>
+
+        </div>
+    </div>
+</body>
+
+</html>

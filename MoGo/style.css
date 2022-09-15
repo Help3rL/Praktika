@@ -1,0 +1,104 @@
+:root {
+    --regular: 'Roboto', sans-serif;
+    --fancy: 'kaushan_scriptregular';
+    --title: 'Montserrat', sans-serif;
+    --red: 243, 129, 129;
+    --yellow: 252, 227, 138;
+    --green: 234, 255, 208;
+    --teal: 149, 225, 211;
+}
+
+body {
+    font-family: var(--regular);
+}
+
+.container {
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.fancy {
+    font-size: 24px;
+    font-family: var(--fancy);
+    color: black;
+    text-align: center;
+}
+
+.title {
+    font-size: 30px;
+    font-family: var(--montserrat);
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 40px;
+    text-transform: capitalize;
+}
+
+div.text {
+    padding-top: 90px;
+    margin-bottom: 50px;
+}
+
+.line {
+    position: absolute;
+    background-color: rgb(var(--red));
+    height: 3px;
+    width: 60px;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+div.text p {
+    font-family: var(--regular);
+    font-size: 15px;
+    max-width: 50%;
+    color: #999999;
+    text-align: center;
+    margin: auto;
+    margin-top: 45px;
+}
+
+svg path.s0 {
+    fill: rgb(var(--red));
+    stroke: rgb(var(--red));
+}
+
+svg:hover path {
+    fill: white;
+    stroke: white;
+}
+
+footer div.copyright p {
+    font-size: 14px;
+    color: #333333;
+    font-weight: 400;
+    font-family: "Montserrat";
+    text-align: center;
+}
+
+footer div.copyright p a {
+    color: rgb(var(--red));
+}
+
+footer div.copyright {
+    margin: auto;
+    padding: 20px 20vw;
+    border-top: 1px solid #999999;
+    width: fit-content;
+}
+
+.BgColour {
+    background-image: linear-gradient(to right, rgb(var(--red)), rgb(var(--yellow)));
+}
+
