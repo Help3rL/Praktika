@@ -92,14 +92,20 @@
                     <label for="playerSurname">Pavarde</label>
                     <input type="text" name="playerSurname" id="playerSurname"><br>
                     <label for="playerHeight">Ugis</label>
-                    <input type="number" name="playerHeight" id="playerHeight" max="250" min="100"><br>
-                    <label for="playerHeight">cm</label>
+                    <input type="number" name="playerHeight" id="playerHeight" max="250" min="100">
+                    <label for="playerHeight">cm</label><br>
                     <label for="playerAge">Amzius</label>
                     <input type="number" name="playerAge" id="playerAge" max="99" min="0"><br>
                     <label for="playerSpeed">Grietis</label>
-                    <input type="number" name="playerSpeed" id="playerSpeed"><br>
-                    <label for="playerSpeed">m/s</label>
-                    <button onclick="addFootballPlayer()">Prideti/atnaujanti zaideja</button>
+                    <input type="number" name="playerSpeed" id="playerSpeed">
+                    <label for="playerSpeed">m/s</label><br>
+                    <button onclick="addFootballPlayer() , loadPlayers()">Prideti/atnaujanti zaideja</button>
+                </fieldset>
+                <fieldset>
+                    <legend>Trasos informacija</legend>
+                    <label for="lenght">Ilgis</label>
+                    <input type="number" name="lenght" id="lenght">
+                    <label for="lenght">m</label><br>
                 </fieldset>
             </div>
             <div class="table" id="playerTable">

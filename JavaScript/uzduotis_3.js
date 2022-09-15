@@ -34,6 +34,7 @@ function loadPlayers(){
         }
     }
     var temphold;
+    arr.sort()
     for (var i=0; i < arr.length; i++){
         var explorer = JSON.parse(localStorage.getItem(arr[i]))
         temphold +=  '<tr><td>' + explorer.name + '</td><td>' + explorer.surname +'</td><td>'+ explorer.height+ '</td><td>'+ explorer.age+ '</td><td>'+explorer.speed+'</td></tr>'
