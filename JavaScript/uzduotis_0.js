@@ -49,7 +49,7 @@ function u0Count() {
             document.getElementById("totallist").innerHTML = "Deja jus obuoliu neturite"
             break;
         case 1:
-            document.getElementById("totallist").innerHTML = "Jus turite tik viena obuoli"
+            document.getElementById("totallist").innerHTML = `"Jus turite tik viena obuoli"`
             break;
         case 2:
             document.getElementById("totallist").innerHTML = "Jus turite pora obuoliu"

@@ -34,18 +34,6 @@
             $("#blog").load("./content/blog.html");
             $("#map").load("./content/map.html");
         });
-
-        function scrollValue() {
-            var navbar = document.getElementById('menu');
-            var scroll = window.scrollY;
-            if (scroll < 1000) {
-                navbar.classList.remove('BgColour');
-            } else {
-                navbar.classList.add('BgColour');
-            }
-        }
-
-        window.addEventListener('scroll', scrollValue);
     </script>
 </head>
 

@@ -11,7 +11,7 @@
     --darkBackGroundText: #333333;
 }
 
-@media screen and (min-width:601px) {
+@media screen and (min-width:769px) {
     body {
         font-size: 0;
         padding: 0;
@@ -60,18 +60,18 @@
                 ul {
                     list-style-type: none;
                     margin: 0;
-                    margin-top: 35px;
+                    margin-top: 32px;
                     padding: 0;
                     left: 50%;
                     height: 65px;
                     bottom: 0;
                     text-align: end;
-                    margin-right: 10%;
+                    margin-right: 5vw;
 
                     li {
                         display: inline;
                         font-family: var(--montserrat);
-                        margin: 27.5px;
+                        margin: 2vw;
                         left: 100%;
                         vertical-align: bottom;
                         padding-bottom: 12px;
@@ -364,6 +364,7 @@
 
     div#ourwork {
         position: relative;
+        margin: 0 5vw;
 
         div.table {
             position: relative;
@@ -374,7 +375,7 @@
                 .cell {
                     display: inline-block;
                     height: 70px;
-                    width: 320px;
+                    max-width: 30vw;
                     position: relative;
                     margin-bottom: 50px;
                     padding-bottom: 50px;
@@ -410,10 +411,6 @@
                         }
                     }
                 }
-
-                .top {
-                    border-bottom: #999999 solid 1px;
-                }
             }
         }
     }
@@ -446,7 +443,7 @@
             position: absolute;
             z-index: 2;
             left: 63%;
-            top: 60%;
+            top: 56%;
             transform: translateX(-50%);
         }
     }
@@ -472,12 +469,13 @@
         }
 
         div.boxed {
-            padding: auto;
             margin-top: 50px;
             position: relative;
             max-height: 200vh;
             text-align: center;
             padding-bottom: 50px;
+            max-width: 80%;
+            margin: auto;
 
             div.image {
                 display: inline-block;
@@ -490,7 +488,7 @@
 
             div.menu {
                 display: inline-block;
-                max-width: 600px;
+                max-width: 50%;
                 width: 100%;
 
                 h3 {
@@ -500,7 +498,6 @@
                     font-weight: 400;
                     font-family: var(--montserrat);
                     text-align: start;
-                    margin-left: 30px;
                     border: 1px solid #99999966;
                     display: inline-block;
                     width: 100%;
@@ -512,9 +509,8 @@
                 }
 
                 div.accordionContent {
-                    max-height: 236px;
+                    max-height: 25vh;
                     border: 1px solid #99999966;
-                    margin-left: 30px;
                     width: 100%;
                     padding: 5px;
 
@@ -536,7 +532,7 @@
     div#reviews {
         background-color: #f8f8f8;
         width: 100%;
-        height: 250px;
+        height: fit-content;
         padding: 25px 0;
         position: relative;
 
@@ -551,21 +547,22 @@
         }
 
         div.reviewContent {
-            position: absolute;
-            top: 50%;
-            left: 20%;
+            position: relative;
             display: inline-block;
-            margin: 0 40px;
-            max-width: 100%;
+            width: fit-content;
+            vertical-align: middle;
+            margin: auto;
             z-index: 2;
+            left: 20%;
+            max-width: 80%;
 
             div.image {
                 text-align: center;
                 display: inline-block;
+                vertical-align: top;
 
                 img {
                     width: 40%;
-                    top: 50%;
                     padding: 20px;
                     margin: 10px;
                     border: 3px solid rgb(var(--teal));
@@ -588,8 +585,6 @@
                 }
 
                 div.person {
-                    position: absolute;
-                    text-align: center;
 
                     div.dash {
                         height: 3px;
@@ -655,14 +650,20 @@
 
             div.member {
                 position: relative;
-                height: 470px;
-                width: 380px;
+                
                 display: inline-block;
                 margin: 30px;
+                background-size: auto;
+                background-position: center;
+
 
                 div.photo {
                     height: 100%;
                     background-position: center;
+                    min-height: 40vw;
+                    min-width: 25vw;
+                    background-repeat: no-repeat;
+                    background-size: cover;
                 }
 
                 .first {
@@ -745,7 +746,7 @@
                 }
             }
 
-            div.member:hover {
+            div.member:hover .photo{
                 box-shadow: 10px 10px 0 0 rgb(var(--teal));
 
                 div.socialmedia {
@@ -769,7 +770,7 @@
                 vertical-align: middle;
 
                 img {
-                    width: 15vh;
+                    width: 10vw;
                 }
             }
         }
@@ -785,13 +786,14 @@
             overflow: hidden;
 
             .photo {
-                height: 35vh;
+                height: 25vw;
                 width: 25vw;
 
                 img {
                     position: absolute;
-                    height: 35vh;
-                    width: 25vw;
+                    overflow: hidden;
+                    margin: auto;
+
                 }
             }
 
@@ -815,8 +817,10 @@
                 background-color: #9999FF66;
 
                 .left {
+                    max-height: 100%;
                     img {
-                        height: 70vh;
+                        max-width: 100%;
+                        height: 100%;
                         top: 0;
                     }
                 }
@@ -827,8 +831,8 @@
     div#testimonials {
         background-color: #f8f8f8;
         width: 100%;
-        height: 250px;
-        padding: 25px 0;
+        height: fit-content;
+        padding: 5vh 0;
         position: relative;
 
         .slideshow-container {
@@ -842,21 +846,21 @@
         }
 
         div.reviewContent {
-            position: absolute;
-            top: 50%;
-            left: 20%;
+            position: relative;
             display: inline-block;
-            margin: 0 40px;
-            max-width: 100%;
+            margin: auto;
             z-index: 2;
+            max-width: 80vw;
+            width: 60%;
+            left: 20%;
 
             div.image {
                 text-align: center;
                 display: inline-block;
 
                 img {
-                    width: 150px;
-                    height: 150px;
+                    width: 10vw;
+                    height: 10vw;
                     top: 50%;
                     padding: 20px;
                     margin: 10px;
@@ -868,10 +872,12 @@
 
             div.content {
                 width: 60%;
+                max-width: 80%;
                 display: inline-block;
                 text-align: justify;
                 vertical-align: top;
                 padding-top: 2.5%;
+                margin: auto;
 
                 div.review {
                     font-size: 24px;
@@ -1031,10 +1037,9 @@
                 display: inline-block;
                 max-width: 30%;
                 margin: 1.5%;
-
+                vertical-align: middle;
                 div.photo {
                     position: relative;
-                    height: 30vh;
 
                     img {
                         width: 100%;
@@ -1328,7 +1333,7 @@
     }
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:768px) {
     body {
         font-size: 0;
         padding: 0;

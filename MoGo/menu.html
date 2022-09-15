@@ -1,4 +1,17 @@
-<nav class="navbar">
+<script>
+    function scrollValue() {
+            var navbar = document.getElementById('navbar');
+            var scroll = window.scrollY;
+            if (scroll < 1000) {
+                navbar.classList.remove('BgColour');
+            } else {
+                navbar.classList.add('BgColour');
+            }
+        }
+
+        window.addEventListener('scroll', scrollValue);
+</script>
+<nav class="navbar" id="navbar">
     <div class="logo">
         <a href="#home" class="active">
             <h1>MoGo</h1>
