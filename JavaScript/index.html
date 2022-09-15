@@ -101,12 +101,6 @@
                     <label for="playerSpeed">m/s</label><br>
                     <button onclick="addFootballPlayer() , loadPlayers()">Prideti/atnaujanti zaideja</button>
                 </fieldset>
-                <fieldset>
-                    <legend>Trasos informacija</legend>
-                    <label for="lenght">Ilgis</label>
-                    <input type="number" name="lenght" id="lenght">
-                    <label for="lenght">m</label><br>
-                </fieldset>
             </div>
             <div class="table" id="playerTable">
                 <div id="testload"></div>
@@ -126,7 +120,31 @@
             </div>
         </div>
         <div class="task2">Nr2<br>
-
+                <fieldset>
+                    <legend>Masinos informacija</legend>
+                    <label for="carName">Pavadinimas</label>
+                    <input type="text" name="carName" id="carName"><br>
+                    <label for="carSpeed">Grietis</label>
+                    <input type="number" name="carSpeed" id="carSpeed">
+                    <label for="carSpeed">km/h</label><br>
+                    <button onclick="addcar(), loadcars()">Prideti/atnaujanti masina</button>
+                </fieldset>
+                <label for="time">Laikas</label>
+                <input type="number" name="time" id="time" maxlength="3">
+                <label for="timne">h</label>
+                <button onclick="createFiveCars()">Sukurti 5 automobilius</button>
+                <button onclick="loadcars()">Perkrauti sarasa</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pavadinimas</th>
+                            <th>Grietis (km/h)</th>
+                            <th>Nuvaziuotas atstumas</th>
+                            <th>temp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="carTable"></tbody>
+                </table>
         </div>
     </div>
 </body>
