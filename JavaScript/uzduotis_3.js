@@ -1,4 +1,9 @@
-window.onload = loadPlayers(),loadcars()
+function capitalizeFirstLetter(str) {
+
+    const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
+
+    return capitalized;
+}
 class footballer {
     constructor(name, surname, speed, height, age) {
         this.name = name
@@ -19,8 +24,8 @@ class footballer {
 }
 
 function addFootballPlayer() {
-    var name = document.getElementById("playerName").value
-    var surname = document.getElementById("playerSurname").value
+    var name = capitalizeFirstLetter(document.getElementById("playerName").value)
+    var surname = capitalizeFirstLetter(document.getElementById("playerSurname").value)
     var height = document.getElementById("playerHeight").value
     var age = document.getElementById("playerAge").value
     var speed = document.getElementById("playerSpeed").value
@@ -73,8 +78,8 @@ function createFiveCars(){
     });
 }
 function addcar(){
-    var carname = document.getElementById("carName").value
-    var carSpeed = document.getElementById("carSpeed").value
+    var carname = capitalizeFirstLetter(document.getElementById("carName").value)
+    var carSpeed = capitalizeFirstLetter(document.getElementById("carSpeed").value)
     var max = new car(carname, carSpeed)
     max.saveLocal()
 }
