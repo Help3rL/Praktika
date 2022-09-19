@@ -783,7 +783,6 @@
 
     div#story {
         width: 100%;
-        margin-bottom: 90px;
 
         div.gallery {
             position: relative;
@@ -1290,7 +1289,7 @@
         .middle {
             .blog {
                 margin: auto;
-
+                padding-bottom: 1.5vw;
                 .photo {
                     display: inline-block;
                     max-width: 30%;
@@ -1306,13 +1305,16 @@
                     display: inline-block;
                     max-width: 60%;
 
-                    .title {
+                    .titleBlog {
                         font-size: 12px;
                         line-height: 18px;
                         text-transform: uppercase;
                         color: var(--darkBackGroundText);
                         font-weight: 400;
                         font-family: var(--montserrat);
+                        vertical-align: top;
+                        display: inline-block;
+                        width: 100%;
                     }
 
                     .date {
@@ -1322,6 +1324,9 @@
                         font-weight: 300;
                         font-style: italic;
                         font-family: var(--regular);
+                        vertical-align: bottom;
+                        display: inline-block;
+                        width: 100%;
                     }
                 }
             }
@@ -2139,9 +2144,8 @@
                 width: 25vw;
 
                 img {
-                    position: absolute;
-                    height: 35vh;
-                    width: 25vw;
+                    height:100%;
+                    width: 100%;
                 }
             }
 
@@ -2166,7 +2170,7 @@
 
                 .left {
                     img {
-                        height: 70vh;
+                        height: 100%;
                         top: 0;
                     }
                 }
@@ -2681,18 +2685,20 @@ div#story {
             height: 100%;
         }
     }
+
     div.photo:hover{
         overflow: hidden;
         .hover {
-            position: absolute;
+            position: relative;
             display: block;
             width: 100%;
             height: 100%;
             background-image: linear-gradient(rgba(var(--red),0.9), rgba(var(--yellow), 0.9));
-            top:0;
+            top:-100%;
             img {
                 position: relative;
-                top: 25%;
+                top: 50%;
+                transform: translateY(-50%);
                 margin: auto;
                 height: 3vw;
             }
@@ -2700,15 +2706,22 @@ div#story {
             .hoverText {
                 position: relative;
                 font-size: large;
-                color: black;
+                color: white;
                 font-family: var(--montserrat);
-                left: 100%;
                 vertical-align: bottom;
                 padding-bottom: 12px;
                 padding-top: 3vw;
-                left: 25%;
-                top: 50%
+                left: 50%;
+                top: 50%;
+                transform: translate(-30%,-50%);
             }
         }
+    }
+    div.secondhalf{
+            div.left{
+                div.photo{
+                    height: 50vw;
+                }
+            }
     }
 }
