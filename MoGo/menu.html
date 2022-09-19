@@ -2,7 +2,7 @@
     function scrollValue() {
             var navbar = document.getElementById('navbar');
             var scroll = window.scrollY;
-            if (scroll < 1000) {
+            if (scroll < screen.availHeight) {
                 navbar.classList.remove('BgColour');
             } else {
                 navbar.classList.add('BgColour');

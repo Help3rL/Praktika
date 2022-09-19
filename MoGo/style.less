@@ -479,10 +479,11 @@
 
             div.image {
                 display: inline-block;
+                max-width: 50%;
 
                 img {
-                    max-height: 380px;
                     height: 100%;
+                    width: 100%;
                 }
             }
 
@@ -490,6 +491,7 @@
                 display: inline-block;
                 max-width: 50%;
                 width: 100%;
+                vertical-align: top;
 
                 h3 {
                     font-size: 14px;
@@ -501,19 +503,22 @@
                     border: 1px solid #99999966;
                     display: inline-block;
                     width: 100%;
-                    padding: 5px;
-
+                    
+                    > *{
+                        padding: 0.5%;
+                    }
                     span.text {
                         text-align: center;
                     }
                 }
 
                 div.accordionContent {
-                    max-height: 25vh;
+                    height: 16.5vh;
                     border: 1px solid #99999966;
                     width: 100%;
-                    padding: 5px;
-
+                    > *{
+                        padding: 0.5%;
+                    }
                     p {
                         font-size: 15px;
                         line-height: 24px;
@@ -1353,7 +1358,6 @@
             display: inline-block;
             top: 0;
             z-index: 5;
-            background-color: rgb(var(--red));
             padding: 1vw 0;
 
             div.logo {
@@ -1466,14 +1470,14 @@
         position: relative;
 
         .fancyCreative {
-            font-size: 3rem;
+            font-size: 9vw;
             color: white;
             font-family: var(--fancy);
             text-align: center;
         }
 
         h1 {
-            font-size: 5rem;
+            font-size: 15vw;
             color: white;
             text-align: center;
             font-family: var(--montserrat);
@@ -1582,7 +1586,6 @@
 
         div.text {
             position: relative;
-            margin-top: 90px;
 
             .fancy {
                 font-size: 24px;
@@ -1649,9 +1652,10 @@
             div.image {
                 display: inline-block;
                 margin: 15px;
-                width: 380px;
-                height: 250px;
+                width: 70vw;
+                height: 50vw;
                 fill: transparent;
+                background-size: cover;
 
                 div.imghover {
                     margin-top: 25%;
@@ -1732,8 +1736,6 @@
 
                 .cell {
                     display: inline-block;
-                    height: 70px;
-                    width: 320px;
                     position: relative;
                     margin-bottom: 50px;
                     padding-bottom: 50px;
@@ -1742,11 +1744,13 @@
                         display: inline-block;
                         max-width: 20%;
                         text-align: center;
+                        
 
                         img {
                             position: absolute;
                             top: 0;
                             left: 0;
+                            padding-left: 3vw;
                         }
                     }
 
@@ -1801,7 +1805,7 @@
             position: absolute;
             z-index: 2;
             left: 63%;
-            top: 60%;
+            top: 53%;
             transform: translateX(-50%);
         }
     }
@@ -1827,19 +1831,19 @@
         }
 
         div.boxed {
-            padding: auto;
             margin-top: 50px;
             position: relative;
             max-height: 200vh;
             text-align: center;
             padding-bottom: 50px;
-
+            max-width: 80vw;
+            margin: auto;
             div.image {
                 display: inline-block;
 
                 img {
-                    max-height: 380px;
                     height: 100%;
+                    width: 103%;
                 }
             }
 
@@ -2001,10 +2005,11 @@
 
             div.member {
                 position: relative;
-                height: 470px;
-                width: 380px;
-                margin: 5vw;
+                height: 50vh;
+                width: 60vw;    
+                margin: 10vw;
                 text-align: center;
+                margin-bottom: 13vw;
 
                 div.photo {
                     height: 100%;
@@ -2057,7 +2062,7 @@
                         height: 32px;
                         width: 32px;
                         padding: 5px;
-                        margin: 0 1px;
+                        margin: 1px;
                         background-color: rgb(var(--yellow));
                     }
 
@@ -2123,7 +2128,6 @@
 
     div#story {
         width: 100%;
-        margin-bottom: 90px;
 
         div.gallery {
             position: relative;
@@ -2671,7 +2675,7 @@
 div#story {
     div.photo {
         .hover {
-            position: absolute;
+            position: relative;
             display: none;
             width: 100%;
             height: 100%;
