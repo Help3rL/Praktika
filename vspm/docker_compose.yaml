@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  db:
+    image: mariadb:10.10-rc
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 9VhOGz86DgdxLvUIbA09qCG3kVN7
+      MYSQL_DATABASE: application
+      MYSQL_USER: application
+      MYSQL_PASSWORD: application
+    volumes:
+      - db-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 6858:80
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    depends_on:
+      - db
+
+  application:
+    build: 
+      context: .
+      target: testing
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      - SERVER_PORT=80
+      - MYSQL_URL=jbbc:mysql://db/application
+    volumes:
+      - ./.....
+    depends_on:
+      - db
+volumes:
+  db-data:
