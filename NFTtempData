@@ -1,0 +1,24 @@
+Mem: 256mb per user (extra for external processes)
+1k users: memNeeded: 250gb 
+  realyNeeded: ~180gb
+  storageNeeded: 0.5mb
+    real: ~20mb
+10k users: memNeeded: 2.5tb 
+  realyNeeded: ~1.2tb
+  storageNeeded: 5mb
+    real: ~100mb
+50k users: memNeeded: 12.5tb 
+  realyNeeded: ~4tb
+  storageNeeded: 25mb
+    real: ~150mb
+storage server
+per user file size: 4kb
+
+server:
+  150pepole: 
+    1y:
+      EC2: 120$/mon
+      On-demand: 185$/mon
+    3y:
+      Ec2: 82$/mon
+      On-demand: 185$mon
