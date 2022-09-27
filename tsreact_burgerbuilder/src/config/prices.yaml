@@ -1,5 +1,6 @@
-temphold
 #Each item's cost is expressed in cents (1$ = 100)
+# Acceptible ingridients are: bun, patty, tomato, lettuce, onions, pickles, bacon
+# Acceptible souces are: tomato, mayo, bbq, curry
 Price: 
   default:
     bun: 50
