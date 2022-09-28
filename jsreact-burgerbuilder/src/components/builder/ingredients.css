@@ -1,0 +1,161 @@
+.brd_top{
+    background-color: burlywood;
+    height: 3vw;
+    width: 15vw;
+    margin-bottom: 5px;
+    border-radius: 50% 50% 0 0;
+    border-top: 8px solid goldenrod;
+    position: relative;
+}
+.brd_bottom{
+    height: 2vw;
+    width: 15vw;
+    background-color: burlywood;
+    margin-top: 5px;
+    border-radius: 0 0 1vw 1vw;
+    border-bottom: 5px solid goldenrod;
+}
+.seed{
+    background-color: beige;
+    border-radius: 50% 105% 0%;
+    border: 3px solid rgb(253, 253, 162);
+    width: 1vw;
+    height: 1vw;
+    position: absolute;
+    bottom: 0;
+    left: 1%;
+    margin-bottom: 1.5%;
+    transform: rotate(0deg);
+}
+.seed2{
+    background-color: beige;
+    border-radius: 50% 105% 0%;
+    border: 3px solid rgb(253, 253, 162);
+    width: 0.5vw;
+    height: 0.5vw;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 12%;
+    left: 10%;
+    transform: rotate(120deg);
+}
+.seed3{
+    background-color: beige;
+    border-radius: 50% 105% 0%;
+    border: 3px solid rgb(253, 253, 162);
+    width: 0.7vw;
+    height: 0.7vw;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 4%;
+    left: 15%;
+    transform: rotate(90deg);
+}
+.seed4{
+    background-color: beige;
+    border-radius: 50% 105% 0%;
+    border: 3px solid rgb(253, 253, 162);
+    width: 1vw;
+    height: 1vw;
+    position: absolute;
+    bottom: 0;
+    right: 1%;
+    margin-bottom: 1.5%;
+    transform: rotate(235deg);
+}
+.seed5{
+    background-color: beige;
+    border-radius: 50% 105% 0%;
+    border: 3px solid rgb(253, 253, 162);
+    width: 0.5vw;
+    height: 0.5vw;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 12%;
+    right: 10%;
+    transform: rotate(16deg);
+}
+.seed6{
+    background-color: beige;
+    border-radius: 50% 105% 0%;
+    border: 3px solid rgb(253, 253, 162);
+    width: 0.7vw;
+    height: 0.7vw;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 4%;
+    right: 15%;
+    transform: rotate(90deg);
+}
+.seed7{
+    background-color: beige;
+    border-radius: 50% 105% 0%;
+    border: 3px solid rgb(253, 253, 162);
+    width: 1vw;
+    height: 1vw;
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    margin-bottom: 1.5%;
+    transform: rotate(78deg);
+}
+.seed8{
+    background-color: beige;
+    border-radius: 50% 105% 0%;
+    border: 3px solid rgb(253, 253, 162);
+    width: 0.5vw;
+    height: 0.5vw;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 13%;
+    left: 35%;
+    transform: rotate(56deg);
+}
+.seed9{
+    background-color: beige;
+    border-radius: 50% 105% 0%;
+    border: 3px solid rgb(253, 253, 162);
+    width: 0.7vw;
+    height: 0.7vw;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 4%;
+    left: 40%;
+    transform: rotate(260deg);
+}
+.seed10{
+    background-color: beige;
+    border-radius: 50% 105% 0%;
+    border: 3px solid rgb(253, 253, 162);
+    width: 1vw;
+    height: 1vw;
+    position: absolute;
+    bottom: 0;
+    right: 25%;
+    margin-bottom: 1.5%;
+    transform: rotate(280deg);
+}
+.seed11{
+    background-color: beige;
+    border-radius: 50% 105% 0%;
+    border: 3px solid rgb(253, 253, 162);
+    width: 0.5vw;
+    height: 0.5vw;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 12%;
+    right: 35%;
+    transform: rotate(7deg);
+}
+.seed12{
+    background-color: beige;
+    border-radius: 50% 105% 0%;
+    border: 3px solid rgb(253, 253, 162);
+    width: 0.7vw;
+    height: 0.7vw;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 4%;
+    right: 40%;
+    transform: rotate(321deg);
+}

@@ -1,0 +1,12 @@
+.patty-default{
+    background-image: 
+    linear-gradient(rgba(128, 0, 0, 0.747),rgba(128, 0, 0, 0.74)),
+    url("../../../../assets/ground-beef.webp");
+    background-size: contain;
+    background-position: center;
+    width: 16vw;
+    height: 2vw;
+    text-align: center;
+    border-radius: 1vw;
+    color: white
+}

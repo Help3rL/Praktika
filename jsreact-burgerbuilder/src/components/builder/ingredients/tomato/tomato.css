@@ -1,0 +1,12 @@
+.tomato-default{
+    background-image: 
+    linear-gradient(to left,rgba(128, 0, 0, 0.747),rgba(255, 255, 255, 0.322),rgba(255, 255, 255, 0.322),rgba(255, 255, 255, 0.322),rgba(128, 0, 0, 0.74));
+    background-color: red;
+    background-size: contain;
+    background-position: center;
+    width: 16vw;
+    height: 1.5vw;
+    text-align: center;
+    border-radius: 0.3vw;
+    color: white
+}
