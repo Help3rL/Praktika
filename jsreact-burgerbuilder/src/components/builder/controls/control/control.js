@@ -1,7 +1,7 @@
 import React from "react";
 const control = (props) =>(
-    <div>
-        <div>{props.label}</div>
+    <div  className='control-button'>
+        <div className='label'>{props.label}</div>
         <button onClick={props.removeINGR}>Less</button>
         <button onClick={props.addINGR}>More</button>
     </div>

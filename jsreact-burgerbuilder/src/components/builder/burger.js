@@ -17,7 +17,7 @@ const burger = (props) => {
         transIngr = "Add stuff!";
     }
     return(
-        <div>
+        <div className='burger-show'>
             <Ingredients type="brd-top" />
              {transIngr}
             <Ingredients type="brd-bottom" />

@@ -9,8 +9,8 @@ const controlsList =[
 ]
 
 const controlls = (props)=>(
-    <div>
-        <p>Price: {props.price.toFixed(2)}</p>
+    <div className='burger-controlls'>
+        <p>Price: {props.price.toFixed(2)} €</p>
         {controlsList.map(ctrl => (
             <Control 
                 key={ctrl.label} 
