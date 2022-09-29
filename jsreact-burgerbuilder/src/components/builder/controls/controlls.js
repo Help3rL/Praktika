@@ -19,7 +19,7 @@ const controlls = (props)=>(
                 removeINGR={() => props.removeIngr(ctrl.type)}
             />
         ))}
-        <button disabled={!props.purch}>Order</button>
+        <button disabled={!props.purch} onClick={props.click}>Order</button>
     </div>
 );
 export default controlls;

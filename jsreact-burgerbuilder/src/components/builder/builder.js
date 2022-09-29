@@ -2,6 +2,8 @@ import { Component } from "react";
 import Aux from "../../hoc/auxs";
 import Burgere from "./burger";
 import Controls from "./controls/controlls";
+import Modal from "../Layout/UI/Modal/modal";
+import Order from "./order/order"
 const INGR_PRICES = {
     tomato: 0.5,
     bacon: 0.75,
@@ -18,6 +20,7 @@ class Burger extends Component{
         },
         basePrice: 2,
         state: false,
+        clicked: false,
     }
     stateUpdater(ingr){
         const sum = Object.keys(ingr).map(igKey => {
@@ -58,15 +61,34 @@ class Burger extends Component{
         this.setState({basePrice: newPrice, ingredients: updIngr})
         this.stateUpdater(updIngr);
     }
-    render(){
+
+    purchase = () => {
+        this.setState({clicked: true})
+    };
+    closeModal =() =>{
+        this.setState({clicked: false})
+    }
+    purchaseConfirm =() =>{
+        alert("finished")
+    }
+    render(){ 
         return(
-            <Aux>
+            <Aux> 
+                <Modal show={this.state.clicked} close={this.closeModal}>
+                    <Order 
+                        ingr={this.state.ingredients} 
+                        close={this.closeModal} 
+                        continue={this.purchaseConfirm}
+                        price={this.state.basePrice}
+                    />
+                </Modal>
                 <Burgere ingredients={this.state.ingredients}/>
                 <Controls 
                     addIngr={this.addIngr} 
                     removeIngr={this.removeIngr}
                     price={this.state.basePrice}
                     purch={this.state.state}
+                    click={this.purchase}
                 />
             </Aux>
         ); 
