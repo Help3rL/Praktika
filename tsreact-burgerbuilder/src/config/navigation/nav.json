@@ -1,0 +1,30 @@
+"Home": {
+    "link": "/",
+    "txt": "Home"
+},
+"builder": {
+    "link": "/builder",
+    "txt": "Builder"
+},
+"account": {
+    "txt": "Account",
+    "links": {
+        "home": {
+            "link": "/account",
+            "txt": "Home"
+        },
+        "history": {
+            "link": "/account/history",
+            "txt": "History"
+        },
+        "profile": {
+            "link": "account/profile",
+            "txt": "Profile"
+        }
+    }
+},
+"cart": {
+    "link": "/account/cart",
+    "img": "./assets/icons/Cart_icon.svg",
+    "txt": "Cart"
+}
