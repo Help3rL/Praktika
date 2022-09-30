@@ -1,0 +1,12 @@
+basic:
+  ingridients:
+    patty: 150
+    cheese: 50
+  souce:
+    mayo: 20
+    ketchup: 10
+  options:
+    enabled: true
+    css: 'basic.css'
+    size: auto
+    defaultPrice: 200

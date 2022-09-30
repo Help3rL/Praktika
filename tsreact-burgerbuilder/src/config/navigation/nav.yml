@@ -1,0 +1,21 @@
+Home: 
+  link: '/'
+  icon: '#Logo'
+builder: 
+  link: '/builder'
+  icon: 'Builder'
+account:
+  icon: 'Account'
+  link:
+    home: 
+      link: '/account'
+      icon: 'Home'
+    history: 
+      link: '/account/history'
+      icon: 'History'
+    profile: 
+      link: 'account/profile'
+      icon: 'Profile'
+cart: 
+  link: '/account/cart'
+  icon: '../'
