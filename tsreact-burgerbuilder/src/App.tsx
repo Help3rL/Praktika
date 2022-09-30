@@ -54,12 +54,13 @@ const Burger = {
       patty: 0,
   },
   settings:{
-    basePrice: 2,
+    basePrice: 200,
     state: false,
     clicked: false,
   },
 }
 
+orderIngridientsCost.push(Burger.settings.basePrice)
 console.log(orderIngridients,orderIngridientsCost,Burger)
 
 function App() {
