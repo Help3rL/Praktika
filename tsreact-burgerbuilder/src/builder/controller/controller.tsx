@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './controller.scss'
 export default class Controls extends Component{
     info:any;
     managment:any;
@@ -7,21 +8,19 @@ export default class Controls extends Component{
         this.info = info;
         this.managment = managment;
     }
-
-    control(){
+    private control(){
         if (this.info['ingredients'] !== undefined){
             let temp:any = {
 
             };
             let list = Object.keys(this.info['ingredients']).map(value =>{
                 return (
-                    <div className={'ingr' + this.info['ingredients'].value}>
-                        <div className="ingrTitle">{value} tst<span className="price">{(this.info.ingredients[value] / 100).toFixed(2)}tet</span></div>
-                        <button onClick={temp} className='addMore'>More</button>
+                    <div className={'ingr ' + value}>
+                        <div className="ingrTitle">{value}<span className="price">({(this.info.ingredients[value] / 100).toFixed(2)}€)</span></div>
+                        <button onClick={this.managment} className='addMore'>More</button>
                         <button onClick={temp} className='addLess'>Less</button>
                     </div>)
             })
-            console.log(list);
             return list;
             
         } else {
@@ -31,6 +30,6 @@ export default class Controls extends Component{
     }
 
     get getController(){
-        return <div>{this.control()}</div>
+        return <div className='controller'>{this.control()}</div>
     }
 }

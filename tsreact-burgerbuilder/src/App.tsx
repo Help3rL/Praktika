@@ -5,7 +5,7 @@ import Builder from './builder/builderMaster';
 import Ingredients from './builder/ingredients/ingredients';
 import logo from './assets/images/logo.png';
 import cartIcon from './assets/icons/Cart_icon.svg';
-import Router from 'react-router-dom';
+// import Router from 'react-router-dom';
 import Controller from './builder/controller/controller'
 // const links ={
 //   "Home": {
@@ -76,8 +76,8 @@ function App() {
         {builder.Visual(ingredients.getDiv)||undefined}
         {controller.getController}
         <p>
-          <span className='DONE'>Builder & Ingridients</span>,
-          <span className="inProgress">BuilderControls[Ingr[Name (<span className="DONE">price</span>): amount] Buttons[More | Less]]</span>
+          <span className='DONE'>Builder & Ingridients</span>,<br/>
+          <span className="inProgress"><span className="DONE">BuilderControls[Ingr[Name (price)</span>: amount] <span className="DONE">Buttons</span>[More | Less]]</span>
         </p>
         <p></p>
       </div>
