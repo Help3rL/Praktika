@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
 import Toolbar from './layout/toolbar/toolbar';
-import Builder from './builder/builderMaster'
-
-import logo from './assets/images/logo.png'
-
+import Builder from './builder/builderMaster';
+import Ingredients from './builder/ingredients/ingredients';
+import logo from './assets/images/logo.png';
+import cartIcon from './assets/icons/Cart_icon.svg';
+import Router from 'react-router-dom';
+import Controller from './builder/controller/controller'
 // const links ={
 //   "Home": {
 //     "link": "/",
@@ -41,42 +43,44 @@ const navLinks ={
   Home: '/',
   Builder: '/builder',
   Account: '/account',
-  Cart: '/account/cart',
+  cartIcon: '/account/cart',
 }
-let orderIngridients = [0];
+let orderIngridients:Array<string> = ['tomato','patty','cheese','bacon'];
 let orderIngridientsCost=[0];
 
 const Burger = {
   ingredients:{
-      tomato: 0,
-      bacon: 0,
-      cheese: 0,
-      patty: 0,
+      tomato: 500,
+      bacon: 210,
+      cheese: 340,
+      patty: 8750,
   },
   settings:{
-    basePrice: 200,
+    basePrice: 2000,
     state: false,
     clicked: false,
   },
 }
-
 orderIngridientsCost.push(Burger.settings.basePrice)
-console.log(orderIngridients,orderIngridientsCost,Burger)
-
 function App() {
-  const toolbar = new Toolbar('', navLinks, logo);
-  const builder = new Builder(navLinks, [50,30,50,80,90,81,651,156,561,61,6,51,61,19,19819,1,189,1]);
+  const toolbar = new Toolbar('', navLinks, logo, cartIcon);
+  const builder = new Builder(Burger, orderIngridientsCost);
+  const ingredients = new Ingredients(orderIngridients)
+  const controller = new Controller(Burger)
   return (
     <div className="App">
       <header className="App-header">
         {toolbar.getTest || undefined}
       </header>
       <div>
-        {builder.Visual||undefined}
-        <p><span className='inProgress'>Builder</span>,BuilderControls[Ingr[Name (price): amount] Buttons[More | Less]]</p>
+        {builder.Visual(ingredients.getDiv)||undefined}
+        {controller.getController}
+        <p>
+          <span className='DONE'>Builder & Ingridients</span>,
+          <span className="inProgress">BuilderControls[Ingr[Name (<span className="DONE">price</span>): amount] Buttons[More | Less]]</span>
+        </p>
         <p></p>
       </div>
-      
     </div>
   );
 }

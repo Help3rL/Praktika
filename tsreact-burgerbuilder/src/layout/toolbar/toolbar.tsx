@@ -5,15 +5,17 @@ class Toolbar extends Component {
     logo:string;
     file:string;
     assets = '../../assets'
-    constructor(file:string, list:object, logo:string){
+    icon;
+    constructor(file:string, list:object, logo:string, icon: string){
         super(file)
         this.file = file;
         this.list = list;
         this.logo = logo || imageLogo;
+        this.icon = icon;
     }
 
     linksGen(obj:any){
-        let temp = Object.keys(obj).map(e => {return <li key={e}><a href={obj[e]}>{e}</a></li>})
+        let temp = Object.keys(obj).map(e => {return <li key={e} data-test={e}><a href={obj[e]}>{e}</a></li>})
         return temp;
     }
 
@@ -24,7 +26,6 @@ class Toolbar extends Component {
                 <ul>
                     {this.linksGen(this.list)}
                 </ul>
-                {/* <p>{this.iterate(this.list)}</p> */}
             </nav>
             )
     }
