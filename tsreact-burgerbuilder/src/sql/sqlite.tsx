@@ -1,4 +1,4 @@
-import sql from "sqlite3";
+import sql, {} from 'sqlite3';
 
 export default class SQL{
     private database = new sql.Database('burgerBuilder', sql.OPEN_READWRITE);
@@ -13,7 +13,7 @@ export default class SQL{
         }
         stmt.finalize();
     
-        this.database.each("SELECT rowid AS id, info FROM lorem", (err, row) => {
+        this.database.each("SELECT rowid AS id, info FROM lorem", (err:any, row:any) => {
             console.log(row.id + ": " + row.info);
         });
     });

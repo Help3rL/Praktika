@@ -7,6 +7,7 @@ import logo from './assets/images/logo.png';
 import cartIcon from './assets/icons/Cart_icon.svg';
 // import Router from 'react-router-dom';
 import Controller from './builder/controller/controller'
+import Render from './builder/builderRender'
 // const links ={
 //   "Home": {
 //     "link": "/",
@@ -43,10 +44,8 @@ const navLinks ={
   Home: '/',
   Builder: '/builder',
   Account: '/account',
-  cartIcon: '/account/cart',
+  Cart: '/account/cart',
 }
-let orderIngridients:Array<string> = ['tomato','patty','cheese','bacon'];
-let orderIngridientsCost=[0];
 
 const Burger = {
   ingredients:{
@@ -54,33 +53,41 @@ const Burger = {
       bacon: 210,
       cheese: 340,
       patty: 8750,
+      lettuce: 1569
   },
   settings:{
     basePrice: 2000,
     state: false,
     clicked: false,
   },
+  data:{
+    price: [0],
+    ingrArray: ['cheese','patty', 'cheese'],
+  }
 }
-orderIngridientsCost.push(Burger.settings.basePrice)
 function App() {
-  const toolbar = new Toolbar('', navLinks, logo, cartIcon);
-  const builder = new Builder(Burger, orderIngridientsCost);
-  const ingredients = new Ingredients(orderIngridients)
   const controller = new Controller(Burger)
+  const toolbar = new Toolbar('', navLinks, logo, cartIcon);
+  const builder = new Builder(controller.objectInfo);
+  const ingredients = new Ingredients(builder.getIngredients)
+  
   return (
     <div className="App">
       <header className="App-header">
         {toolbar.getTest || undefined}
       </header>
       <div>
-        {builder.Visual(ingredients.getDiv)||undefined}
-        {controller.getController}
+        <Render data={Burger}/>
+      </div>
         <p>
           <span className='DONE'>Builder & Ingridients</span>,<br/>
-          <span className="inProgress"><span className="DONE">BuilderControls[Ingr[Name (price)</span>: amount] <span className="DONE">Buttons</span>[More | Less]]</span>
+          <span className="inProgress">
+            <span className="DONE">BuilderControls[Ingr[Name (price)</span>
+            : amount] 
+            <span className="DONE">Buttons</span>
+            [More | Less]]
+          </span>
         </p>
-        <p></p>
-      </div>
     </div>
   );
 }

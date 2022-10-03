@@ -2,7 +2,7 @@ import React from "react";
 import Aux from "../../../../hoc/auxs";
 import "./bacon.css"
 
-const Bacon= (props) =>(
+const Bacon= () =>(
     <Aux>
         <div className="bacon-default">
             "|Bacon|"

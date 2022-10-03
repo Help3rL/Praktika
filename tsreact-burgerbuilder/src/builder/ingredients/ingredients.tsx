@@ -21,3 +21,18 @@ export default class Ingredients extends Component{
         )
     }
 }
+
+export const ingredients = (props:any) => {
+    let ingr = props.ingr;
+    return (
+        <div className='ingredients'>
+            {genList(ingr)}
+        </div>
+    )
+}
+
+function genList(ingr:any) {
+    return ingr.map(function(name: string | undefined){
+        return <div className={name}></div>
+    })
+}

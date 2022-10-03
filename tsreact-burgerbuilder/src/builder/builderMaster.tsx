@@ -1,26 +1,24 @@
 import React, {Component} from 'react';
 import './ingredients.scss'
 class Builder extends Component {
-    // Controller = new Controls;
     type;
-    private price;
-    constructor(type:Object, price:Array<any> = []){
+    private price = [0];
+    private ingrList = [];
+    constructor(type:any){
         super(type);
         this.type = type;
-        this.price = price;
     }
     private priceCalculator(){
         let initialValue = 0;
+        this.price[0] = this.type?.settings?.basePrice;
         let hold = this.price.reduce((previousValue, currentValue) => previousValue + currentValue, initialValue)/100;
-        return (hold.toFixed(2))
+        return (hold.toFixed(2));
     }
 
-    // fromData<T>(this: new () => T, data: any): T {
-    //     return Object.assign(new this(), data);
-    // }
-    getIngredients(){
-        
+    get getIngredients(){
+        return this.ingrList = this.type.data.ingrArray;
     }
+
     Visual(ingredients:any){
         return(
             <div>

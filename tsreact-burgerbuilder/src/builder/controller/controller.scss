@@ -1,6 +1,37 @@
-.ingr{
-    .ingrTitle{
-        text-transform: capitalize;
-        background-color: red;
+.controller {
+    border: 5px solid orange;
+
+    .controls {
+        .ingr {
+            display: flex;
+            width: 100%;
+
+            .ingrTitle {
+                text-transform: capitalize;
+                width: 10vw;
+                max-width: 100%;
+            }
+
+            .buttons {
+                display: inline-block;
+                width: 100%;
+
+                button {
+                    width: 50%;
+                    border: none;
+                    font-size: large;
+
+                    &.addMore {
+                        background-color: green;
+                        color: greenyellow;
+                    }
+
+                    &.addLess {
+                        background-color: red;
+                        color: white;
+                    }
+                }
+            }
+        }
     }
 }
