@@ -11,7 +11,7 @@ const renderBuilder = (props:any) =>{
         <div className='content'>
             {builder.Visual(ingredients.getDiv)}
             {controller.getController}
-            <ingredients/>
+            {/* <ingredients/> */}
         </div>
     )
 }
