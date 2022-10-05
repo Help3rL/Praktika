@@ -1,8 +1,6 @@
 import * as actionsTypes from '../actions/actionTypes'
 import { IngredientsType } from '../../containers/BurgerBuilder/BurgerBuilder'
-import buildControl from '../../components/burger/BuildControls/BuildControl/BuildControl'
 import { updateObject } from '../../shared/utility'
-import { fetchIngredientsFailed } from '../actions/burgerBuilderActions'
 import { UpdatedIngredientInterface } from '../../shared/utility'
 import { Reducer } from 'react'
 import { Action, AnyAction } from 'redux'
@@ -11,7 +9,7 @@ import { Action, AnyAction } from 'redux'
 
 export type InitialStateInterface = {
     loading: boolean
-    ingredients : IngredientsType | null
+    ingredients : IngredientsType | null 
     totalPrice: number
     error: boolean
     // burgerBuilderReducer ?:any

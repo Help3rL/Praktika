@@ -1,5 +1,4 @@
 import { IngredientsType } from "../containers/BurgerBuilder/BurgerBuilder"
-import { InitialStateInterface } from "../store/reducers/burgerBuilderReducer"
 import { ValidationAuthInterface } from "../containers/Auth/Auth"
 
 
