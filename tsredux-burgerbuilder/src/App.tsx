@@ -1,46 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './assets/images/logo.png';
 import { Counter } from './features/counter/Counter';
 import './App.css';
-import Router from 'react-router';
-import RouterDom, {createBrowserRouter, RouterProvider} from 'react-router-dom';
-let router = createBrowserRouter([
-  {
-    path: "/",
-    element: <h2>Main</h2>,
-    loader: Counter,
-    children: [
-      {
-        path: '/builder',
-        element: <h2></h2>,
-      },
-      {
-        path: '/account',
-        loader: Counter,
-        element: <h2></h2>,
-        errorElement: <h1>You need to login</h1>,
-        children:[
-          {
-            path: '/account/history',
-            element: <span>History of account</span>,
-            errorElement: <span>Error</span>,
-          },
-          {
-            path: 'account/logout'
-          }
-        ]
-      }
-    ]
+import Toolbar from './layout/toolbar/toolbar'
+import cartIcon from './assets/icons/Cart_icon.svg';
+import {createBrowserRouter, RouterProvider, Route, Outlet, Link} from 'react-router-dom';
 
-  }
-]);
+
+
+const navLinks ={
+  Home: '/',
+  Builder: '/builder',
+  Account: '/account',
+  Cart: '/account/cart',
+}
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Toolbar links={navLinks} logo={logo}/>
+      </header>
+      <div>
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
-      </header>
+      </div>
     </div>
   );
 }
