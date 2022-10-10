@@ -1,0 +1,42 @@
+.Toolbar {
+    height: 3vmax;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #703B09;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 90;
+  }
+  
+  .Toolbar nav {
+    height: 100%;
+  }
+  .logoImage{
+    height: 80%;
+    width: 100%;
+    filter: grayscale(100%) invert(100%);
+    text-align: center;
+  }
+  .Toolbar ul{
+    width: fit-content;
+  }
+  .Toolbar ul li{
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5em;
+    color: #fff;
+  }
+  .Toolbar ul li a{
+    text-decoration: none;
+    color: #FFF;
+  }
+  .Logo {
+    height: 80%;
+  }
+  
+  
