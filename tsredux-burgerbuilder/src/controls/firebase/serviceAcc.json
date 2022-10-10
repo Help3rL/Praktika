@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "testproject-tsrecburgerbuilder",
+  "private_key_id": "9ccb0f5f17497c27927b24b2b3c9ea906119de5a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCyjvfjtYx/AfB/\nvxWCx6rL3naNFASifENRbBu+A9lKoPQFaUjq1g8xrV5YXlPe4+GQjVHuNb3j2UJ8\n/AT7Q1Azg60h1GFuMdi3dGJdrVhEeMAPpbclPfa6bCOy4oDKDlKsJ4d6Nrlh+DUi\nXHY62NBfRqz/6iiXBtz0tjWY59iuPquPZvMEqfMz8HxlxlHtiChTMKJC8X/oFWrc\nanBoLQW7yA0/fJFbS1U/z9k3N+Rl0f+VNuwuafk0WNthK1Xk2kWoymdlMa75w/nW\n5qtCRciHy7NHEa+UNQjfjus/qS0OVQim9Bu5Fst3T4ugU59W7UpGMUcVttJDtGY8\nVa1ifcYLAgMBAAECggEAHkd7RuyO/iyshWU4dxx33KmFbggSfyFWYxTToYXSj8K6\njr5bZKNXIUP2h0K7s0Tuh85HMf+AC4bYrQwpphg0nf+62M1ElmSyjO2aDquqF7Zo\nT175L0ISOGvFI/0f/OOv5kyvvyxPhIsMK58FV5ZTw4xfIuio6G98Aa1yalMKngVu\n8QEE8NCf4H2GggjHtb8nmS9/wT69s+HQUXoYU3fnzzIvcMpgVQbG3wPnODFYablQ\nPnsd3bLvy15uKZax9Xa7NQ4h4z9zfrvInfj4WtRvnACifXWFIRdyv6tM0VqQ9uD+\nyNGxvk1USIo3PqK1CxsYswGuFJS4lvEZSe3PxxnR2QKBgQDk5e22F+2Yi2vQFrPS\no0JcrN2UPl/9SFrsGZteH4aHMo3NyXrfGaXoFyPO3N6mXVLQR+eqjJKAA/7trbc6\n76WG6IcjThA/IyKt9QqWvkAwtTiNji+oOXQPrcEBaQD8c+y80hkkpsUV3xpEYohx\nqEwIgN3DFDFpH6DxfHrlk1EocwKBgQDHszTwuoeE0j+dMk5txXeZ0SrZNFH1L5fw\nHwsPKTybdznLqhHu5f+uGXZrxBP2RBJeMc8XyCFnj12dCCUpwRLGqC7tZpULTyeP\nQ/DfjR0urjVWWNaLMWpmXc/KhNDueIYWmgwe13aEc8orl1rj1gomyGpsCC7Od+Vt\nPUczo2q+CQKBgGikuRTbQZLQglxiVJlCa89EdBQWo/l9/5saZc4U6YKbWPqwVozy\nA8fj9EnY7azu0zJG/SEaHMuLiBsOpMq7zlerrEQ2pvTGUk9mzA14Mo5R+uW0EBN/\nGJEmZSsI3xuKv7re7gG0gDtsgGytAyW6w+/LQhax/5jIjeJ4fxK/U4YDAoGAB0R1\nS8FuBx5jpEPdaM9D3/wltAvcY7DctadbjqywgPPgzZGd33TNTjetAJT9KPwnMvhb\nEgF9fbhQ7tMKDy/wj/w04PzXtbamuOb/EBOhmT5LwJ2xCRW+SoVld3hH5jXKo23t\nvP2YWY+hLt7uNtZmPi0S+mV91pO0bLpLKgzraIkCgYEAxWTSM8iuPtLIaqXs5mNV\nxdyif9PM/u5pw5MM5RGtwE2/3zqkl8T2vGhBnC59fHaJDkgoFc5YRpGC25D22ab5\n7hBMG6rlAGvgVpWFO88BUXVQOLEf6C76xq4H10fQY/MjLCoOZQUY5ddaJ0WFKBz3\ngIe+wxWNENJ0vK0Pquepz7k=\n-----END PRIVATE KEY-----\n",
+  "client_email": "testproject-tsrecburgerbuilder@appspot.gserviceaccount.com",
+  "client_id": "103159024174369750320",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/testproject-tsrecburgerbuilder%40appspot.gserviceaccount.com"
+}

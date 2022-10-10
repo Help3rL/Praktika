@@ -1,1 +1,2 @@
-import React, { memo } from 'react'
+import type {} from '../../types'
+export default 25;

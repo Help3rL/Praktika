@@ -1,28 +1,14 @@
 import * as actionTypes from "../actionTypes";
 import { updateObj, UpdatedIngredientInterface } from "../utility";
 import { AnyAction } from "redux";
-import { Reducer } from "react";
-
-export type InitialStates = {
-  loading: boolean;
-  ingr: any | null;
-  totalPrice: number;
-  error: boolean;
-  building: boolean;
-};
-
-const initialState = {
+import type {InitialStates} from '../../types'
+import {getBuilderData} from '../firebase/database/database'
+const initialState:InitialStates = {
   ingr: null,
   totalPrice: 400,
   error: false,
-};
-
-const ingr_prices: any = {
-  //Need to make central type checking
-  lettuce: 50,
-  cheese: 40,
-  patty: 130,
-  bacon: 70,
+  building: true,
+  loading: true,
 };
 
 const addIngr = (state: any, action: any) => {
@@ -32,7 +18,7 @@ const addIngr = (state: any, action: any) => {
   const updatedIngrs = updateObj(state.ingr, updatedIngr);
   const updatedstate: any = {
     ingr: updatedIngrs,
-    totalPrice: state.totalPrice + ingr_prices[Number(action.ingrName)],
+    // totalPrice: state.totalPrice + getBuilderData?.price[action.ingrName],
   };
   return updateObj(state, updatedstate);
 };
@@ -43,7 +29,7 @@ const removeIngr = (state: any, action: any) => {
   const updatedIngrs = updateObj(state.ingr, updatedIngr);
   const updatedstate: any = {
     ingr: updatedIngrs,
-    totalPrice: state.totalPrice + ingr_prices[Number(action.ingrName)],
+    // totalPrice: state.totalPrice + getBuilderData?.price[action.ingrName],
   };
   return updateObj(state, updatedstate);
 };

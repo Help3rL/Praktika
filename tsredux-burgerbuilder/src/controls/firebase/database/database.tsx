@@ -1,5 +1,7 @@
 import { getDatabase, get, set, ref, child } from 'firebase/database';
+import admin, { database } from 'firebase-admin';
 import { app, firebaseConfig } from '../firebase_config';
+
 type ingrData = {
     name: string,
     amount: number
@@ -17,7 +19,7 @@ type database = {
     imageUrl: string,
     orders: Array<order>
 }
-const db = getDatabase(app, firebaseConfig.databaseURL)
+const db = getDatabase()
 
 export function writeUserData(userId:database, name:database, email:database, imageUrl:database) {
     set(ref(db, 'users/' + userId + '/settings'), {
@@ -45,7 +47,18 @@ export function writeUserOrderData(userId:database, order:order){
 }
 
 export const getBuilderData = () => {
-    const data = get(ref(getDatabase(app, firebaseConfig.databaseURL+'/builder.json')));
-    return data;    
+    const service = require('../serviceAcc.json');
+    admin.initializeApp({
+        credential: admin.credential.cert(service),
+        databaseURL: "https://testproject-tsrecburgerbuilder-default-rtdb.europe-west1.firebasedatabase.app"
+    });
+    const hdb = admin.database();
+    var ref = hdb.ref("/builder");
+    ref.once('value', function(snapshot){
+        console.log(snapshot.val)
+    })
+    // const data = get(db.ref(getDatabase(app, firebaseConfig.databaseURL+'/builder.json')));
+    // console.log(data)
+    // return data;    
 }
 

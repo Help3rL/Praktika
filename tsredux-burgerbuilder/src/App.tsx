@@ -3,14 +3,8 @@ import logo from "./assets/images/logo.png";
 import { Counter } from "./features/counter/Counter";
 import "./App.css";
 import Toolbar from "./layout/toolbar/toolbar";
-import cartIcon from "./assets/icons/Cart_icon.svg";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Outlet,
-  Link,
-} from "react-router-dom";
+import Builder from './features/burgerbuilder/burgerMaster'
+import {getBuilderData} from './controls/firebase/database/database'
 
 const navLinks = {
   Home: "/",
@@ -20,12 +14,14 @@ const navLinks = {
 };
 
 function App() {
+  console.log(`GetData ${getBuilderData}`)
   return (
     <div className="App">
       <header className="App-header">
         <Toolbar links={navLinks} logo={logo} />
       </header>
-      <div>
+      <div className="content">
+        <Builder/>
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
       </div>
