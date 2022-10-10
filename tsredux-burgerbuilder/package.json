@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "axios": "^1.0.0",
-    "firebase": "^9.10.0",
+    "firebase": "^9.11.0",
     "firebase-tools": "^11.13.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

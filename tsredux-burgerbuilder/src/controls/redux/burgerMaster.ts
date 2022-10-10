@@ -1,4 +1,4 @@
-import * as actionTypes from "./actionTypes";
+import * as actionTypes from "../actionTypes";
 import { updateObj, UpdatedIngredientInterface } from "../utility";
 import { AnyAction } from "redux";
 import { Reducer } from "react";
