@@ -1,5 +1,4 @@
 import * as actionTypes from '../actionTypes';
-import axios from 'axios';
 
 export const addIngr = (name:any) => {
     return {
@@ -27,9 +26,9 @@ export const fetchFailiure = () => {
 
 export const initIngr = () => {
     return (dispatch:any ) => {
-        axios.get("ingr.json").then(response => {
+        dispatch.get("ingr.json").then((response: { data: any; }) => {
             dispatch(setIngr(response.data))
-        }).catch(err => {
+        }).catch((err: any) => {
             dispatch(fetchFailiure())
         })
     }

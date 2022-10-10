@@ -1,6 +1,5 @@
 import { getDatabase, get, set, ref, child } from 'firebase/database';
-import admin, { database } from 'firebase-admin';
-import { app, firebaseConfig } from '../firebase_config';
+// import { app, firebaseConfig } from '../firebase_config';
 
 type ingrData = {
     name: string,
@@ -19,7 +18,7 @@ type database = {
     imageUrl: string,
     orders: Array<order>
 }
-const db = getDatabase()
+const db:any = 'hell';
 
 export function writeUserData(userId:database, name:database, email:database, imageUrl:database) {
     set(ref(db, 'users/' + userId + '/settings'), {
@@ -31,7 +30,7 @@ export function writeUserData(userId:database, name:database, email:database, im
 
 export function getUserOrdersData(userId:database, loginStatus:boolean){
     const dbRef = ref(db);
-    get(child(dbRef, `users/${userId}`)).then((snapshot) => {
+    get(child(dbRef, `users/${userId}`)).then((snapshot: { exists: () => any; val: () => any; }) => {
     if (snapshot.exists()) {
         console.log(snapshot.val());
     } else {
@@ -47,16 +46,16 @@ export function writeUserOrderData(userId:database, order:order){
 }
 
 export const getBuilderData = () => {
-    const service = require('../serviceAcc.json');
-    admin.initializeApp({
-        credential: admin.credential.cert(service),
-        databaseURL: "https://testproject-tsrecburgerbuilder-default-rtdb.europe-west1.firebasedatabase.app"
-    });
-    const hdb = admin.database();
-    var ref = hdb.ref("/builder");
-    ref.once('value', function(snapshot){
-        console.log(snapshot.val)
-    })
+    // const service = require('../serviceAcc.json');
+    // admin.initializeApp({
+    //     credential: admin.credential.cert(service),
+    //     databaseURL: "https://testproject-tsrecburgerbuilder-default-rtdb.europe-west1.firebasedatabase.app"
+    // });
+    // const hdb = admin.database();
+    // var ref = hdb.ref("/builder");
+    // ref.once('value', function(snapshot){
+    //     console.log(snapshot.val)
+    // })
     // const data = get(db.ref(getDatabase(app, firebaseConfig.databaseURL+'/builder.json')));
     // console.log(data)
     // return data;    

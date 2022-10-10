@@ -1,10 +1,10 @@
 import React from 'react';
-
-const builder = (promts:any) =>{
-    
+import Controls from './controls/controller'
+const builder = (props:any) =>{
+    console.log(props)
     return(
         <div className='builder'>
-
+            <Controls/>
         </div>
     )
 }
