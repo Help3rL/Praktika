@@ -14,15 +14,14 @@ export default function control(props:any){
     const generator = (hen:any) =>{
         const tempHold = []
         for(const [key, value] of Object.entries(hen)){
-            console.log(key + ' : ' + value)
             tempHold.push(
-                <div key={key + value}>
-                    <label htmlFor="buttons">{key} : {(Number(value)/100).toFixed(2)}</label>
+                <div key={key + value} className="controlContainer">
+                    <label htmlFor="buttons" className="Label">{key}:{(Number(value)/100).toFixed(2)}</label>
                     <div id="buttons">
-                        <button className="more" onClick={holdd('Add')}>More</button>
-                        <button className="less" onClick={holdd('Substract')}>Less</button>
+                        <button className="More" onClick={holdd('Add')}>More</button>
+                        <button className="Less" onClick={holdd('Substract')}>Less</button>
                     </div>
-                    <input type="number" name="amount" id="" min={0} max={99} step={1} defaultValue={hold}/>
+                    {/* <input type="number" name="amount" id="" min={0} max={99} step={1} defaultValue={hold}/> */}
                 </div>
                  )
         }
@@ -30,7 +29,7 @@ export default function control(props:any){
     }
 
     return(
-        <div className='control'>
+        <div className='BuildControl'>
             {generator(props.list)}
         </div>
     )

@@ -4,7 +4,7 @@ import { Counter } from "./features/counter/Counter";
 import "./App.css";
 import Toolbar from "./layout/toolbar/toolbar";
 import Builder from './features/burgerbuilder/burgerMaster'
-
+import Backdrop from './features/actions/background/background'
 const navLinks = {
   Home: "/",
   Builder: "/builder",
@@ -26,13 +26,20 @@ const builderConfig = {
       "patty": 150,
       "tomato": 300
     }
-  }
+  },
+  ingredients: [
+    {name: 'patty', amount: 1},
+    {name: 'cheese', amount: 2},
+    {name: 'lettuce', amount: 3},
+    {name: 'tomato', amount: 4}
+  ]
 }
 
 function App() {
   // console.log(`GetData ${getBuilderData}`)
   return (
     <div className="App">
+      <Backdrop/>
       <header className="App-header">
         <Toolbar links={navLinks} logo={logo} />
       </header>
