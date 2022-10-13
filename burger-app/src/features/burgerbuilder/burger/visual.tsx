@@ -5,7 +5,7 @@ const visual = (props:any) => {
         let temphold: JSX.Element[] = [];
         ingr.forEach(element => {
                 for (let i = 0; i < element.amount; i++){
-                temphold.push(<div className={element.name} key={Number((Math.random()*1000).toFixed() + Number(new Date)/12)}></div>)
+                temphold.push(<div className={element.name} key={Number((Math.random()*1000).toFixed() + Number(new Date())/12)}></div>)
             }
         });
         return temphold;

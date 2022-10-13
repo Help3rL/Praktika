@@ -4,7 +4,9 @@ export default function controller(props:any){
     return (
         <div className="BuildControll">
             <Control list={props.ingr}/>
-            <div></div>
+            <div>
+                <button type="submit">Order</button>
+            </div>
         </div>
     )
 }

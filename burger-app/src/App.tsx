@@ -41,7 +41,7 @@ function App() {
   return (
     <div className="App">
       <Modal>
-        <Login case='Login'/>
+        <Login case='Singup'/>
       </Modal>
       <header className="App-header">
         <Toolbar links={navLinks} logo={logo} />
