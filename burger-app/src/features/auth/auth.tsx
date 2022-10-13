@@ -1,4 +1,6 @@
 import React from 'react';
+import countryList from 'react-select-country-list';
+import Select from 'react-select'
 // import { connect } from 'react-redux';
 
 // function mapStateToProps(state:any) {
@@ -30,6 +32,11 @@ const auth = (props:any) => {
         );
     }
     if (props.case === 'Singup') {
+        const options = countryList().getData();
+        let value;
+        const changeHandler = (values:any) =>{
+            value = values
+        }
         return(
             <div className='signup'>
                 <fieldset>
@@ -45,12 +52,16 @@ const auth = (props:any) => {
                     <label htmlFor="phoneNumber">Phone Number</label>
                     <input type="tel" name="phoneNumber" id="phoneNumber" />
                     <h3>Address</h3>
+                    <Select
+                        placeholder={"Select country"}
+                        options={options}
+                        value={value}
+                        onChange={changeHandler}
+                    />
                     <label htmlFor="city">City</label>
                     <input type="text" name="city" id="city" />
                     <label htmlFor="zip">Zip</label>
                     <input type="number" name="zip" id="zip" />
-                    <label htmlFor="country">Country</label>
-                    <input type="text" name="country" id="country" />
                     <label htmlFor="address">Address</label>
                     <input type="text" name="address" id="address" />
                 </fieldset>
