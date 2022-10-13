@@ -4,7 +4,8 @@ import { Counter } from "./features/counter/Counter";
 import "./App.css";
 import Toolbar from "./layout/toolbar/toolbar";
 import Builder from './features/burgerbuilder/burgerMaster'
-import Backdrop from './features/actions/background/background'
+import Modal from './features/actions/modal/modal'
+import Login from './features/auth/auth'
 const navLinks = {
   Home: "/",
   Builder: "/builder",
@@ -39,7 +40,9 @@ function App() {
   // console.log(`GetData ${getBuilderData}`)
   return (
     <div className="App">
-      <Backdrop/>
+      <Modal>
+        <Login case='Login'/>
+      </Modal>
       <header className="App-header">
         <Toolbar links={navLinks} logo={logo} />
       </header>
