@@ -1,4 +1,4 @@
-type ingrData = {
+export type ingrData = {
     name: string,
     amount: number
 }
