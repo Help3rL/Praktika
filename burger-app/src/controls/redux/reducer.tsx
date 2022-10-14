@@ -21,7 +21,6 @@ export const master = createSlice({
     name: 'master',
     initialState,
     reducers: {
-
         getuserData: (state, action:PayloadAction<UserState>) => {
             state = action.payload
         }

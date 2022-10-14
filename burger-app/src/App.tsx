@@ -4,8 +4,8 @@ import { Counter } from "./features/counter/Counter";
 import "./App.css";
 import Toolbar from "./layout/toolbar/toolbar";
 import Builder from './features/burgerbuilder/burgerMaster'
-import Modal from './features/actions/modal/modal'
-import Login from './features/actions/modal/auth/auth'
+// import Modal from './features/actions/modal/modal'
+// import Login from './features/actions/modal/auth/auth'
 const navLinks = {
   Home: "/",
   Builder: "/builder",

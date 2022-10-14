@@ -1,6 +1,5 @@
 import React from 'react';
 import './auth.css'
-import { connect } from 'react-redux';
 
 
 
