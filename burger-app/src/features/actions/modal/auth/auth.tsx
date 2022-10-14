@@ -1,7 +1,6 @@
 import React from 'react';
 import './auth.css'
-
-
+import { connect } from 'react-redux'
 
 const auth = (props:any) => {
     if(props.case === 'Login'){

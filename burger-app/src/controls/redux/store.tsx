@@ -8,16 +8,15 @@ const ingredients = configureStore({
     }
 })
 
-// const userAccount = configureStore({
-    // reducer: {
-        // userName: Reducer.userNameReducer,
-        // userSurname: Reducer.userSurnameReducer,
-        // usercity: Reducer.userCityReducer,
-        // userzip: Reducer.userZipReducer,
-        // useraddress: Reducer.userAddressReducer,
-        // userPhoneNumber: Reducer.userPhoneNumberReducer,
-        // userEmail: Reducer.userEmailReducer,
-        // userOrders: Reducer.userOrdersReducer,
-        // userToken: Reducer.userTokenReducer
-    // }
-// })
+const userAccount = configureSto{
+        userName: Reducer,
+        userSurname: Reducer,
+        usercity: Reducer,
+        userzip: Reducer,
+        useraddress: Reducer,
+        userPhoneNumber: Reducer,
+        userEmail: Reducer,
+        userOrders: Reducer,
+        userToken: Reducer
+    }
+})

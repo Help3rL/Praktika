@@ -1,7 +1,8 @@
 import React from 'react';
-import {createSlice, PayloadAction} from '@reduxjs/toolkit'
+import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {UserState} from '../../types'
 import { stat } from 'fs';
+import { fetchCount } from '../../features/counter/counterAPI';
 
 const initialState:UserState = {
     userName: '',
@@ -16,6 +17,13 @@ const initialState:UserState = {
     userlogoutTime: 0
 }
 
+const userlogoutTimerAsync = createAsyncThunk(
+    'master',
+   async (logoutTimer:number) => {
+        const response = await fetchCount(logoutTimer)
+        return response.data
+   }
+)
 
 export const master = createSlice({
     name: 'master',
@@ -24,6 +32,11 @@ export const master = createSlice({
         getuserData: (state, action:PayloadAction<UserState>) => {
             state = action.payload
         }
+
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase
     }
 })
 
