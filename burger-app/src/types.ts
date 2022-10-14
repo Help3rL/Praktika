@@ -18,8 +18,21 @@ export type database = {
 
 export type InitialStates = {
     loading: boolean;
-    ingr: any | null;
+    ingr: Array<ingrData>
     totalPrice: number;
     error: boolean;
     building: boolean;
   };
+
+export interface UserState{
+    userName: string,
+    userSurname: string,
+    userAddress: string,
+    userZip: number,
+    userEmail: string,
+    userOrders: Array<order>,
+    userCity: string,
+    userToken: string,
+    userPhoneNumber: number,
+    userlogoutTime: number,
+}
