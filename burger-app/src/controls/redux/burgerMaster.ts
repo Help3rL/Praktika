@@ -1,16 +1,6 @@
 import * as actionTypes from "../actionTypes";
 import { updateObj, UpdatedIngredientInterface } from "../utility";
-import { AnyAction } from "redux";
-import type {InitialStates} from '../../types'
-import {getBuilderData} from '../firebase/database/database'
-const initialState:InitialStates = {
-  ingr: null,
-  totalPrice: 400,
-  error: false,
-  building: true,
-  loading: true,
-};
-
+import {InitialStates} from '../../types'
 const addIngr = (state: any, action: any) => {
   const updatedIngr: any = {
     [action.ingrName]: state.ingr[action.ingrName] + 1,
@@ -47,7 +37,7 @@ const fetchFailiure = (state: any, _action: any) => {
   return updateObj(state, error);
 };
 
-const reducer = (state: any = initialState, action: any) => {
+const reducer = (state:InitialStates, action: any) => {
   switch (action.type) {
     case actionTypes.ADD_INGR:
       return addIngr(state, action);

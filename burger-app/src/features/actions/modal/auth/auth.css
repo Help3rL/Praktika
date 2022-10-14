@@ -1,0 +1,119 @@
+/* ##############################################
+######### Order's form css ######################
+############################################## */
+
+.order{
+    display: block;
+}
+.order .information{
+    display: flex;
+    border: 1px solid black;
+}
+.order .information .baseprice p {
+    text-align: left;
+}
+.order .information .ingredients{
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    width: 70%;
+    border: 1px solid blueviolet;
+    height: 20vh;
+    overflow-y: scroll;
+}
+.order .information .ingredients table thead th{
+    background-color: aquamarine;
+    padding: 3px;
+    text-align: center;
+}
+.order .information .ingredients table{
+    border-collapse: collapse;
+    width: 100%;
+}
+.order .information .ingredients table thead tr{
+    height: 25%;
+}
+.order .information .ingredients table tbody tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+.order .information .ingredients table tbody tr:nth-child(even){
+    background-color: #6464642c;
+}
+.order .information .total{
+    max-width: 30%;
+    text-align: start;
+    padding: 0.5vw ;
+}
+
+
+.order .addressForm{
+    display: block;
+}
+.order .addressForm .address{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* #################################################################
+########################## Login ###################################
+################################################################# */
+.login fieldset{
+    border: none;
+}
+.login fieldset button{
+    display: inline-block;
+	font: inherit;
+	padding: 5px;
+	margin: 15px 5px;
+	width: 80px;
+	border: 1px solid #aa6817;
+	cursor: pointer;
+	outline: none;
+    vertical-align: middle;
+    background-color: #daa972;
+	color: white;
+}
+.login fieldset label{
+    font-size: larger;
+    font-weight: bold;
+}
+.login fieldset input{
+    width: 100%;
+    height: 3vh;
+    border-radius: 1vmin;
+}
+/* #################################################################
+########################## Signup ###################################
+################################################################# */
+.signup fieldset{
+    border: none;
+}
+.signup fieldset label{
+    font-size: larger;
+    font-weight: bold;
+}
+.signup fieldset button{
+    display: inline-block;
+	font: inherit;
+	padding: 5px;
+	margin: 15px 5px;
+	width: 80px;
+	border: 1px solid #aa6817;
+	cursor: pointer;
+	outline: none;
+    vertical-align: middle;
+    background-color: #daa972;
+	color: white;
+}
+.signup fieldset input{
+    width: 100%;
+    height: 3vh;
+    border-radius: 1vmin;
+} 
+/* #################################################################
+######################## Additional ################################
+################################################################# */
+.textToRight{
+    text-align: end !important;
+}

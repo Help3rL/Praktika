@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './modal.css'
-import Backdrop from '../background/background'
+import Backdrop from './background/background'
 function mapStateToProps(state:any) {
     return {
 

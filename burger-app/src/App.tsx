@@ -5,7 +5,7 @@ import "./App.css";
 import Toolbar from "./layout/toolbar/toolbar";
 import Builder from './features/burgerbuilder/burgerMaster'
 import Modal from './features/actions/modal/modal'
-import Login from './features/auth/auth'
+import Login from './features/actions/modal/auth/auth'
 const navLinks = {
   Home: "/",
   Builder: "/builder",
@@ -40,9 +40,9 @@ function App() {
   // console.log(`GetData ${getBuilderData}`)
   return (
     <div className="App">
-      <Modal>
-        <Login case='Singup'/>
-      </Modal>
+      {/* <Modal>
+        <Login case='Login'/>
+      </Modal> */}
       <header className="App-header">
         <Toolbar links={navLinks} logo={logo} />
       </header>

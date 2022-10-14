@@ -7,15 +7,6 @@ export const store = configureStore({
   },
 });
 
-export const burger = configureStore({
-  reducer: {
-    // ingredients: ingredients, //array
-    // buying: buying, //boolean
-    // cost: cost, // int
-
-  }
-})
-
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<
@@ -24,13 +15,3 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
-
-
-export type BurgerAppDispatch = typeof burger.dispatch;
-export type BurgerRootState = ReturnType<typeof burger.getState>;
-export type BurgerAppThunk<ReturnType = void> = ThunkAction< 
-  ReturnType, 
-  BurgerRootState, 
-  unknown, 
-  Action<string>
->
