@@ -2,10 +2,13 @@ export type ingrData = {
     name: string,
     amount: number
 }
-type order = {
+export type order = {
     ingrName: Array<ingrData>,
     orderCost: number,
     paid: boolean,
+    id: number,
+    amount: number,
+    date: Date
 }
 
 export type database = {
@@ -44,5 +47,5 @@ export type props = {
     orderData: object
 }
 export type orderData = {
-    orderData: order
+    orderData: Array<order>
 }

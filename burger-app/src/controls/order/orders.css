@@ -1,0 +1,24 @@
+.orders{
+    border: 1px solid red;
+}
+.orders table{
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
+}
+.orders table thead th{
+    background-color: antiquewhite;
+    height: 3vmax;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+.orders table tbody tr:nth-child(even){
+    background-color: aqua;
+}
+.orders table tbody tr:nth-child(odd){
+    background-color: bisque;
+}
+.orders table tbody td{
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}

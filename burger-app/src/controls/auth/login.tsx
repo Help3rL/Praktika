@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../firebase/auth";
+import { Link, useNavigate, Navigate } from "react-router-dom";
+import { auth, logInWithEmailAndPassword } from "../firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./auth.css";
 function Login() {
@@ -8,6 +8,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
+  console.log(error)
   useEffect(() => {
     if (loading) {
       // maybe trigger a loading screen
@@ -37,9 +38,6 @@ function Login() {
           onClick={() => logInWithEmailAndPassword(email, password)}
         >
           Login
-        </button>
-        <button className="login__btn login__google" onClick={signInWithGoogle}>
-          Login with Google
         </button>
         <div>
           <Link to="/reset">Forgot Password</Link>
