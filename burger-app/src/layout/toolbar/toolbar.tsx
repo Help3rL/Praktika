@@ -1,6 +1,7 @@
-// import React, { Component } from "react";
-// import imageLogo from "../../assets/images/logo.png";
 import "./toolbar.css";
+
+
+
 const toolbar = (props: any) => {
   function linksGen(obj: any) {
     return Object.keys(obj).map((e) => {
@@ -25,3 +26,4 @@ const toolbar = (props: any) => {
   );
 };
 export default toolbar;
+

@@ -16,24 +16,13 @@ import {
   where,
   addDoc,
 } from "firebase/firestore";
-
-export const firebaseConfig = {
-  apiKey: "AIzaSyA_xgfukFdsz0n7Oi7Y5t6NFtZwf21pGIU",
-  authDomain: "testproject-tsrecburgerbuilder.firebaseapp.com",
-  databaseURL: "https://testproject-tsrecburgerbuilder-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "testproject-tsrecburgerbuilder",
-  storageBucket: "testproject-tsrecburgerbuilder.appspot.com",
-  messagingSenderId: "772929239656",
-  appId: "1:772929239656:web:4b56bbab4725d0e0c759dd",
-  measurementId: "G-SZQ8HK01E0"
-};
+import { firebaseConfig } from "./firebase_config";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
 const googleProvider = new GoogleAuthProvider();
-
 const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, googleProvider);
@@ -54,7 +43,7 @@ const signInWithGoogle = async () => {
   }
 };
 
-const logInWithEmailAndPassword = async (email:string, password:string) => {
+const logInWithEmailAndPassword = async (email: string, password: string) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (err:any) {
@@ -63,7 +52,11 @@ const logInWithEmailAndPassword = async (email:string, password:string) => {
   }
 };
 
-const registerWithEmailAndPassword = async (name:string, email:string, password:string) => {
+const registerWithEmailAndPassword = async (
+  name: string,
+  email: string,
+  password: string
+) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
@@ -79,7 +72,7 @@ const registerWithEmailAndPassword = async (name:string, email:string, password:
   }
 };
 
-const sendPasswordReset = async (email:string) => {
+const sendPasswordReset = async (email: string) => {
   try {
     await sendPasswordResetEmail(auth, email);
     alert("Password reset link sent!");
@@ -88,11 +81,9 @@ const sendPasswordReset = async (email:string) => {
     alert(err.message);
   }
 };
-
 const logout = () => {
   signOut(auth);
 };
-
 export {
   auth,
   db,

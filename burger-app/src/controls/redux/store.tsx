@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as Reducer from './reducer';
+import Reducer from './reducer';
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
 const ingredients = configureStore({
@@ -8,7 +8,8 @@ const ingredients = configureStore({
     }
 })
 
-const userAccount = configureSto{
+const userAccount = configureStore({
+    reducer:{
         userName: Reducer,
         userSurname: Reducer,
         usercity: Reducer,

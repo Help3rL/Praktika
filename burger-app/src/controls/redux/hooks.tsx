@@ -1,2 +1,2 @@
-import type {} from '../../types'
+import type {} from '../types'
 export default 25;

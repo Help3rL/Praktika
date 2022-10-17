@@ -1,5 +1,5 @@
 import React from "react";
-import {ingrData} from '../../../types'
+import {ingrData} from '../../../controls/types'
 const visual = (props:any) => {
     function genIngr (ingr:Array<ingrData>){
         let temphold: JSX.Element[] = [];

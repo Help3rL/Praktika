@@ -1,6 +1,6 @@
 import * as actionTypes from "../actionTypes";
 import { updateObj, UpdatedIngredientInterface } from "../utility";
-import {InitialStates} from '../../types'
+import {InitialStates} from '../types'
 const addIngr = (state: any, action: any) => {
   const updatedIngr: any = {
     [action.ingrName]: state.ingr[action.ingrName] + 1,

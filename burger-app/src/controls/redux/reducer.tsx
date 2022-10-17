@@ -1,8 +1,8 @@
 import React from 'react';
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {UserState} from '../../types'
+import {UserState} from '../types'
 import { stat } from 'fs';
-import { fetchCount } from '../../features/counter/counterAPI';
+import { fetchCount } from '../../features/actions/counter/counterAPI';
 
 const initialState:UserState = {
     userName: '',
