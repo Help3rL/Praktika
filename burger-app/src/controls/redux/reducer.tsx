@@ -14,7 +14,8 @@ const initialState:UserState = {
     userCity: '',
     userToken: '',
     userPhoneNumber: 0,
-    userlogoutTime: 0
+    userlogoutTime: 0,
+    userState: false
 }
 
 const userlogoutTimerAsync = createAsyncThunk(

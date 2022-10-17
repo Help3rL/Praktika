@@ -4,7 +4,6 @@ import { Counter } from "./features/actions/counter/Counter";
 import "./App.css";
 import Toolbar from "./layout/toolbar/toolbar";
 import Builder from "./features/burgerbuilder/burgerMaster";
-import Modal from "./features/actions/modal/modal";
 import Login from "./controls/auth/login";
 import Register from "./controls/auth/signup";
 import Reset from "./controls/auth/reset";
@@ -38,29 +37,27 @@ const builderConfig = {
     { name: "lettuce", amount: 3 },
     { name: "tomato", amount: 4 },
   ],
-  orderData: [
-    [{ name: "patty", amount: 1 },
+  orderData: {
+    ingrName: [{ name: "patty", amount: 1 },
     { name: "cheese", amount: 2 },
     { name: "lettuce", amount: 3 },
     { name: "tomato", amount: 4 },],
-    5000,
-    false
-  ]
+    orderCost: 5000,
+    paid: false
+  }
 };
 
 function App() {
   return (
     <div className="App">
-      <Modal>
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/reset" element={<Reset />} />
           <Route path="/orders" element={<Orders orderData={builderConfig.orderData}/>} />
         </Routes>
       </Router>
-      </Modal>
       <header className="App-header">
         <Toolbar links={navLinks} logo={logo} />
       </header>
