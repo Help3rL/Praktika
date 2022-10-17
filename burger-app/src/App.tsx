@@ -1,13 +1,14 @@
 import React from "react";
 import logo from "./assets/images/logo.png";
 import "./App.css";
-import './layout/toolbar/toolbar.css'
+import "./layout/toolbar/toolbar.css";
 import Builder from "./features/burgerbuilder/burgerMaster";
 import Login from "./controls/auth/login";
 import Register from "./controls/auth/signup";
 import Reset from "./controls/auth/reset";
 import Order from "./controls/order/order";
-import Orders from './controls/order/orders'
+import Orders from "./controls/order/orders";
+import Account from './layout/account/account'
 import {
   BrowserRouter as Router,
   NavLink,
@@ -36,30 +37,34 @@ const builderConfig = {
     { name: "lettuce", amount: 3 },
     { name: "tomato", amount: 4 },
   ],
-  orderData: [{
-    ingrName: [
-      { name: "patty", amount: 1 },
-      { name: "cheese", amount: 2 },
-      { name: "lettuce", amount: 3 },
-      { name: "tomato", amount: 4 },
-    ],
-    orderCost: 5000,
-    paid: true,
-    id: 498,
-    amount: 3,
-    date: new Date
-  },
-  {ingrName: [
-    { name: "patty", amount: 1 },
-    { name: "cheese", amount: 2 },
-    { name: "lettuce", amount: 3 },
-    { name: "tomato", amount: 4 },
+  orderData: [
+    {
+      ingrName: [
+        { name: "patty", amount: 1 },
+        { name: "cheese", amount: 2 },
+        { name: "lettuce", amount: 3 },
+        { name: "tomato", amount: 4 },
+      ],
+      orderCost: 5000,
+      paid: true,
+      id: 498,
+      amount: 3,
+      date: new Date(),
+    },
+    {
+      ingrName: [
+        { name: "patty", amount: 1 },
+        { name: "cheese", amount: 2 },
+        { name: "lettuce", amount: 3 },
+        { name: "tomato", amount: 4 },
+      ],
+      orderCost: 5000,
+      paid: true,
+      id: 498,
+      amount: 3,
+      date: new Date(),
+    },
   ],
-  orderCost: 5000,
-  paid: true,
-  id: 498,
-  amount: 3,
-  date: new Date}],
 };
 
 class ErrorBoundary extends React.Component {
@@ -73,12 +78,17 @@ class ErrorBoundary extends React.Component {
 
   static getDerivedStateFromError(error: any) {
     // Update state so the next render will show the fallback UI.
-    console.error(error)
+    console.error(error);
     return { hasError: true };
   }
 
   componentDidCatch(error: any, errorInfo: object) {
-    return <div>{error}{errorInfo}</div>
+    return (
+      <div>
+        {error}
+        {errorInfo}
+      </div>
+    );
   }
 
   render() {
@@ -103,52 +113,45 @@ function Home() {
     </div>
   );
 }
-function Toolbar(){
+function Toolbar() {
   return (
     <header>
-          <nav className="Toolbar">
-            <div className="Logo">
-              <NavLink to="/">
-                <img className="logoImage" src={logo} alt="BurgerBuilder" />
-              </NavLink>
-            </div>
-            <ul>
-              <li className="navElement">
-                <NavLink to="/">Home</NavLink>
-              </li>
-              <li className="navElement">
-                <NavLink to="/account">Account</NavLink>
-              </li>
-              <li className="navElement">
-                <NavLink to="/orders">Orders</NavLink>
-              </li>
-              <li className="navElement">
-                <NavLink to="/login">Login</NavLink>
-              </li>
-              <li className="navElement">
-                <NavLink to="/">Logout</NavLink>
-              </li>
-            </ul>
-          </nav>
-        </header>
-  )
+      <nav className="Toolbar">
+        <div className="Logo">
+          <NavLink to="/">
+            <img className="logoImage" src={logo} alt="BurgerBuilder" />
+          </NavLink>
+        </div>
+        <ul>
+          <li className="navElement">
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li className="navElement">
+            <NavLink to="/account">Account</NavLink>
+          </li>
+          <li className="navElement">
+            <NavLink to="/login">Login</NavLink>
+          </li>
+          <li className="navElement">
+            <NavLink to="/">Logout</NavLink>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
 }
 function App() {
   return (
     <div className="App">
       <ErrorBoundary>
         <Router>
-          <Toolbar/>
+          <Toolbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/reset" element={<Reset />} />
-            <Route
-              path="/orders"
-              element={<Orders orderData={builderConfig.orderData} />}
-            />
-            <Route path="/account" element={"a"} />
+            <Route path="/account" element={<Account/>} />
           </Routes>
         </Router>
       </ErrorBoundary>
