@@ -7,7 +7,7 @@ import Register from "./controller/auth/signup";
 import Reset from "./controller/auth/reset";
 import Account from './layout/account/account'
 import ErrorPage from "./layout/errorPage";
-import {ActiveData} from './controller/hooks/main'
+// import {ActiveData} from './controller/hooks/main'
 import {
   BrowserRouter as Router,
   NavLink,

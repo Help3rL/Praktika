@@ -1,5 +1,5 @@
 import { errorMonitor } from "events";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import { Data, UserState } from "../types";
 function userDataManager(getUserData:Data) {
   const [userdata, setuserdata] = useState({
@@ -38,4 +38,12 @@ function activeDataManager(getUserData:Data) {
 }
 export function ActiveData(){
   return(activeDataManager)
+}
+export default class main extends Component {
+  state = {  }
+  render() {
+    return (
+      <div className="a">aaaaa</div>
+    );
+  }
 }
