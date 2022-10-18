@@ -6,6 +6,8 @@ import Login from "./controller/auth/login";
 import Register from "./controller/auth/signup";
 import Reset from "./controller/auth/reset";
 import Account from './layout/account/account'
+import ErrorPage from "./layout/errorPage";
+import {ActiveData} from './controller/hooks/main'
 import {
   BrowserRouter as Router,
   NavLink,
@@ -104,6 +106,7 @@ class ErrorBoundary extends React.Component {
 }
 
 function Home() {
+  console.info(ActiveData)
   return (
     <div className="content">
       <Builder config={builderConfig} />
@@ -144,11 +147,11 @@ function App() {
         <Router>
           <Toolbar />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/reset" element={<Reset />} />
-            <Route path="/account" element={<Account/>} />
+            <Route path="/" element={<Home />} errorElement={<ErrorPage/>}/>
+            <Route path="/login" element={<Login />} errorElement={<ErrorPage/>}/>
+            <Route path="/register" element={<Register />} errorElement={<ErrorPage/>}/>
+            <Route path="/reset" element={<Reset />} errorElement={<ErrorPage/>}/>
+            <Route path="/account" element={<Account/>} errorElement={<ErrorPage/>}/>
           </Routes>
         </Router>
       </ErrorBoundary>

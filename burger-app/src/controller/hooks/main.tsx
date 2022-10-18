@@ -34,5 +34,8 @@ function activeDataManager(getUserData:Data) {
     building: true,
     buying: false,
   });
+  return activeData
 }
-
+export function ActiveData(){
+  return(activeDataManager)
+}
