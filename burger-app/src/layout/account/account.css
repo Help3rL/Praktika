@@ -1,0 +1,36 @@
+.account .accountNav{
+    width: 15%;
+    position: fixed;
+    background-color: wheat;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.account .accountNav nav{
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.account .accountNav nav ul{
+    list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.account .accountNav nav ul li{
+    list-style-type: none;
+    width: 98%;
+    padding: 0.5vmin 0;
+    text-align: center;
+    border: 2px solid red;
+    margin: 0.3vmin auto;
+}
+.account .accountNav nav ul li:hover{
+    background-color: #ffffff8c;
+}
+.account .accountNav nav ul li a{
+    text-decoration: none;
+    padding: 0.2vmin;
+    margin: 0.5vmin;
+}

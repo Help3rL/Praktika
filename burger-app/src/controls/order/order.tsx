@@ -1,7 +1,7 @@
 import React from "react";
-import {orderData} from '../types' 
+import {Data} from '../types' 
 
-const Order = (props:orderData) => {
+const Order = (props:Data) => {
   return (
     <div className="order">
       <h3>Order information</h3>

@@ -1,13 +1,10 @@
 import React from "react";
 import logo from "./assets/images/logo.png";
 import "./App.css";
-import "./layout/toolbar/toolbar.css";
 import Builder from "./features/burgerbuilder/burgerMaster";
 import Login from "./controls/auth/login";
 import Register from "./controls/auth/signup";
 import Reset from "./controls/auth/reset";
-import Order from "./controls/order/order";
-import Orders from "./controls/order/orders";
 import Account from './layout/account/account'
 import {
   BrowserRouter as Router,

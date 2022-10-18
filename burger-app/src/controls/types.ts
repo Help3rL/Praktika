@@ -46,6 +46,7 @@ export type props = {
     config: object,
     orderData: object
 }
-export type orderData = {
+export type Data = {
     orderData: Array<order>
+    userData: string
 }

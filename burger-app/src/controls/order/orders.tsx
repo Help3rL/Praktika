@@ -1,8 +1,8 @@
 import { database } from "firebase-admin";
 import React from "react";
-import { orderData, ingrData} from "../types";
+import { Data, ingrData, order} from "../types";
 import "./orders.css";
-const UserOrders = (props: orderData) => {
+const UserOrders = (props:Data) => {
   const orderIngredients = (ingr: Array<ingrData>) => {
     let held: Array<any> = [];
     ingr.forEach((element: ingrData) => {
@@ -15,9 +15,10 @@ const UserOrders = (props: orderData) => {
     });
     return held;
   };
-  const orderReader = (data:orderData) => {
+  const orderReader = (data:Array<order>) => {
+    console.log(data)
     let holder:Array<any> = [];
-    data.orderData.forEach(element => {
+    data.forEach(element => {
         holder.push(
             <tr>
                 <th>{element.id}</th>
@@ -43,9 +44,7 @@ const UserOrders = (props: orderData) => {
                 <td>{(element.orderCost / 100).toFixed(2)}</td>
                 <td>{element.amount}</td>
                 <td>
-                {((element.orderCost * element.amount) / 100).toFixed(
-                    2
-                )}
+                {((element.orderCost * element.amount) / 100).toFixed(2)}
                 </td>
             </tr>
         )
@@ -66,7 +65,7 @@ const UserOrders = (props: orderData) => {
           </tr>
         </thead>
         <tbody>
-            {orderReader(props)}
+            {orderReader(props.orderData)}
         </tbody>
       </table>
     </div>
