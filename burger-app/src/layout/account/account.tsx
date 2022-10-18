@@ -1,6 +1,6 @@
 import * as React from "react";
 import Orders from "../../controller/order/orders";
-import { Route, Routes, Router, Outlet } from "react-router";
+import { Route, Routes, Outlet } from "react-router";
 import { createBrowserRouter, Link } from "react-router-dom";
 import ErrorPage from "../errorPage";
 import "./account.css";
@@ -44,7 +44,6 @@ data.orderData = [
     date: new Date(),
   },
 ];
-async function Loadering(waitFor: any) {}
 const accountRouting = createBrowserRouter([
   {
     path: "/account",
@@ -101,7 +100,7 @@ export default function Account() {
       <div className="accountNav">
         {/* <Router location={accountRouting}> */}
         <AccountNav />
-        <Routes>
+        <Routes location={accountRouting}>
           <Route path="/account">
             <Route
               path="/account/profile"
