@@ -1,3 +1,5 @@
+import { User } from "firebase/auth"
+
 export type ingrData = {
     name: string,
     amount: number
@@ -11,15 +13,7 @@ export type order = {
     date: Date
 }
 
-export type database = {
-    userId: string,
-    name: string,
-    email: string,
-    imageUrl: string,
-    orders: Array<order>
-}
-
-export type InitialStates = {
+type InitialStates = {
     loading: boolean;
     ingr: Array<ingrData>
     totalPrice: number;
@@ -38,7 +32,7 @@ export interface UserState{
     userToken: string,
     userPhoneNumber: number,
     userlogoutTime: number,
-    userState: boolean
+    userLogState: boolean
 }
 export type props = {
     ingr: Array<ingrData>,
@@ -47,6 +41,7 @@ export type props = {
     orderData: object
 }
 export type Data = {
-    orderData: Array<order>
-    userData: string
+    orderData?: Array<order>
+    userData?: UserState
+    activeData?: InitialStates
 }

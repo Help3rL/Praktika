@@ -1,14 +1,20 @@
 import * as React from "react";
-import Orders from "../../controls/order/orders";
-import { Route, Routes } from "react-router";
+import Orders from "../../controller/order/orders";
+import { Route, Routes, Router, Outlet } from "react-router";
 import { createBrowserRouter, Link } from "react-router-dom";
 import ErrorPage from "../errorPage";
 import "./account.css";
-import { Data } from "../../controls/types";
-import Loader from '../loader/loader'
+import { Data } from "../../controller/types";
+import Loader from "../loader/loader";
 let data: Data = {
   orderData: [],
-  userData: "",
+  activeData: {
+    loading: false,
+    ingr: [],
+    totalPrice: 0,
+    error: false,
+    building: false
+  }
 };
 data.orderData = [
   {
@@ -38,55 +44,53 @@ data.orderData = [
     date: new Date(),
   },
 ];
-async function Loadering(waitFor:any) {
-  
-}
+async function Loadering(waitFor: any) {}
 const accountRouting = createBrowserRouter([
   {
-    path: '/account',
-    element: 'a',
-    errorElement: <ErrorPage/>,
+    path: "/account",
+    element: "a",
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/account/profile",
-              element: "a",
-              errorElement: <ErrorPage />,
+        element: "a",
+        errorElement: <ErrorPage />,
       },
       {
-        path:"/account/friends",
-              element:"b",
-              errorElement: <ErrorPage />
+        path: "/account/friends",
+        element: "b",
+        errorElement: <ErrorPage />,
       },
       {
         path: "/account/settings",
-              element:"c",
-              errorElement: <ErrorPage />
+        element: "c",
+        errorElement: <ErrorPage />,
       },
       {
-        path:"/account/orders",
-        element: <Orders orderData={data.orderData} userData={""} />,
+        path: "/account/orders",
+        element: <Orders orderData={data.orderData}/>,
         errorElement: <ErrorPage />,
-      }
-    ]
-  }
-])
+      },
+    ],
+  },
+]);
 
 function AccountNav() {
   return (
     <nav className="account">
       <ul>
-        <li className="NavLink">
-          <Link to="/account/profile">Profile</Link>
-        </li>
-        <li className="NavLink">
-          <Link to="/account/orders">Orders</Link>
-        </li>
-        <li className="NavLink">
-          <Link to="/account/friends">Friends</Link>
-        </li>
-        <li className="NavLink">
-          <Link to="/account/settings">Settings</Link>
-        </li>
+        <Link to="/account/profile">
+          <li className="NavLink">Profile</li>
+        </Link>
+        <Link to="/account/orders">
+          <li className="NavLink">Orders</li>
+        </Link>
+        <Link to="/account/friends">
+          <li className="NavLink">Friends</li>
+        </Link>
+        <Link to="/account/settings">
+          <li className="NavLink">Settings</li>
+        </Link>
       </ul>
     </nav>
   );
@@ -95,9 +99,9 @@ export default function Account() {
   return (
     <div className="account">
       <div className="accountNav">
-        <AccountNav/>
+        {/* <Router location={accountRouting}> */}
+        <AccountNav />
         <Routes>
-          
           <Route path="/account">
             <Route
               path="/account/profile"
@@ -116,13 +120,16 @@ export default function Account() {
             />
             <Route
               path="/account/orders"
-              element={<Orders orderData={data.orderData} userData={""} />}
+              element={<Orders orderData={data.orderData}/>}
               errorElement={<ErrorPage />}
             />
           </Route>
         </Routes>
+        {/* </Router> */}
       </div>
-      <div className="accountContent">Random</div>
+      <div className="accountContent">
+        <Outlet/>
+      </div>
     </div>
   );
 }

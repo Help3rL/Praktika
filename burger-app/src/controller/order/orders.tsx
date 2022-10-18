@@ -15,9 +15,10 @@ const UserOrders = (props:Data) => {
     });
     return held;
   };
-  const orderReader = (data:Array<order>) => {
+  const orderReader = (data:Array<order>|undefined) => {
     console.log(data)
     let holder:Array<any> = [];
+    if (data !== undefined){
     data.forEach(element => {
         holder.push(
             <tr>
@@ -48,7 +49,7 @@ const UserOrders = (props:Data) => {
                 </td>
             </tr>
         )
-    });
+    })};
     return holder
   };
   return (

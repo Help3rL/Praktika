@@ -2,9 +2,9 @@ import React from "react";
 import logo from "./assets/images/logo.png";
 import "./App.css";
 import Builder from "./features/burgerbuilder/burgerMaster";
-import Login from "./controls/auth/login";
-import Register from "./controls/auth/signup";
-import Reset from "./controls/auth/reset";
+import Login from "./controller/auth/login";
+import Register from "./controller/auth/signup";
+import Reset from "./controller/auth/reset";
 import Account from './layout/account/account'
 import {
   BrowserRouter as Router,
