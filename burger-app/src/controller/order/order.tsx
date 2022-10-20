@@ -1,23 +1,22 @@
 import { each } from "immer/dist/internal";
 import React from "react";
-import {Data, StaticIngrData} from '../types' 
+import { Data, StaticIngrData } from "../types";
 
-const Order = (props:Data) => {
-  const ingrGenerator = (array:StaticIngrData, data:Data) =>{
-    let hold:any = [];
-    Object.keys(array).forEach((ele:string) => {
-      return(
+const Order = (props: Data) => {
+  const ingrGenerator = (array: StaticIngrData, data: Data) => {
+    let hold: any = [];
+    Object.keys(array).forEach((ele: string) => {
+      return (
         <tr>
           <th className="textToRight">{ele}</th>
-          <td>{(Number(array[ele[1]])/100).toFixed(2)}$</td>
+          <td>{(Number(array[ele[1]]) / 100).toFixed(2)}$</td>
           <td>{data.activeData?.ingr[ele[2]]}</td>
           <td>{array[ele[1]]}$</td>
         </tr>
-      )
-      
-    })
-    return hold
-  }
+      );
+    });
+    return hold;
+  };
   return (
     <div className="order">
       <h3>Order information</h3>
@@ -36,7 +35,13 @@ const Order = (props:Data) => {
               </tr>
             </thead>
             <tbody>
-             
+              {props.activeData?.ingr !== undefined ? (
+                ingrGenerator(props.activeData?.ingr, props)
+              ) : (
+                <tr>
+                  <th>Table is empty</th>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>

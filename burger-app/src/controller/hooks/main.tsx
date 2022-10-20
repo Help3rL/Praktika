@@ -20,7 +20,7 @@ function UserDataManager(getUserData: Data) {
 function ActiveDataManager(getUserData: Data) {
   const [activeData, setData] = useState({
     loading: false,
-    ingr: [{}],
+    ingr: {},
     totalPrice: 0,
     error: false,
     building: true,

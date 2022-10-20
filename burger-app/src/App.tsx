@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./assets/images/logo.png";
 import "./App.css";
-import Builder from "./features/burgerbuilder/burgerMaster";
+import Builder from "./layout/burgerbuilder/burgerMaster";
 import Login from "./controller/auth/login";
 import Register from "./controller/auth/signup";
 import Reset from "./controller/auth/reset";

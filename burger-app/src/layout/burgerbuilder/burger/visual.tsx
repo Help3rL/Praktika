@@ -1,7 +1,8 @@
 import React from "react";
 import {StaticIngrData} from '../../../controller/types'
-const visual = (props:any) => {
-    function genIngr (ingr:Array<StaticIngrData>){
+import {InitialStates} from '../../../controller/types'
+const visual = (props:InitialStates) => {
+    function genIngr (ingr:StaticIngrData){
         let temphold: JSX.Element[] = [];
         ingr.forEach(element => {
                 for (let i = 0; i < ingr.length; i++){
@@ -17,7 +18,7 @@ const visual = (props:any) => {
                 <div className="Seed2"></div>
             </div>
             <div className="ingredients">
-                {genIngr(props.ingredients)}
+                {genIngr(props.ingr)}
             </div>
             <div className="bottombun"></div>
         </div>

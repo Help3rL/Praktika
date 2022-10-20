@@ -7,7 +7,7 @@ export type order = {
     date: Date
 }
 
-type InitialStates = {
+export type InitialStates = {
     loading: boolean;
     ingr: StaticIngrData
     totalPrice: number;
