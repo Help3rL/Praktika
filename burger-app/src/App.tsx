@@ -7,7 +7,8 @@ import Register from "./controller/auth/signup";
 import Reset from "./controller/auth/reset";
 import Account from './layout/account/account'
 import ErrorPage from "./layout/errorPage";
-// import {ActiveData} from './controller/hooks/main'
+import {ActiveData} from './controller/hooks/main'
+import { logout } from './controller/firebase/auth'
 import {
   BrowserRouter as Router,
   NavLink,
@@ -106,7 +107,7 @@ class ErrorBoundary extends React.Component {
 }
 
 function Home() {
-  console.info(ActiveData)
+  console.info(ActiveData())
   return (
     <div className="content">
       <Builder config={builderConfig} />
@@ -132,7 +133,7 @@ function Toolbar() {
           <li className="navElement">
             <NavLink to="/login">Login</NavLink>
           </li>
-          <li className="navElement">
+          <li className="navElement" onClick={logout}>
             <NavLink to="/">Logout</NavLink>
           </li>
         </ul>

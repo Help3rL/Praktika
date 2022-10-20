@@ -1,56 +1,53 @@
 import { database } from "firebase-admin";
 import React from "react";
-import { Data, ingrData, order} from "../types";
+import { Data, order, StaticIngrData, UserState } from "../types";
 import "./orders.css";
-const UserOrders = (props:Data) => {
-  const orderIngredients = (ingr: Array<ingrData>) => {
+const UserOrders = (props: Data) => {
+  const orderIngredients = (ingr: StaticIngrData) => {
     let held: Array<any> = [];
-    ingr.forEach((element: ingrData) => {
+    let keyhold = Object.keys(ingr);
+    keyhold.forEach((element) => {
+      let selement = ingr.element;
       held.push(
         <li>
-          {element.name}
-          {element.amount}
+          {selement[0]}
+          {selement[2]}
         </li>
       );
     });
     return held;
   };
-  const orderReader = (data:Array<order>|undefined) => {
-    console.log(data)
-    let holder:Array<any> = [];
-    if (data !== undefined){
-    data.forEach(element => {
+  const orderReader = (data: UserState) => {
+    console.log(data);
+    let holder: Array<any> = [];
+    if (data !== undefined) {
+      data.userOrders.forEach((element) => {
         holder.push(
-            <tr>
-                <th>{element.id}</th>
-                <td>
-                {element.date.getUTCFullYear()}-
-                {element.date
-                    .getMonth()
-                    .toLocaleString("en-GB", {
-                    minimumIntegerDigits: 2,
-                    useGrouping: false,
-                    })}
-                -
-                {element.date
-                    .getDate()
-                    .toLocaleString("en-GB", {
-                    minimumIntegerDigits: 2,
-                    useGrouping: false,
-                    })}
-                </td>
-                <td>
-                <ol>{orderIngredients(element.ingrName)}</ol>
-                </td>
-                <td>{(element.orderCost / 100).toFixed(2)}</td>
-                <td>{element.amount}</td>
-                <td>
-                {((element.orderCost * element.amount) / 100).toFixed(2)}
-                </td>
-            </tr>
-        )
-    })};
-    return holder
+          <tr>
+            <th>{element.id}</th>
+            <td>
+              {element.date.getUTCFullYear()}-
+              {element.date.getMonth().toLocaleString("en-GB", {
+                minimumIntegerDigits: 2,
+                useGrouping: false,
+              })}
+              -
+              {element.date.getDate().toLocaleString("en-GB", {
+                minimumIntegerDigits: 2,
+                useGrouping: false,
+              })}
+            </td>
+            <td>
+              <ol>{orderIngredients(element.ingrName)}</ol>
+            </td>
+            <td>{(element.orderCost / 100).toFixed(2)}</td>
+            <td>{element.amount}</td>
+            <td>{((element.orderCost * element.amount) / 100).toFixed(2)}</td>
+          </tr>
+        );
+      });
+    }
+    return holder;
   };
   return (
     <div className="orders">
@@ -66,7 +63,9 @@ const UserOrders = (props:Data) => {
           </tr>
         </thead>
         <tbody>
-            {orderReader(props.orderData)}
+          {props.userData !== undefined
+            ? orderReader(props.userData)
+            : undefined}
         </tbody>
       </table>
     </div>

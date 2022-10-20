@@ -7,43 +7,78 @@ import "./account.css";
 import { Data } from "../../controller/types";
 import Loader from "../loader/loader";
 let data: Data = {
-  orderData: [],
+  orderData: {
+    ingrName: { patty: ["patty", 51, 60], cheese: ["cheese", 60, 55] },
+    orderCost: 0,
+    paid: false,
+    id: 0,
+    amount: 0,
+    date: new Date(),
+  },
+
   activeData: {
     loading: false,
-    ingr: [],
+    ingr: {},
     totalPrice: 0,
     error: false,
-    building: false
-  }
+    building: false,
+    buying: false,
+  },
+
+  userData: {
+    userName: "",
+    userSurname: "",
+    userAddress: "",
+    userZip: 0,
+    userEmail: "",
+    userOrders: [
+      {
+        ingrName: { patty: ["patty", 51, 60], cheese: ["cheese", 60, 55] },
+        orderCost: 0,
+        paid: false,
+        id: 0,
+        amount: 0,
+        date: new Date(),
+      },
+    ],
+    userCity: "",
+    userToken: "",
+    userPhoneNumber: 0,
+    userlogoutTime: 0,
+    userLogState: false,
+    uid: "",
+  },
 };
-data.orderData = [
-  {
-    ingrName: [
-      { name: "patty", amount: 1 },
-      { name: "cheese", amount: 2 },
-      { name: "lettuce", amount: 3 },
-      { name: "tomato", amount: 4 },
-    ],
-    orderCost: 5000,
-    paid: true,
-    id: 498,
-    amount: 3,
-    date: new Date(),
-  },
-  {
-    ingrName: [
-      { name: "patty", amount: 1 },
-      { name: "cheese", amount: 2 },
-      { name: "lettuce", amount: 3 },
-      { name: "tomato", amount: 4 },
-    ],
-    orderCost: 5000,
-    paid: true,
-    id: 498,
-    amount: 3,
-    date: new Date(),
-  },
-];
+if (data.userData !== undefined) {
+  data.userData.userOrders = [
+    {
+      ingrName: {
+        patty: ["patty", 150, 3],
+        cheese: ["cheese", 510, 4],
+        lettuce: ["lettuce", 165, 2],
+        bacon: ["bacon", 6514, 8],
+      },
+      orderCost: 5000,
+      paid: true,
+      id: 498,
+      amount: 3,
+      date: new Date(),
+    },
+    {
+      ingrName: {
+        patty: ["patty", 150, 9],
+        cheese: ["cheese", 510, 6],
+        lettuce: ["lettuce", 165, 8],
+        bacon: ["bacon", 6514, 5],
+      },
+      orderCost: 5000,
+      paid: true,
+      id: 498,
+      amount: 3,
+      date: new Date(),
+    },
+  ];
+}
 const accountRouting = createBrowserRouter([
   {
     path: "/account",
@@ -67,7 +102,7 @@ const accountRouting = createBrowserRouter([
       },
       {
         path: "/account/orders",
-        element: <Orders orderData={data.orderData}/>,
+        element: <Orders orderData={data.orderData} />,
         errorElement: <ErrorPage />,
       },
     ],
@@ -119,7 +154,7 @@ export default function Account() {
             />
             <Route
               path="/account/orders"
-              element={<Orders orderData={data.orderData}/>}
+              element={<Orders orderData={data.orderData} />}
               errorElement={<ErrorPage />}
             />
           </Route>
@@ -127,7 +162,7 @@ export default function Account() {
         {/* </Router> */}
       </div>
       <div className="accountContent">
-        <Outlet/>
+        <Outlet />
       </div>
     </div>
   );

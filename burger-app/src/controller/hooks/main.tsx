@@ -1,7 +1,8 @@
+import { createHook } from "async_hooks";
 import { errorMonitor } from "events";
 import React, { useState, useEffect, Component } from "react";
 import { Data, UserState } from "../types";
-function userDataManager(getUserData:Data) {
+function UserDataManager(getUserData: Data) {
   const [userdata, setuserdata] = useState({
     userName: "",
     userSurname: "",
@@ -15,17 +16,8 @@ function userDataManager(getUserData:Data) {
     userlogoutTime: 0,
     userLogState: false,
   });
-  useEffect(() => {
-    getUserData.activeData?.ingr
-  
-    return () => {
-      <div>rest</div>
-    }
-  })
-  
-
 }
-function activeDataManager(getUserData:Data) {
+function ActiveDataManager(getUserData: Data) {
   const [activeData, setData] = useState({
     loading: false,
     ingr: [{}],
@@ -34,16 +26,25 @@ function activeDataManager(getUserData:Data) {
     building: true,
     buying: false,
   });
-  return activeData
+  if (getUserData.activeData !== undefined) {
+    setData(getUserData.activeData);
+    return activeData;
+  } else {
+    return activeData;
+  }
 }
-export function ActiveData(){
-  return(activeDataManager)
+export function ActiveData(Data?: Data) {
+  if (Data !== undefined) {
+    console.log();
+    return ActiveDataManager(Data);
+  } else {
+    console.log(ActiveDataManager);
+    return ActiveDataManager;
+  }
 }
 export default class main extends Component {
-  state = {  }
+  state = {};
   render() {
-    return (
-      <div className="a">aaaaa</div>
-    );
+    return <div className="a">aaaaa</div>;
   }
 }

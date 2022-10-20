@@ -1,7 +1,23 @@
+import { each } from "immer/dist/internal";
 import React from "react";
-import {Data} from '../types' 
+import {Data, StaticIngrData} from '../types' 
 
 const Order = (props:Data) => {
+  const ingrGenerator = (array:StaticIngrData, data:Data) =>{
+    let hold:any = [];
+    Object.keys(array).forEach((ele:string) => {
+      return(
+        <tr>
+          <th className="textToRight">{ele}</th>
+          <td>{(Number(array[ele[1]])/100).toFixed(2)}$</td>
+          <td>{data.activeData?.ingr[ele[2]]}</td>
+          <td>{array[ele[1]]}$</td>
+        </tr>
+      )
+      
+    })
+    return hold
+  }
   return (
     <div className="order">
       <h3>Order information</h3>
@@ -20,66 +36,7 @@ const Order = (props:Data) => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th className="textToRight">Ingredient</th>
-                <td>{15.15}$</td>
-                <td>{10}</td>
-                <td>{151.5}$</td>
-              </tr>
-              <tr>
-                <th className="textToRight">Ingredient</th>
-                <td>{15.15}$</td>
-                <td>{10}</td>
-                <td>{151.5}$</td>
-              </tr>
-              <tr>
-                <th className="textToRight">Ingredient</th>
-                <td>{15.15}$</td>
-                <td>{10}</td>
-                <td>{151.5}$</td>
-              </tr>
-              <tr>
-                <th className="textToRight">Ingredient</th>
-                <td>{15.15}$</td>
-                <td>{10}</td>
-                <td>{151.5}$</td>
-              </tr>
-              <tr>
-                <th className="textToRight">Ingredient</th>
-                <td>{15.15}$</td>
-                <td>{10}</td>
-                <td>{151.5}$</td>
-              </tr>
-              <tr>
-                <th className="textToRight">Ingredient</th>
-                <td>{15.15}$</td>
-                <td>{10}</td>
-                <td>{151.5}$</td>
-              </tr>
-              <tr>
-                <th className="textToRight">Ingredient</th>
-                <td>{15.15}$</td>
-                <td>{10}</td>
-                <td>{151.5}$</td>
-              </tr>
-              <tr>
-                <th className="textToRight">Ingredient</th>
-                <td>{15.15}$</td>
-                <td>{10}</td>
-                <td>{151.5}$</td>
-              </tr>
-              <tr>
-                <th className="textToRight">Ingredient</th>
-                <td>{15.15}$</td>
-                <td>{10}</td>
-                <td>{151.5}$</td>
-              </tr>
-              <tr>
-                <th className="textToRight">Ingredient</th>
-                <td>{15.15}$</td>
-                <td>{10}</td>
-                <td>{151.5}$</td>
-              </tr>
+             
             </tbody>
           </table>
         </div>

@@ -73,6 +73,7 @@ const registerWithEmailAndPassword = async (name:string, email:string, password:
       authProvider: "local",
       email,
       address,
+      orders: []
     });
   } catch (err:any) {
     console.error(err);
@@ -93,6 +94,8 @@ const sendPasswordReset = async (email:string) => {
 const logout = () => {
   signOut(auth);
 };
+
+
 
 export {
   auth,

@@ -1,11 +1,11 @@
 import React from "react";
-import {ingrData} from '../../../controller/types'
+import {StaticIngrData} from '../../../controller/types'
 const visual = (props:any) => {
-    function genIngr (ingr:Array<ingrData>){
+    function genIngr (ingr:Array<StaticIngrData>){
         let temphold: JSX.Element[] = [];
         ingr.forEach(element => {
-                for (let i = 0; i < element.amount; i++){
-                temphold.push(<div className={element.name} key={Number((Math.random()*1000).toFixed() + Number(new Date())/12)}></div>)
+                for (let i = 0; i < ingr.length; i++){
+                temphold.push(<div className={String(element[0])} key={Number((Math.random()*1000).toFixed() + Number(new Date())/12)}></div>)
             }
         });
         return temphold;
