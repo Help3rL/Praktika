@@ -20,14 +20,14 @@ export interface UserState{
     userName: string,
     userSurname: string,
     userAddress: string,
-    userZip: number,
+    userZip?: number,
     userEmail: string,
     userOrders: Array<order>,
-    userCity: string,
+    userCity?: string,
     userToken: string,
-    userPhoneNumber: number,
+    userPhoneNumber?: number,
     userlogoutTime: number,
-    userLogState: boolean,
+    userLogState?: 'logedin'|'logout'|'neverseen'|boolean,
     uid: string
 }
 export type props = {
@@ -47,7 +47,14 @@ export type Data = {
     orderData?: order
     userData?: UserState
     activeData?: InitialStates
+    activeProps?: activeProps
 }
 export type error = {
     [Element: string]: any
+}
+
+export type activeProps = {
+    sendSubmit?: string,
+    sendAddIngr?: string,
+
 }

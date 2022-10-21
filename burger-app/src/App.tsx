@@ -15,56 +15,58 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-const builderConfig = {
-  builder: {
-    basePrice: 400,
-    ingredients: {
-      cheese: 1,
-      lettuce: 1,
-      patty: 1,
-      tomato: 1,
+import {Data} from './controller/types'
+const builderConfig:Data = {
+  activeData: {
+    loading: true,
+    ingr: {
+
     },
-    price: {
-      cheese: 200,
-      lettuce: 250,
-      patty: 150,
-      tomato: 300,
-    },
+    totalPrice: 0,
+    error: false,
+    building: true,
+    buying: false
   },
-  ingredients: [
-    { name: "patty", amount: 1 },
-    { name: "cheese", amount: 2 },
-    { name: "lettuce", amount: 3 },
-    { name: "tomato", amount: 4 },
-  ],
-  orderData: [
-    {
-      ingrName: [
-        { name: "patty", amount: 1 },
-        { name: "cheese", amount: 2 },
-        { name: "lettuce", amount: 3 },
-        { name: "tomato", amount: 4 },
+  userData: {
+      userName: '',
+      userSurname: '',
+      userAddress: '',
+      userZip: 0,
+      userEmail: '',
+      userOrders: [
+        {ingrName:{
+        patty: [ "patty", 150 ,1 ],
+        cheese: [ "cheese", 200 ,2 ],
+        lettuce: [ "lettuce", 300,3 ],
+        tomato: [ "tomato", 400 ,4 ]
+        },
+        orderCost: 0,
+        paid: true,
+        id: 0,
+        amount: 1,
+        date: new Date()
+      },
+      {
+        ingrName: {
+          patty: [ "patty", 150 ,1 ],
+          cheese: [ "cheese", 200 ,2 ],
+          lettuce: [ "lettuce", 300,3 ],
+          tomato: [ "tomato", 400 ,4 ]
+        },
+        orderCost: 5000,
+        paid: true,
+        id: 498,
+        amount: 3,
+        date: new Date(),
+      }
       ],
-      orderCost: 5000,
-      paid: true,
-      id: 498,
-      amount: 3,
-      date: new Date(),
+      userCity: '',
+      userToken: '',
+      userPhoneNumber: 0,
+      userlogoutTime: 0,
+      userLogState: "neverseen",
+      uid: ''
     },
-    {
-      ingrName: [
-        { name: "patty", amount: 1 },
-        { name: "cheese", amount: 2 },
-        { name: "lettuce", amount: 3 },
-        { name: "tomato", amount: 4 },
-      ],
-      orderCost: 5000,
-      paid: true,
-      id: 498,
-      amount: 3,
-      date: new Date(),
-    },
-  ],
 };
 
 class ErrorBoundary extends React.Component {
@@ -110,7 +112,7 @@ function Home() {
   console.info(ActiveData())
   return (
     <div className="content">
-      <Builder config={builderConfig} />
+      <Builder activeData={builderConfig.activeData} />
     </div>
   );
 }
