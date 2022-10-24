@@ -128,7 +128,6 @@
 	align-items: center;
 	margin: 5px auto;
     flex-direction: column;
-    background-color: white;
 }
 .Control{
     display: inline-flex;
@@ -190,4 +189,26 @@
 .BuildControl .More:active {
 	background-color: #99703f;
 	color: white;
+}
+.BuildControll .button{
+	width: 30vmin;
+	margin: auto;
+	font: inherit;
+	padding: 15px;
+	border: 1px solid #aa6817;
+	cursor: pointer;
+	outline: none;
+	background-color: #8f5e1e;
+	color: white;
+	font-weight: bold;
+	border-radius: 12px;
+	margin-top: .5vmax;
+}
+.BuildControll .button:hover{
+	border: 1px solid #aa6817;
+    background-color: #d39952
+}
+.BuildControll{
+	background-color: white;
+	padding: 0.5vmax 0;
 }

@@ -17,19 +17,31 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    margin-top: 5%;
 }
 .account .accountNav nav ul li{
     list-style-type: none;
-    width: 98%;
+    width: 100%;
     padding: 0.5vmin 0;
     text-align: center;
-    border: 2px solid red;
-    margin: 0.3vmin auto;
+    border-bottom: 1px solid #aa6817;
+    box-sizing: border-box;
+    margin-top: 15px;
+    background-color: #ffffff48;
 }
 .account .accountNav nav ul li:hover{
     background-color: #ffffff8c;
+    border-bottom: 1px solid #d39952;
 }
 .account .accountNav nav ul a{
     text-decoration: none;
+    font-size: larger;
+    color: #aa6817;
+    font-weight: bold;
+}
+.account .accountNav nav ul a:hover {
+    color: #d39952;
+}
+.account .accountContent {
+    width: 85%;
+    float: right;
 }

@@ -1,73 +1,32 @@
+// Application external imports
 import React from "react";
+import {
+  BrowserRouter as Router,
+  Navigate,
+  NavLink,
+  Route,
+  Routes,
+  
+} from "react-router-dom";
+
+// Application local imports
 import logo from "./assets/images/logo.png";
 import "./App.css";
 import Builder from "./layout/burgerbuilder/burgerMaster";
 import Login from "./controller/auth/login";
 import Register from "./controller/auth/signup";
 import Reset from "./controller/auth/reset";
-import Account from './layout/account/account'
+import Account, { AccountNav } from "./layout/account/account";
 import ErrorPage from "./layout/errorPage";
-import {ActiveData} from './controller/hooks/main'
-import { logout } from './controller/firebase/auth'
-import {
-  BrowserRouter as Router,
-  NavLink,
-  Route,
-  Routes,
-} from "react-router-dom";
-import {Data} from './controller/types'
-const builderConfig:Data = {
-  activeData: {
-    loading: true,
-    ingr: {
+import { ActiveData } from "./controller/hooks/main";
+import { logout } from "./controller/firebase/auth";
+import { builderConfig } from "./temp/Data";
+import { Data, UserState } from "./controller/types";
+import Orders from "./controller/order/orders";
 
-    },
-    totalPrice: 0,
-    error: false,
-    building: true,
-    buying: false
-  },
-  userData: {
-      userName: '',
-      userSurname: '',
-      userAddress: '',
-      userZip: 0,
-      userEmail: '',
-      userOrders: [
-        {ingrName:{
-        patty: [ "patty", 150 ,1 ],
-        cheese: [ "cheese", 200 ,2 ],
-        lettuce: [ "lettuce", 300,3 ],
-        tomato: [ "tomato", 400 ,4 ]
-        },
-        orderCost: 0,
-        paid: true,
-        id: 0,
-        amount: 1,
-        date: new Date()
-      },
-      {
-        ingrName: {
-          patty: [ "patty", 150 ,1 ],
-          cheese: [ "cheese", 200 ,2 ],
-          lettuce: [ "lettuce", 300,3 ],
-          tomato: [ "tomato", 400 ,4 ]
-        },
-        orderCost: 5000,
-        paid: true,
-        id: 498,
-        amount: 3,
-        date: new Date(),
-      }
-      ],
-      userCity: '',
-      userToken: '',
-      userPhoneNumber: 0,
-      userlogoutTime: 0,
-      userLogState: "neverseen",
-      uid: ''
-    },
-};
+const getAuthState = () => {
+    return true
+  }
 
 class ErrorBoundary extends React.Component {
   state;
@@ -92,10 +51,9 @@ class ErrorBoundary extends React.Component {
       </div>
     );
   }
-
+  //Renders Fallback
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
       return (
         <div className="error">
           <h1>Something went wrong.</h1>
@@ -108,17 +66,29 @@ class ErrorBoundary extends React.Component {
   }
 }
 
+const NoMatch = () => {
+  return(
+          <div className="NothingFound">
+        <h1>Link not existing.</h1>
+        <p>Check link and if you believe this is unintended</p>
+        <p>Contact administration via purgatory.com</p>
+      </div>
+  )
+
+}
+
 function Home() {
-  console.info(ActiveData())
+  console.info(ActiveData());
   return (
     <div className="content">
       <Builder activeData={builderConfig.activeData} />
     </div>
   );
 }
-function Toolbar() {
-  return (
-    <header>
+function Toolbar(userData:UserState) {
+  if (getAuthState() === false){
+    return(
+      <header>
       <nav className="Toolbar">
         <div className="Logo">
           <NavLink to="/">
@@ -130,10 +100,30 @@ function Toolbar() {
             <NavLink to="/">Home</NavLink>
           </li>
           <li className="navElement">
-            <NavLink to="/account">Account</NavLink>
+            <NavLink to="/login">Login</NavLink>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    )
+  } else if (getAuthState() === true) {
+    return (
+      <header>
+      <nav className="Toolbar">
+        <div className="Logo">
+          <NavLink to="/">
+            <img className="logoImage" src={logo} alt="BurgerBuilder" />
+          </NavLink>
+        </div>
+        <ul>
+          <li className="navElement">
+            <NavLink to="/">Home</NavLink>
           </li>
           <li className="navElement">
-            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/account/profile">Account</NavLink>
+          </li>
+          <li className="navElement">
+            <NavLink to='/account/orders'>Orders</NavLink>
           </li>
           <li className="navElement" onClick={logout}>
             <NavLink to="/">Logout</NavLink>
@@ -141,20 +131,56 @@ function Toolbar() {
         </ul>
       </nav>
     </header>
-  );
+    )
+  } 
+  return (
+    <div>Error</div>
+  )
 }
 function App() {
+
   return (
     <div className="App">
       <ErrorBoundary>
         <Router>
-          <Toolbar />
+          <Toolbar userLogState={true} userName={""} userSurname={""} userAddress={""} userEmail={""} userOrders={[]} userToken={""} userlogoutTime={0} uid={""} />
           <Routes>
-            <Route path="/" element={<Home />} errorElement={<ErrorPage/>}/>
-            <Route path="/login" element={<Login />} errorElement={<ErrorPage/>}/>
-            <Route path="/register" element={<Register />} errorElement={<ErrorPage/>}/>
-            <Route path="/reset" element={<Reset />} errorElement={<ErrorPage/>}/>
-            <Route path="/account" element={<Account/>} errorElement={<ErrorPage/>}/>
+            <Route
+              index
+              path="/"
+              element={<Home />}
+              errorElement={<ErrorPage />}
+            />
+            <Route
+              path="/login"
+              element={<Login />}
+              errorElement={<ErrorPage />}
+            />
+            <Route
+              path="/register"
+              element={<Register />}
+              errorElement={<ErrorPage />}
+            />
+            <Route
+              path="/reset"
+              element={<Reset />}
+              errorElement={<ErrorPage />}
+            />
+            
+            <Route
+              path="/account"
+              element={ getAuthState() ? <Account /> : <Navigate to='/login'/>}
+              errorElement={<ErrorPage />}
+            >
+              <Route path="/account/profile" element="" />
+              <Route path="/account/friends" element="" />
+              <Route path="/account/settings" element="" />
+              <Route
+                path="/account/orders"
+                element={<Orders orderData={builderConfig.orderData} />}
+              />
+            </Route>
+            <Route path="*" element={<NoMatch/>}/>
           </Routes>
         </Router>
       </ErrorBoundary>

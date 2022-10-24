@@ -1,6 +1,7 @@
 import React from "react";
+import { InitialStates, StaticIngrData } from '../../../controller/types'
 let hold = 1;
-export default function control(props:any){
+export default function control(props:InitialStates){
     const holdd = (action:string) => {
         if (action === 'Add' && hold < 100){
             hold++;
@@ -11,12 +12,14 @@ export default function control(props:any){
         }
         return undefined
     }
-    const generator = (hen:any) =>{
+    
+    const generator = (hen:StaticIngrData) =>{
+        console.log(hen)
         const tempHold = []
         for(const [key, value] of Object.entries(hen)){
             tempHold.push(
                 <div key={key + value} className="controlContainer">
-                    <label htmlFor="buttons" className="Label">{key}:{(Number(value)/100).toFixed(2)}</label>
+                    <label htmlFor="buttons" className="Label">{key}:{(Number(value[1])/100).toFixed(2)}</label>
                     <div id="buttons">
                         <button className="More" onClick={holdd('Add')}>More</button>
                         <button className="Less" onClick={holdd('Substract')}>Less</button>
@@ -30,7 +33,7 @@ export default function control(props:any){
 
     return(
         <div className='BuildControl'>
-            {generator(props.list)}
+            {generator(props.ingr)}
         </div>
     )
 }
