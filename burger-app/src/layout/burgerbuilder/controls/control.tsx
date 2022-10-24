@@ -8,13 +8,13 @@ export default function control(props:InitialStates){
         }else if (action === 'Substract' && hold > 0){
             hold--;
         }else{
-            console.log("MAX/MIN" + hold)
+            console.debug("MAX/MIN" + hold)
         }
         return undefined
     }
     
     const generator = (hen:StaticIngrData) =>{
-        console.log(hen)
+        console.debug(hen)
         const tempHold = []
         for(const [key, value] of Object.entries(hen)){
             tempHold.push(

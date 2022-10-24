@@ -8,13 +8,13 @@ function Login() {
   const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-  console.log(error)
+  console.error(error)
   useEffect(() => {
     if (loading) {
       // maybe trigger a loading screen
       return;
     }
-    if (user) navigate("/dashboard");
+    if (user) navigate("/");
   }, [user, loading]);
   return (
     <div className="login">

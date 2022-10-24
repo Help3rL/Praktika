@@ -21,7 +21,7 @@ const registerOrder = async (Data: Data) => {
       console.error('doesnt expist');
       
     } else {
-      console.log(userData.data())
+      console.debug(userData.data())
     }
   }catch (error:any) {
     console.error(error);

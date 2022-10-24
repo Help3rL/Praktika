@@ -6,7 +6,6 @@ import {
   NavLink,
   Route,
   Routes,
-  
 } from "react-router-dom";
 
 // Application local imports
@@ -18,15 +17,14 @@ import Register from "./controller/auth/signup";
 import Reset from "./controller/auth/reset";
 import Account, { AccountNav } from "./layout/account/account";
 import ErrorPage from "./layout/errorPage";
-import { ActiveData } from "./controller/hooks/main";
 import { logout } from "./controller/firebase/auth";
 import { builderConfig } from "./temp/Data";
 import { Data, UserState } from "./controller/types";
 import Orders from "./controller/order/orders";
 
 const getAuthState = () => {
-    return true
-  }
+  return true;
+};
 
 class ErrorBoundary extends React.Component {
   state;
@@ -67,83 +65,78 @@ class ErrorBoundary extends React.Component {
 }
 
 const NoMatch = () => {
-  return(
-          <div className="NothingFound">
-        <h1>Link not existing.</h1>
-        <p>Check link and if you believe this is unintended</p>
-        <p>Contact administration via purgatory.com</p>
-      </div>
-  )
-
-}
+  return (
+    <div className="NothingFound">
+      <h1>Link not existing.</h1>
+      <p>Check link and if you believe this is unintended</p>
+      <p>Contact administration via purgatory.com</p>
+    </div>
+  );
+};
 
 function Home() {
-  console.info(ActiveData());
   return (
     <div className="content">
       <Builder activeData={builderConfig.activeData} />
     </div>
   );
 }
-function Toolbar(userData:UserState) {
-  if (getAuthState() === false){
-    return(
+function Toolbar() {
+  if (getAuthState() === false) {
+    return (
       <header>
-      <nav className="Toolbar">
-        <div className="Logo">
-          <NavLink to="/">
-            <img className="logoImage" src={logo} alt="BurgerBuilder" />
-          </NavLink>
-        </div>
-        <ul>
-          <li className="navElement">
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li className="navElement">
-            <NavLink to="/login">Login</NavLink>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    )
+        <nav className="Toolbar">
+          <div className="Logo">
+            <NavLink to="/">
+              <img className="logoImage" src={logo} alt="BurgerBuilder" />
+            </NavLink>
+          </div>
+          <ul>
+            <li className="navElement">
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li className="navElement">
+              <NavLink to="/login">Login</NavLink>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    );
   } else if (getAuthState() === true) {
     return (
       <header>
-      <nav className="Toolbar">
-        <div className="Logo">
-          <NavLink to="/">
-            <img className="logoImage" src={logo} alt="BurgerBuilder" />
-          </NavLink>
-        </div>
-        <ul>
-          <li className="navElement">
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li className="navElement">
-            <NavLink to="/account/profile">Account</NavLink>
-          </li>
-          <li className="navElement">
-            <NavLink to='/account/orders'>Orders</NavLink>
-          </li>
-          <li className="navElement" onClick={logout}>
-            <NavLink to="/">Logout</NavLink>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    )
-  } 
-  return (
-    <div>Error</div>
-  )
+        <nav className="Toolbar">
+          <div className="Logo">
+            <NavLink to="/">
+              <img className="logoImage" src={logo} alt="BurgerBuilder" />
+            </NavLink>
+          </div>
+          <ul>
+            <li className="navElement">
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li className="navElement">
+              <NavLink to="/account/profile">Account</NavLink>
+            </li>
+            <li className="navElement">
+              <NavLink to="/account/orders">Orders</NavLink>
+            </li>
+            <li className="navElement" onClick={logout}>
+              <NavLink to="/">Logout</NavLink>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    );
+  }
+  return <div>Error</div>;
 }
 function App() {
-
   return (
     <div className="App">
       <ErrorBoundary>
         <Router>
-          <Toolbar userLogState={true} userName={""} userSurname={""} userAddress={""} userEmail={""} userOrders={[]} userToken={""} userlogoutTime={0} uid={""} />
+          <Toolbar />
           <Routes>
             <Route
               index
@@ -166,10 +159,10 @@ function App() {
               element={<Reset />}
               errorElement={<ErrorPage />}
             />
-            
+
             <Route
               path="/account"
-              element={ getAuthState() ? <Account /> : <Navigate to='/login'/>}
+              element={getAuthState() ? <Account /> : <Navigate to="/login" />}
               errorElement={<ErrorPage />}
             >
               <Route path="/account/profile" element="" />
@@ -180,12 +173,48 @@ function App() {
                 element={<Orders orderData={builderConfig.orderData} />}
               />
             </Route>
-            <Route path="*" element={<NoMatch/>}/>
+            <Route path="*" element={<NoMatch />} />
           </Routes>
         </Router>
       </ErrorBoundary>
+      <div className="temp">
+        <button onClick={addRandomOrders(20)}>Add random orders</button>
+      </div>
     </div>
   );
 }
 
 export default App;
+function addRandomOrders(arg0: number) {
+  console.log('click')
+  function randomDate(
+    start: Date,
+    end: Date,
+    startHour: number,
+    endHour: number
+  ) {
+    var date = new Date(+start + Math.random() * (Number(end) - Number(start)));
+    var hour = (startHour + Math.random() * (endHour - startHour)) | 0;
+    date.setHours(hour);
+    return date;
+  }
+  let temphold = [];
+  for (let i = 0; i < arg0; i++) {
+    const randomNumber = (Math.random() * 100).toFixed(0);
+    temphold.push({
+      ingrName: {
+        patty: ["patty", 150, randomNumber + 1],
+        cheese: ["cheese", 200, randomNumber + 2],
+        lettuce: ["lettuce", 300, randomNumber + 3],
+        tomato: ["tomato", 400, randomNumber + 4],
+      },
+      orderCost: Number(randomNumber + 8 * 375) * 15,
+      paid: true,
+      id: randomNumber + randomNumber,
+      amount: 15,
+      date: randomDate(new Date(), new Date(2011, 1, 25), 5, 15),
+    });
+  }
+  console.log(temphold);
+  return undefined;
+}

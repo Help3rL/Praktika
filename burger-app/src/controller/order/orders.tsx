@@ -18,7 +18,7 @@ const UserOrders = (props: Data) => {
     return held;
   };
   const orderReader = (data: UserState) => {
-    console.log(data);
+    console.debug(data);
     let holder: Array<any> = [];
     if (data !== undefined) {
       data.userOrders.forEach((element) => {

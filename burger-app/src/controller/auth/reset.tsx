@@ -9,10 +9,10 @@ function Reset() {
   const [email, setEmail] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-  console.log(error)
+  console.error(error)
   useEffect(() => {
     if (loading) return;
-    if (user) navigate("/dashboard");
+    if (user) navigate("/");
   }, [user, loading]);
 
   return (

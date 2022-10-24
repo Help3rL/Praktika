@@ -11,7 +11,7 @@ function Register() {
   const [address, setAddress] = useState("")
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-  console.log(error)
+  console.error(error)
   const register = () => {
     if (!name) alert("Please enter name");
     registerWithEmailAndPassword(name, email, password, address);
@@ -19,7 +19,7 @@ function Register() {
 
   useEffect(() => {
     if (loading) return;
-    if (user) navigate("/dashboard");
+    if (user) navigate("/");
   }, [user, loading]);
 
   return (
