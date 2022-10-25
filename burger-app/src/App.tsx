@@ -15,11 +15,10 @@ import Builder from "./layout/burgerbuilder/burgerMaster";
 import Login from "./controller/auth/login";
 import Register from "./controller/auth/signup";
 import Reset from "./controller/auth/reset";
-import Account, { AccountNav } from "./layout/account/account";
+import Account from "./layout/account/account";
 import ErrorPage from "./layout/errorPage";
 import { logout } from "./controller/firebase/auth";
 import { builderConfig } from "./temp/Data";
-import { Data, UserState } from "./controller/types";
 import Orders from "./controller/order/orders";
 
 const getAuthState = () => {

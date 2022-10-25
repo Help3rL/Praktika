@@ -4,13 +4,13 @@ import { getFirestore } from 'firebase-admin/firestore'
 import React from "react";
 import { firebaseConfig } from "./firebase_config";
 import functions from "firebase-functions";
-import { Data } from "../types";
+import { UserState } from "../types";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 var orderDB;
-const registerOrder = async (Data: Data) => {
-  if (Data.userData?.uid !== undefined){
-    orderDB = db.collection('users').doc(Data.userData?.uid)
+export const registerOrder = async (Data: UserState) => {
+  if (Data.uid !== undefined){
+    orderDB = db.collection('users').doc(Data.uid)
   }else{
     orderDB = db.collection('users').doc('null')
     console.error('couldn\'t get UID')
@@ -18,7 +18,7 @@ const registerOrder = async (Data: Data) => {
   try {
     const userData = await orderDB.get();
     if (!userData.exists){
-      console.error('doesnt expist');
+      console.error('doesnt expist'); 
       
     } else {
       console.debug(userData.data())
@@ -27,21 +27,16 @@ const registerOrder = async (Data: Data) => {
     console.error(error);
     alert(error?.message);
   }
-  try {
-    if (Data.userData !== undefined) {
-      const user = Data.userData;
-      if (Data.orderData !== undefined) {
-        var addOrder = await orderDB.update({
-          orders: 'getcurrent orders and add new one'
-        })
-      } else if (Data.orderData === undefined) {
-        alert("Error empty order");
-      } else {
-        alert("Unexpected error!\n Report this to administration");
-      }
-    }
-  } catch (error:any) {
-    console.error(error);
-    alert(error?.message);
-  }
 };
+
+export const initIngredients = async () => {
+  const ingrDB = db.collection('burgerData').doc('Ingredients')
+  const ingrList = await ingrDB.get()
+  if (!ingrList.exists){
+    console.info('Error')
+    return 'error'
+  } else {
+    console.debug(ingrList.data())
+    return ingrList.data
+  }
+}

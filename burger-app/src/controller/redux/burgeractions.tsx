@@ -1,3 +1,5 @@
+import { firestore } from 'firebase-admin'
+import { Firestore } from 'firebase/firestore'
 import { StaticIngrData } from '../types'
 import * as actionTypes from './actions'
 export interface ActionsInterface {
@@ -35,6 +37,7 @@ export const fetchIngredientsFailed = () => {
         type: actionTypes.FETCH_INGREDIENTS_FAILED
     }
 }
+
 
 // export const initIngredients = () => {
 //     return (dispatch:any) => {

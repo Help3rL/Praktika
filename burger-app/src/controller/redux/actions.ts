@@ -18,6 +18,28 @@ export const AUTH_FAIL = "AUTH_FAIL";
 export const AUTH_LOGOUT = "AUTH_LOGOUT";
 export const SET_AUTH_REDIRECT_PATH = "SET_AUTH_REDIRECT_PATH";
 
+/////////////Data.userData managment
+
+export const SET_USER_DATA = 'SET_USER_DATA';
+export const GET_USER_DATA = 'GET_USER_DATE'
+export const FAILED_USER_DATA = 'FAILED_USER_DATA'
+export const USER_DATA = 'USER_DATA'
+
+/////////////Data managment
+
+export const DATA = 'DATA'
+export const GET_DATA = 'GET_DATA'
+export const SET_DATA = 'SET_DATA'
+export const FAILED_DATA = 'FAILED_DATA'
+
+//////////////Data.activeData managment
+
+export const ACTIVE_DATA = 'ACTIVE_DATA'
+export const SET_ACTIVE_DATA = 'SET_ACTIVE_DATA'
+export const GET_ACTIVE_DATA = 'GET_ACTIVE_DATA'
+export const UPDATE_ACTIVE_DATA = 'UPDATE_ACTIVE_DATA'
+export const CHECK_ACTIVE_DATA = 'CHECK_ACTIVE_DATA'
+
 // export default {
 //   ADD_INGREDIENT,
 //   REMOVE_INGREDIENT,

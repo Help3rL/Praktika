@@ -55,6 +55,6 @@ export type error = {
 
 export type activeProps = {
     sendSubmit?: string,
-    sendAddIngr?: string,
-
+    activateNuclear?: string,
+    activatePurge?: string    
 }
