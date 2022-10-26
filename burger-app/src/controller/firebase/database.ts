@@ -40,3 +40,7 @@ export const initIngredients = async () => {
     return ingrList.data
   }
 }
+
+export function getUserData () {
+  
+}
