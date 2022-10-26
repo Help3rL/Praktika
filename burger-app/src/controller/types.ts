@@ -15,6 +15,7 @@ export type InitialStates = {
     building: boolean;
     buying: boolean;
     update?: any;
+    DeliveryCost?: number;
   };
 
 export interface UserState{

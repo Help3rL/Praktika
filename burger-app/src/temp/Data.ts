@@ -5,15 +5,16 @@ export const builderConfig: Data = {
     loading: true,
     ingr: {
       patty: ["patty", 150, 1],
-      cheese: ["cheese", 200, 2],
-      lettuce: ["lettuce", 300, 3],
+      cheese: ["cheese", 200, 3],
+      lettuce: ["lettuce", 300, 2],
       tomato: ["tomato", 400, 4],
     },
     totalPrice: 0,
     error: false,
     building: true,
     buying: false,
-    update: () => {}
+    update: () => {},
+    DeliveryCost: 250
   },
   userData: {
     userName: "",

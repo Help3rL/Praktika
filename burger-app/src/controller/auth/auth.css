@@ -17,12 +17,10 @@
   display: flex;
   justify-content: flex-start;
   width: 70%;
-  border: 1px solid blueviolet;
   height: 20vh;
   overflow-y: scroll;
 }
 .order .information .ingredients table thead th {
-  background-color: aquamarine;
   padding: 3px;
   text-align: center;
 }

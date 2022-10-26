@@ -30,7 +30,6 @@ export default function control(props: InitialStates) {
     return undefined;
   }
   const generator = (hen: StaticIngrData) => {
-    console.debug(hen);
     const tempHold = [];
     for (const [key, value] of Object.entries(hen)) {
       tempHold.push(

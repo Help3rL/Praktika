@@ -5,12 +5,11 @@
 }
 .orders table thead th{
     background-color: antiquewhite;
-    height: 3vmax;
     border-left: 1px solid gray;
     border-right: 1px solid gray;
 }
 .orders table tbody tr:nth-child(even){
-    background-color: aqua;
+    background-color: rgb(109, 143, 143);
 }
 .orders table tbody tr:nth-child(odd){
     background-color: bisque;

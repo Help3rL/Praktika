@@ -20,7 +20,9 @@ import ErrorPage from "./layout/errorPage";
 import { logout } from "./controller/firebase/auth";
 import { builderConfig } from "./temp/Data";
 import Orders from "./controller/order/orders";
-
+import { Data, InitialStates } from "./controller/types";
+import Order from './controller/order/order'
+import Module from './features/actions/modal/modal'
 const getAuthState = () => {
   return true;
 };
@@ -130,12 +132,19 @@ function Toolbar() {
   }
   return <div>Error</div>;
 }
+const RenderOrder = (data: Data) => {
+  return (
+    <Module>
+      <Order activeData={data.activeData} />
+    </Module>
+  );
+};
 function App() {
-  function forceRerender() {}
   return (
     <div className="App">
       <ErrorBoundary>
         <Router>
+          <RenderOrder activeData={builderConfig.activeData} />
           <Toolbar />
           <Routes>
             <Route
