@@ -1,8 +1,10 @@
 import React from "react";
 import { InitialStates, StaticIngrData } from "../../../controller/types";
-let hold = 1;
+let hold = 1 || undefined;
 export default function control(props: InitialStates) {
+
   const holdd = (action: string, ingrName: string) => {
+    hold = (props.ingr[ingrName][2] !== undefined ? Number(props.ingr[ingrName][2]) : hold);
     if (action === "Add" && hold < 100) {
       hold++;
       let hart = props.ingr[ingrName][2];
