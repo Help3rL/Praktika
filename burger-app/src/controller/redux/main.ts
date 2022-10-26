@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
-import { connect } from 'react-redux';
 import userDataReducer from './userdata'
-const userData = configureStore({
+export const userData = configureStore({
     reducer: {
         userName: userDataReducer.usernameReducer,
         userSurname: userDataReducer.surnameReducer,
