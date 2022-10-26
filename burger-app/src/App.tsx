@@ -131,6 +131,7 @@ function Toolbar() {
   return <div>Error</div>;
 }
 function App() {
+  function forceRerender() {}
   return (
     <div className="App">
       <ErrorBoundary>
@@ -184,8 +185,9 @@ function App() {
 }
 
 export default App;
+
 function addRandomOrders(arg0: number) {
-  console.log('click')
+  console.log("click");
   function randomDate(
     start: Date,
     end: Date,

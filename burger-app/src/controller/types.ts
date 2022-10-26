@@ -14,6 +14,7 @@ export type InitialStates = {
     error: boolean;
     building: boolean;
     buying: boolean;
+    update?: any;
   };
 
 export interface UserState{
@@ -38,7 +39,7 @@ export type props = {
 }
 
 export type StaticIngrData = {
-    [Name:string]: Array<string|number>  
+    [Name:string]: [string, number, number?]
     // In structure| Ingredients: [Name, price, amount]   
 }
 

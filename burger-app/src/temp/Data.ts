@@ -13,6 +13,7 @@ export const builderConfig: Data = {
     error: false,
     building: true,
     buying: false,
+    update: () => {}
   },
   userData: {
     userName: "",
