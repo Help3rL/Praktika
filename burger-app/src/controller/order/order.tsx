@@ -1,6 +1,7 @@
 import { each } from "immer/dist/internal";
 import React from "react";
 import { Data, StaticIngrData } from "../types";
+import './orders.css'
 
 const Order = (props: Data) => {
   function totalIngr(array: StaticIngrData | undefined) {
@@ -28,18 +29,21 @@ const Order = (props: Data) => {
     }
     return "Error";
   }
-  const ingrGenerator = (array: StaticIngrData, data: Data) => {
+  const ingrGenerator = (array: StaticIngrData |undefined, data: Data) => {
     let hold: any = [];
-    Object.keys(array).forEach((ele: string) => {
-      return (
+    if(array !== undefined){
+      Object.keys(array).forEach((ele: string) => {
+      hold.push(
         <tr>
           <th className="textToRight">{ele}</th>
           <td>{(Number(array[ele][1]) / 100).toFixed(2)}$</td>
           <td>{data.activeData?.ingr[ele][2]}</td>
-          <td>{array[ele[1]]}$</td>
+          <td>{((Number(array[ele][2]) * array[ele][1])/100).toFixed(2)}$</td>
         </tr>
       );
     });
+    }
+    
     return hold;
   };
   return (
@@ -60,13 +64,9 @@ const Order = (props: Data) => {
               </tr>
             </thead>
             <tbody>
-              {props.activeData?.ingr !== undefined ? (
+              {
                 ingrGenerator(props.activeData?.ingr, props)
-              ) : (
-                <tr>
-                  <th>Table is empty</th>
-                </tr>
-              )}
+              }
             </tbody>
           </table>
         </div>
@@ -117,17 +117,17 @@ const Order = (props: Data) => {
         <h3>Delivery address</h3>
         <div className="address">
           <div className="input">
-            <label htmlFor="address">Address</label>
             <input
               type="text"
               name="address"
               id="address"
-              defaultValue={props.userData?.userAddress}
+              placeholder="Address"
+              defaultValue={props.userData?.userAddress !== undefined? props.userData.userAddress : ''}
             />
           </div>
         </div>
       </div>
-      <button type="submit">Place order</button>
+      <button type="submit" onClick={() => alert('place order')}>Place order</button>
     </div>
   );
 };

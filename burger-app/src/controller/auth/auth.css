@@ -23,6 +23,8 @@
 .order .information .ingredients table thead th {
   padding: 3px;
   text-align: center;
+  background-color: #aa6817;
+  border-right: 1px solid #8f5e1e;
 }
 .order .information .ingredients table {
   border-collapse: collapse;
@@ -32,10 +34,19 @@
   height: 25%;
 }
 .order .information .ingredients table tbody tr:nth-child(odd) {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: #d4a770;
 }
 .order .information .ingredients table tbody tr:nth-child(even) {
-  background-color: #6464642c;
+  background-color: #f3d0a6;
+}
+.order .information .ingredients table tbody tr{
+  border-top: 1px solid #8f5e1e;
+  
+}
+.order .information .ingredients table tbody th {
+  text-transform: capitalize;
+  background-color: #d3995275;
+  border-top: 1px solid #8f5e1e;
 }
 .order .information .total {
   max-width: 30%;
@@ -51,7 +62,14 @@
   justify-content: center;
   flex-direction: column;
 }
-
+.order input{
+  width: 30vmin;
+  border-radius: 12px;
+  margin: 15px auto;
+  padding: 10px;
+  background-color: #ffffff93;
+  border: 1px solid #aa6817;;
+}
 /* #################################################################
 ########################## Login ###################################
 ################################################################# */

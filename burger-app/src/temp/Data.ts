@@ -4,10 +4,10 @@ export const builderConfig: Data = {
   activeData: {
     loading: true,
     ingr: {
-      patty: ["patty", 150, 1],
+      patty: ["patty", 150, 10],
       cheese: ["cheese", 200, 3],
       lettuce: ["lettuce", 300, 2],
-      tomato: ["tomato", 400, 4],
+      tomato: ["tomato", 400,8],
     },
     totalPrice: 0,
     error: false,
@@ -19,7 +19,7 @@ export const builderConfig: Data = {
   userData: {
     userName: "",
     userSurname: "",
-    userAddress: "",
+    userAddress: "Test",
     userZip: 0,
     userEmail: "",
     userOrders: [
