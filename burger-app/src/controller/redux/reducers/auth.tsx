@@ -1,13 +1,12 @@
 import * as actionTypes from '../actions/actionTypes'
-import { updateObject,  UpdatedIngredientInterface } from '../../shared/utility'
-import { AxiosError } from 'axios'
+import { updateObject,  UpdatedIngredientInterface } from '../utility'
 import { Reducer } from 'react'
 import { Action, AnyAction } from 'redux'
 
 export interface AuthReducerInitialState {
     token : null | string
     userId: null | string
-    error : null | AxiosError
+    error : null 
     loading: boolean
     authReducer ?:any
     authRedirectPath : string

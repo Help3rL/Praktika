@@ -1,5 +1,5 @@
 import * as actionTypes from '../actions/actionTypes'
-import { updateObject } from '../../shared/utility'
+import { updateObject } from '../utility'
 import { Reducer } from 'react'
 import { Action, AnyAction } from 'redux'
 
