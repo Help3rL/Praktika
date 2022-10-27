@@ -24,10 +24,8 @@ export interface UserState{
     userAddress: string,
     userEmail: string,
     userOrders: Array<order>,
-    userToken: string,
     userPhoneNumber?: number,
     userlogoutTime: number,
-    userLogState?: 'logedin'|'logout'|'neverseen'|boolean,
     uid: string
 }
 export type props = {

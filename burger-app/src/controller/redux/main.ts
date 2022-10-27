@@ -23,7 +23,17 @@ import {
   USER_ORDRES_LOAD_FAILIURE,
   USER_ORDRES_LOAD_SUCCESS,
 } from "./actionTypes";
-const initActiveData: InitialStates = {
+const initUserData:UserState = {
+  userName: "",
+  userSurname: "",
+  userAddress: "Test",
+  userEmail: "",
+  userOrders: [],
+  userPhoneNumber: 0,
+  userlogoutTime: 0,
+  uid: "",
+}
+const initActiveData:InitialStates = {
   loading: true,
   ingr: {},
   totalPrice: 0,
@@ -31,20 +41,7 @@ const initActiveData: InitialStates = {
   building: true,
   buying: false,
   DeliveryCost: 250,
-};
-const initUserData: UserState = {
-  userName: "",
-  userSurname: "",
-  userAddress: "Test",
-  userEmail: "",
-  userOrders: [],
-  userToken: "",
-  userPhoneNumber: 0,
-  userlogoutTime: 0,
-  userLogState: "neverseen",
-  uid: "",
-};
-
+}
 export default function rootReducer(state: rootReducerr, action: actions) {
   return {
     userDataReduce: userDataReducer(

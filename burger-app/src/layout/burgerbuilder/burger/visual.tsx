@@ -16,7 +16,6 @@ const visual = (props: InitialStates) => {
         );
       }
     });
-    console.log(ingr);
     return temphold;
   };
   return (

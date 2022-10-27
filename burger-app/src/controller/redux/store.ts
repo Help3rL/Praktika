@@ -1,20 +1,14 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { activeDataReducer, userDataReducer } from "./main";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import rootReducer, { activeDataReducer, userDataReducer } from "./main";
 
-const masterStore = configureStore(
-    {
-        reducer: {
-
-        }
-    }
+const masterStore = configureStore({
+    reducer: {
+        // userData: userDataSlice.reducer,
+        // activeData: activeDataSlice.reducer
+    } ,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat()    
+}
 )
-const userDataStore = configureStore({
-    reducer: {
-        userData: userDataReducer
-    }
-})
-const activeDataStore = configureStore({
-    reducer: {
-        activeData: activeDataReducer
-    }
-})
+
+export default masterStore
+

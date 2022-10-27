@@ -68,6 +68,7 @@ class ErrorBoundary extends React.Component {
 const NoMatch = () => {
   return (
     <div className="NothingFound">
+      <Toolbar/>
       <h1>Link not existing.</h1>
       <p>Check link and if you believe this is unintended</p>
       <p>Contact administration via purgatory.com</p>
@@ -187,7 +188,7 @@ function App() {
         </Router>
       </ErrorBoundary>
       <div className="temp">
-        <button onClick={addRandomOrders(20)}>Add random orders</button>
+        <button onClick={() => addRandomOrders(20)}>Add random orders</button>
       </div>
     </div>
   );
@@ -196,7 +197,6 @@ function App() {
 export default App;
 
 function addRandomOrders(arg0: number) {
-  console.log("click");
   function randomDate(
     start: Date,
     end: Date,
@@ -225,6 +225,5 @@ function addRandomOrders(arg0: number) {
       date: randomDate(new Date(), new Date(2011, 1, 25), 5, 15),
     });
   }
-  console.log(temphold);
   return undefined;
 }

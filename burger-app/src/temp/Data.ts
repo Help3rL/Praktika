@@ -49,10 +49,8 @@ export const builderConfig: Data = {
         date: new Date(),
       },
     ],
-    userToken: "",
     userPhoneNumber: 0,
     userlogoutTime: 0,
-    userLogState: "neverseen",
     uid: "",
   },
   orderData: {
