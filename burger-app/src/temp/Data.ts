@@ -20,7 +20,6 @@ export const builderConfig: Data = {
     userName: "",
     userSurname: "",
     userAddress: "Test",
-    userZip: 0,
     userEmail: "",
     userOrders: [
       {
@@ -50,7 +49,6 @@ export const builderConfig: Data = {
         date: new Date(),
       },
     ],
-    userCity: "",
     userToken: "",
     userPhoneNumber: 0,
     userlogoutTime: 0,

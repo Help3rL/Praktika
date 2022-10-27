@@ -22,10 +22,8 @@ export interface UserState{
     userName: string,
     userSurname: string,
     userAddress: string,
-    userZip?: number,
     userEmail: string,
     userOrders: Array<order>,
-    userCity?: string,
     userToken: string,
     userPhoneNumber?: number,
     userlogoutTime: number,
@@ -61,38 +59,21 @@ export type activeProps = {
     activatePurge?: string    
 }
 
-
-export type InitialStateInterface = {
-    loading: boolean
-    ingredients : IngredientsType | null 
-    totalPrice: number
-    error: boolean
-    burgerBuilderReducer ?:any
-    building: boolean
+export type rootReducerr = {
+    type: 'userData'|'activeData'
+    action: actions
+    
+    
+    
+    userData?: UserState
+    activeData?: InitialStates
 }
-export interface IngredientsType {
-    salad:number 
-    bacon:number
-    cheese:number 
-    meat:number 
-    [key:string] : number ; 
-  }
-  export interface UpdatedIngredientInterface {
-    type?: string;
-    ingredients?: IngredientsType;
-    error?: boolean | null;
-    purchased?: boolean;
-    loading?: boolean;
-    orders?: any[];
-    id?: number;
-    idToken?: any;
-    token?: any;
-    userId?: any;
-    building?: boolean;
-    authRedirectPath?: string;
-    path?: string;
-    totalPrice?: number;
-    valid?: boolean;
-    value?: string;
-    touched?: boolean;
-  }
+export type actions = {
+    type: string
+    userDataPayload?: UserState
+    activeDataPayload?: InitialStates
+    orderData?: order
+    ingrName?: string
+    activeDataAdd?: [string, number, number]
+}
+

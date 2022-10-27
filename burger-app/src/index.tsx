@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import {userData} from './controller/redux/main'
+import data from './controller/redux/main'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
@@ -12,7 +12,7 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <Provider store={userData}>
+    <Provider store={data}>
       <App />
     </Provider>
   </React.StrictMode>
