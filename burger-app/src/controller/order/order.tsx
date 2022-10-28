@@ -1,20 +1,49 @@
 import { each } from "immer/dist/internal";
 import React from "react";
 import { Data, StaticIngrData } from "../types";
+import './orders.css'
 
 const Order = (props: Data) => {
-  const ingrGenerator = (array: StaticIngrData, data: Data) => {
+  function totalIngr(array: StaticIngrData | undefined) {
+    let total: number = 0;
+    if (array !== undefined) {
+      Object.keys(array).forEach((ele: string) => {
+        console.log(array[ele][2]);
+        total += Number(array[ele][2]);
+      });
+      return total;
+    }
+    return 0;
+  }
+  function totalIngrCost(
+    array: StaticIngrData | undefined,
+    basecost: number | undefined
+  ) {
+    if (array !== undefined && basecost !== undefined) {
+      let total = basecost;
+      Object.keys(array).forEach((ele: string) => {
+        console.log(array[ele][2]);
+        total += Number(array[ele][2]) * Number(array[ele][1]);
+      });
+      return (total / 100).toFixed(2);
+    }
+    return "Error";
+  }
+  const ingrGenerator = (array: StaticIngrData |undefined, data: Data) => {
     let hold: any = [];
-    Object.keys(array).forEach((ele: string) => {
-      return (
+    if(array !== undefined){
+      Object.keys(array).forEach((ele: string) => {
+      hold.push(
         <tr>
           <th className="textToRight">{ele}</th>
-          <td>{(Number(array[ele[1]]) / 100).toFixed(2)}$</td>
-          <td>{data.activeData?.ingr[ele[2]]}</td>
-          <td>{array[ele[1]]}$</td>
+          <td>{(Number(array[ele][1]) / 100).toFixed(2)}$</td>
+          <td>{data.activeData?.ingr[ele][2]}</td>
+          <td>{((Number(array[ele][2]) * array[ele][1])/100).toFixed(2)}$</td>
         </tr>
       );
     });
+    }
+    
     return hold;
   };
   return (
@@ -35,29 +64,52 @@ const Order = (props: Data) => {
               </tr>
             </thead>
             <tbody>
-              {props.activeData?.ingr !== undefined ? (
+              {
                 ingrGenerator(props.activeData?.ingr, props)
-              ) : (
-                <tr>
-                  <th>Table is empty</th>
-                </tr>
-              )}
+              }
             </tbody>
           </table>
         </div>
         <div className="total">
           <p>
-            Total ingredients: <span className="totalIngr">{12}</span>
+            Total ingredients:{" "}
+            <span className="totalIngr">
+              {totalIngr(
+                props.activeData?.ingr !== undefined
+                  ? props.activeData.ingr
+                  : undefined
+              )}
+            </span>
           </p>
           <p>
-            Total ingredients cost: <span className="cost">{155.5}$</span>
+            Total ingredients cost:{" "}
+            <span className="cost">
+              {totalIngrCost(
+                props.activeData?.ingr !== undefined
+                  ? props.activeData.ingr
+                  : undefined,
+                props.activeData?.totalPrice
+              )}
+              $
+            </span>
           </p>
           <p>
-            Delivery cost: <span className="deliveryCost">{2.0}$</span>
+            Delivery cost:{" "}
+            <span className="deliveryCost">
+              {(Number(props.activeData?.DeliveryCost) / 100).toFixed(2)}$
+            </span>
           </p>
           <p>
             <strong>Sub Total:</strong>
-            <span className="subTotal">{3.0}$</span>
+            <span className="subTotal">
+              {(Number(totalIngrCost(
+                  props.activeData?.ingr !== undefined
+                    ? props.activeData.ingr
+                    : undefined,
+                  props.activeData?.totalPrice
+                )) + (Number(props.activeData?.DeliveryCost) / 100)).toFixed(2)}
+              $
+            </span>
           </p>
         </div>
       </div>
@@ -65,35 +117,17 @@ const Order = (props: Data) => {
         <h3>Delivery address</h3>
         <div className="address">
           <div className="input">
-            <label htmlFor="city">City</label>
-            <input
-              type="text"
-              name="city"
-              id="city"
-              defaultValue={"UserAccCity"}
-            />
-          </div>
-          <div className="input">
-            <label htmlFor="zip">Zip</label>
-            <input
-              type="number"
-              name="zip"
-              id="zip"
-              defaultValue={16564 || "UserAccZip"}
-            />
-          </div>
-          <div className="input">
-            <label htmlFor="address">Address</label>
             <input
               type="text"
               name="address"
               id="address"
-              defaultValue={"UserAccAddress"}
+              placeholder="Address"
+              defaultValue={props.userData?.userAddress !== undefined? props.userData.userAddress : ''}
             />
           </div>
         </div>
       </div>
-      <button type="submit">Place order</button>
+      <button type="submit" onClick={() => alert('place order')}>Place order</button>
     </div>
   );
 };

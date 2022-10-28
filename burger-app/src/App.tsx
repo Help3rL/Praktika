@@ -20,7 +20,9 @@ import ErrorPage from "./layout/errorPage";
 import { logout } from "./controller/firebase/auth";
 import { builderConfig } from "./temp/Data";
 import Orders from "./controller/order/orders";
-
+import { Data, InitialStates } from "./controller/types";
+import Order from './controller/order/order'
+import Module from './features/actions/modal/modal'
 const getAuthState = () => {
   return true;
 };
@@ -66,6 +68,7 @@ class ErrorBoundary extends React.Component {
 const NoMatch = () => {
   return (
     <div className="NothingFound">
+      <Toolbar/>
       <h1>Link not existing.</h1>
       <p>Check link and if you believe this is unintended</p>
       <p>Contact administration via purgatory.com</p>
@@ -130,11 +133,19 @@ function Toolbar() {
   }
   return <div>Error</div>;
 }
+const RenderOrder = (data: Data) => {
+  return (
+    <Module>
+      <Order activeData={data.activeData} />
+    </Module>
+  );
+};
 function App() {
   return (
     <div className="App">
       <ErrorBoundary>
         <Router>
+          {/* <RenderOrder activeData={builderConfig.activeData} /> */}
           <Toolbar />
           <Routes>
             <Route
@@ -177,15 +188,15 @@ function App() {
         </Router>
       </ErrorBoundary>
       <div className="temp">
-        <button onClick={addRandomOrders(20)}>Add random orders</button>
+        <button onClick={() => addRandomOrders(20)}>Add random orders</button>
       </div>
     </div>
   );
 }
 
 export default App;
+
 function addRandomOrders(arg0: number) {
-  console.log('click')
   function randomDate(
     start: Date,
     end: Date,
@@ -214,6 +225,5 @@ function addRandomOrders(arg0: number) {
       date: randomDate(new Date(), new Date(2011, 1, 25), 5, 15),
     });
   }
-  console.log(temphold);
   return undefined;
 }

@@ -44,7 +44,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #703B09;
+  background-color: #703b09;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,26 +56,44 @@
 .Toolbar nav {
   height: 100%;
 }
-.logoImage{
+.logoImage {
   height: 80%;
   width: 100%;
   filter: grayscale(100%) invert(100%);
   text-align: center;
 }
-.Toolbar ul{
+.Toolbar ul {
   width: fit-content;
 }
-.Toolbar ul li{
+.Toolbar ul li {
   display: inline-block;
   text-decoration: none;
   padding: 0.5em;
   color: #fff;
 }
-.Toolbar ul li a{
+.Toolbar ul li a {
   text-decoration: none;
-  color: #FFF;
+  color: #fff;
 }
 .Logo {
   height: 80%;
 }
 
+button {
+  width: 30vmin;
+  margin: auto;
+  font: inherit;
+  padding: 15px;
+  border: 1px solid #aa6817;
+  cursor: pointer;
+  outline: none;
+  background-color: #8f5e1e;
+  color: white;
+  font-weight: bold;
+  border-radius: 12px;
+  margin-top: 0.5vmax;
+}
+button:hover {
+  border: 1px solid #aa6817;
+  background-color: #d39952;
+}

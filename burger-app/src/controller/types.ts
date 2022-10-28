@@ -14,20 +14,18 @@ export type InitialStates = {
     error: boolean;
     building: boolean;
     buying: boolean;
+    update?: any;
+    DeliveryCost?: number;
   };
 
 export interface UserState{
     userName: string,
     userSurname: string,
     userAddress: string,
-    userZip?: number,
     userEmail: string,
     userOrders: Array<order>,
-    userCity?: string,
-    userToken: string,
     userPhoneNumber?: number,
     userlogoutTime: number,
-    userLogState?: 'logedin'|'logout'|'neverseen'|boolean,
     uid: string
 }
 export type props = {
@@ -38,7 +36,7 @@ export type props = {
 }
 
 export type StaticIngrData = {
-    [Name:string]: Array<string|number>  
+    [Name:string]: [string, number, number?]
     // In structure| Ingredients: [Name, price, amount]   
 }
 
@@ -71,3 +69,22 @@ export type activeDataAction = {
     type: string,
     payload: InitialStates
 }
+
+export type rootReducerr = {
+    type: 'userData'|'activeData'
+    action: actions
+    
+    
+    
+    userData?: UserState
+    activeData?: InitialStates
+}
+export type actions = {
+    type: string
+    userDataPayload?: UserState
+    activeDataPayload?: InitialStates
+    orderData?: order
+    ingrName?: string
+    activeDataAdd?: [string, number, number]
+}
+

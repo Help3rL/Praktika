@@ -4,21 +4,22 @@ export const builderConfig: Data = {
   activeData: {
     loading: true,
     ingr: {
-      patty: ["patty", 150, 1],
-      cheese: ["cheese", 200, 2],
-      lettuce: ["lettuce", 300, 3],
-      tomato: ["tomato", 400, 4],
+      patty: ["patty", 150, 10],
+      cheese: ["cheese", 200, 3],
+      lettuce: ["lettuce", 300, 2],
+      tomato: ["tomato", 400,8],
     },
     totalPrice: 0,
     error: false,
     building: true,
     buying: false,
+    update: () => {},
+    DeliveryCost: 250
   },
   userData: {
     userName: "",
     userSurname: "",
-    userAddress: "",
-    userZip: 0,
+    userAddress: "Test",
     userEmail: "",
     userOrders: [
       {
@@ -48,11 +49,8 @@ export const builderConfig: Data = {
         date: new Date(),
       },
     ],
-    userCity: "",
-    userToken: "",
     userPhoneNumber: 0,
     userlogoutTime: 0,
-    userLogState: "neverseen",
     uid: "",
   },
   orderData: {
