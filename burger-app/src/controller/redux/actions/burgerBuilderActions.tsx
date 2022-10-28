@@ -1,6 +1,13 @@
+import { collection, getFirestore } from 'firebase/firestore'
 import * as actionTypes from './actionTypes'
-import { IngredientsType } from '../../containers/BurgerBuilder/BurgerBuilder'
-import axios from '../../axios-orders'
+
+export interface IngredientsType {
+    salad:number 
+    bacon:number
+    cheese:number 
+    meat:number 
+    [key:string] : number ; 
+}
 
 export interface ActionsInterface {
     type: string
@@ -39,12 +46,9 @@ export const fetchIngredientsFailed = () => {
 }
 
 export const initIngredients = () => {
-    return (dispatch:any) => {
-        axios.get('https://burger-app-12de6-default-rtdb.europe-west1.firebasedatabase.app/ingredients.json')
-        .then(response => {
-          dispatch (setIngredients(response.data))
-        }).catch (error => {
-            dispatch(fetchIngredientsFailed())
-        })
+    return () => {
+        const db = getFirestore()
+        const coll = collection(db, 'burgerData/Ingredients/ingredients')
+        return coll
     }
 }
