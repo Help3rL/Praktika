@@ -1,60 +1,37 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { profile } from "console";
-import { auth } from "firebase-admin";
-import { getAuth } from "firebase/auth";
+import { configureStore } from '@reduxjs/toolkit';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from "react";
-import { actions, InitialStates, rootReducerr, UserState } from "../types";
-import {
-  ADD_INGREDIENT,
-  FETCH_INGREDIENTS_FAILED,
-  INIT_INGREDIENTS,
-  REMOVE_INGREDIENT,
-  SET_INGREDIENTS,
-  USER_DATA_FETCH,
-  USER_DATA_GET,
-  USER_DATA_INIT,
-  USER_DATA_SET,
-  USER_ORDERS_ADD,
-  USER_ORDERS_ADD_FAILIURE,
-  USER_ORDERS_ADD_SUCCESS,
-  USER_ORDERS_GET,
-  USER_ORDRES_LOAD,
-  USER_ORDRES_LOAD_FAILIURE,
-  USER_ORDRES_LOAD_SUCCESS,
-} from "./actionTypes";
-const initUserData:UserState = {
-  userName: "",
-  userSurname: "",
-  userAddress: "Test",
-  userEmail: "",
-  userOrders: [],
-  userPhoneNumber: 0,
-  userlogoutTime: 0,
-  uid: "",
-}
-const initActiveData:InitialStates = {
-  loading: true,
-  ingr: {},
-  totalPrice: 0,
-  error: false,
-  building: true,
-  buying: false,
-  DeliveryCost: 250,
-}
-export default function rootReducer(state: rootReducerr, action: actions) {
-  return {
-    userDataReduce: userDataReducer(
-      state.userData ? state.userData : initUserData,
-      action
-    ),
-    activeDataReduce: activeDataReducer(
-      state.activeData ? state.activeData : initActiveData,
-      action
-    ),
-  };
-}
+import React from 'react';
+import userDataReducer from './userdata'
+export const userData = configureStore({
+    reducer: {
+        userName: userDataReducer.usernameReducer,
+        userSurname: userDataReducer.surnameReducer,
+        userAddress: userDataReducer.addressReducer,
+        userZip: userDataReducer.zipReducer,
+        userEmail: userDataReducer.emailReducer,
+        userOrders: userDataReducer.ordersReducer,
+        userCity: userDataReducer.cityReducer,
+        userToken: userDataReducer.tokenReducer,
+        userPhoneNumber: userDataReducer.telNumberReducer,
+        userlogoutTime: userDataReducer.logoutReducer,
+        userLogState: userDataReducer.logstateReducer,
+        uid: userDataReducer.uidReducer
+    }
+})
+export type userDataRoot = ReturnType<typeof userData.getState>
+export type userDataAppDispatch = typeof userData.dispatch
 
+/* 
+add ingr
+remove ingr
+call order
+record order
+get userdata
+send updates from controlls to visual
+send updates to user data mainly orders 
+record order information to firestore
+!!!No auth handling needed!!!
+*/
 export function userDataReducer(state: UserState, action: actions) {
   switch (action.type) {
     case USER_DATA_FETCH:

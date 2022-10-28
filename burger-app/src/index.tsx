@@ -5,7 +5,6 @@ import store from './controller/redux/store'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import { createStore } from '@reduxjs/toolkit';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);

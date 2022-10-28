@@ -56,6 +56,19 @@ export type activeProps = {
     activateNuclear?: string,
     activatePurge?: string    
 }
+export type rootReducers ={
+    userDataReducer?: userDataAction
+    activeDataReducer?: activeDataAction
+}
+export type userDataAction = {
+    type: string,
+    payload: UserState
+    orderpayload: order
+}
+export type activeDataAction = {
+    type: string,
+    payload: InitialStates
+}
 
 export type rootReducerr = {
     type: 'userData'|'activeData'
