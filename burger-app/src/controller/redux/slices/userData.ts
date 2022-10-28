@@ -27,7 +27,7 @@ const userData = createSlice({
         const auth = getAuth();
         const user = auth.currentUser
         
-        const docRef = doc(db, user?.uid)
+        // const docRef =
         if (user !== null){
             state.userLogState = true;
             user.providerData.forEach(ele => console.log(ele))

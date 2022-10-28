@@ -77,6 +77,7 @@ export function userDataReducer(state: UserState, action: actions) {
           console.log("  Name: " + profile.displayName);
           console.log("  Email: " + profile.email);
           console.log("  Photo URL: " + profile.photoURL);
+          console.log(profile)
         });
       }
       break;
