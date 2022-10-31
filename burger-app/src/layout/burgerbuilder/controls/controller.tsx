@@ -34,7 +34,7 @@ export default function controller(props: Data) {
         <button
           type="submit"
           className="button"
-          onClick={() => alert('Order')} >
+          onClick={() => renderOrder()} >
           Order
         </button>
       </div>

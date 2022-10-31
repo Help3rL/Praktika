@@ -1,13 +1,6 @@
 import { collection, getFirestore } from 'firebase/firestore'
+import { StaticIngrData } from '../../types'
 import * as actionTypes from './actionTypes'
-
-export interface IngredientsType {
-    salad:number 
-    bacon:number
-    cheese:number 
-    meat:number 
-    [key:string] : number ; 
-}
 
 export interface ActionsInterface {
     type: string
@@ -15,7 +8,7 @@ export interface ActionsInterface {
 }
 
 interface setIngredientsInterface extends ActionsInterface {
-    ingredients : IngredientsType
+    ingredients : StaticIngrData
 }
 
 export const addIngredient = (name:string):ActionsInterface => {
@@ -32,7 +25,7 @@ export const removeIngredient = (name:string):ActionsInterface => {
     }
 }
 
-export const setIngredients = (ingredients:IngredientsType):setIngredientsInterface => {
+export const setIngredients = (ingredients:StaticIngrData):setIngredientsInterface => {
     return {
         type:actionTypes.SET_INGREDIENTS,
         ingredients: ingredients

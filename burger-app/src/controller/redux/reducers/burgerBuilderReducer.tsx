@@ -4,6 +4,14 @@ import { UpdatedIngredientInterface } from "../utility";
 import { Reducer } from "react";
 import { Action, AnyAction } from "redux";
 
+export interface IngredientsType {
+  salad:number 
+  bacon:number
+  cheese:number 
+  meat:number 
+  [key:string] : number ; 
+}
+
 
 export type InitialStateInterface = {
   loading: boolean;

@@ -1,5 +1,7 @@
 import React from "react";
 import { InitialStates, StaticIngrData } from "../../../controller/types";
+import {addIngredient, removeIngredient} from '../../../controller/redux/actions/burgerBuilderActions'
+
 let hold = 1 || undefined;
 export default function control(props: InitialStates) {
 
@@ -8,13 +10,11 @@ export default function control(props: InitialStates) {
     if (action === "Add" && hold < 100) {
       hold++;
       let hart = props.ingr[ingrName][2];
-      props.ingr[ingrName][2] = hart !== undefined ? hart + 1 : undefined;
-      console.log("test++" + props.ingr[ingrName][2]);
+      addIngredient(props.ingr[ingrName][0])
     } else if (action === "Substract" && hold > 0) {
       hold--;
       let hart = props.ingr[ingrName][2];
-      props.ingr[ingrName][2] = hart !== undefined ? hart - 1 : undefined;
-      console.log("test" + props.ingr[ingrName][2]);
+      removeIngredient(props.ingr[ingrName][0])
     } else {
       console.debug("MAX/MIN" + hold);
     }

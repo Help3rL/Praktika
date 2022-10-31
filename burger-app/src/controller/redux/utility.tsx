@@ -1,5 +1,10 @@
-import { IngredientsType } from "../containers/BurgerBuilder/BurgerBuilder";
-import { ValidationAuthInterface } from "../containers/Auth/Auth";
+export interface IngredientsType {
+  salad:number 
+  bacon:number
+  cheese:number 
+  meat:number 
+  [key:string] : number ; 
+}
 
 export interface UpdatedIngredientInterface {
   type?: string;
@@ -29,25 +34,4 @@ export const updateObject = (
     ...oldObject,
     ...updatedProperties,
   };
-};
-
-export const checkValidity = (
-  value: string,
-  rules: ValidationAuthInterface
-): boolean => {
-  let isValid: boolean = true;
-  if (!rules) {
-    return true;
-  }
-  if (rules.required) {
-    isValid = value.trim() !== "" && isValid;
-  }
-  if (rules.minLength) {
-    isValid = value.length >= rules.minLength && isValid;
-  }
-  if (rules.maxLength) {
-    isValid = value.length <= rules.maxLength && isValid;
-  }
-
-  return isValid;
 };
