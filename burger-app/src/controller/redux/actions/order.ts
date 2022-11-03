@@ -3,12 +3,9 @@ import {
   collection,
   Firestore,
   FirestoreError,
-  getDoc,
   getFirestore,
-  query,
-  where,
 } from "firebase/firestore";
-import { app, firebaseConfig } from "../../firebase/firebase_config";
+import { app } from "../../firebase/firebase_config";
 import * as actionTypes from "./actionTypes";
 
 const cord = getAuth(app);

@@ -1,5 +1,5 @@
 // Application external imports
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Navigate,
@@ -25,14 +25,17 @@ import { Data } from "./controller/types";
 import Order from "./controller/order/order";
 import Module from "./features/actions/modal/modal";
 
+// React hooks for basic local routing
+
+///
 
 const getAuthState = () => {
   const auth = getAuth();
-  const user = auth.currentUser
+  const user = auth.currentUser;
   if (user) {
     return true;
   } else {
-    return false
+    return false;
   }
 };
 
@@ -102,17 +105,17 @@ function updateStateOrder() {
 }
 
 function Home() {
+  const [State, setState] = useState(false);
+
   return (
     <div className="content">
       <Builder activeData={builderConfig.activeData} />
-      {builderConfig.activeData !== undefined ? (
-            builderConfig.activeData.buying ? (
-              <RenderOrder activeData={builderConfig.activeData} />
-            ) : (
-              <div></div>
-            )
-          ) : null}
-      <button onClick={() => updateStateOrder()}>Order</button>
+      {State == true ?
+      <RenderOrder activeData={builderConfig.activeData} />:
+      ''
+      }
+
+      <button onClick={() => setState(true)}>Order</button>
     </div>
   );
 }
