@@ -4,10 +4,10 @@ export const builderConfig: Data = {
   activeData: {
     loading: true,
     ingr: {
-      patty: ["patty", 150, 10],
-      cheese: ["cheese", 200, 3],
-      lettuce: ["lettuce", 300, 2],
-      tomato: ["tomato", 400,8],
+      patty: ["patty", 150, 1],
+      cheese: ["cheese", 200, 1],
+      lettuce: ["lettuce", 300, 1],
+      tomato: ["tomato", 400,1],
     },
     totalPrice: 0,
     error: false,

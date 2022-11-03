@@ -18,7 +18,7 @@ export interface buildControlsInterface {
     isAuth: boolean | null
     // disabled: any;
 }
-
+ 
 const buildControls = (props:buildControlsInterface) => (
     <div className={classes.BuildControls}>
         <p>Current Price: <strong>{props.price.toFixed(2)}</strong></p>

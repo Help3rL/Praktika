@@ -1,20 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { applyMiddleware, compose, combineReducers } from 'redux'
-import reducer from './store/reducers/burgerBuilderReducer'
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk'
-import orderReducer from './store/reducers/order'
-import burgerBuilderReducer from './store/reducers/burgerBuilderReducer'
-import authReducer from './store/reducers/auth'
-import { configureStore } from '@reduxjs/toolkit'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { applyMiddleware, compose, combineReducers } from "redux";
+import reducer from "./store/reducers/burgerBuilderReducer";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
+import orderReducer from "./store/reducers/order";
+import burgerBuilderReducer from "./store/reducers/burgerBuilderReducer";
+import authReducer from "./store/reducers/auth";
+import { configureStore } from "@reduxjs/toolkit";
 // pakeicianti reduceriu action typus i atitinkamus interfeisus vietoj any typo neleidzia deklaruoti reducerio
-
 
 // const rootReducer = combineReducers({
 //   orderReducer,
@@ -22,32 +21,28 @@ import { configureStore } from '@reduxjs/toolkit'
 //   authReducer,
 // })
 
-const store = configureStore ({
+const store = configureStore({
   reducer: {
     orderReducer,
     burgerBuilderReducer,
-    authReducer : authReducer
+    authReducer: authReducer,
   },
-  middleware: [thunk]
-})
+  middleware: [thunk],
+});
 
-export type RootState = ReturnType<typeof store.getState>
-
+export type RootState = ReturnType<typeof store.getState>;
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-    
+  document.getElementById("root") as HTMLElement
 );
-
 
 root.render(
   <React.StrictMode>
-    <Provider store = {store}>
+    <Provider store={store}>
       <BrowserRouter>
-          <App />
+        <App />
       </BrowserRouter>
     </Provider>
-    
   </React.StrictMode>
 );
 
