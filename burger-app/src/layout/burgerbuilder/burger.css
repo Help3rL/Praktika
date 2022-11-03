@@ -136,7 +136,7 @@
 	display: inline-block;
 	font: inherit;
 	padding: 5px;
-	margin: 0 5px;
+	margin: 5px 5px;
 	width: 80px;
 	border: 1px solid #aa6817;
 	cursor: pointer;
@@ -159,14 +159,18 @@
 
 .controlContainer{
     display: inline-flex;
+	border: #646464 1px solid;
+	border-radius: 0.5vw;
+	margin: 0.25vw 0;
 }
 
 .Label {
 	padding: 10px;
 	font-weight: bold;
-	width: 80px;
+	width: 120px;
     text-transform: capitalize;
     display: inline-block;
+	text-align: end;
 }
 
 .BuildControl .Less {

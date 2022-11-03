@@ -4,7 +4,6 @@ import {addIngredient, removeIngredient} from '../../../controller/redux/actions
 
 let hold = 1 || undefined;
 export default function control(props: InitialStates) {
-
   const holdd = (action: string, ingrName: string) => {
     hold = (props.ingr[ingrName][2] !== undefined ? Number(props.ingr[ingrName][2]) : hold);
     if (action === "Add" && hold < 100) {
@@ -35,7 +34,7 @@ export default function control(props: InitialStates) {
       tempHold.push(
         <div key={key + value} className="controlContainer">
           <label htmlFor="buttons" className="Label">
-            {key}:{(Number(value[1]) / 100).toFixed(2)}
+            {key}: {(Number(value[1]) / 100).toFixed(2)}€
           </label>
           <div id="buttons">
             <button className="More" onClick={() => holdd("Add", key)}>

@@ -7,6 +7,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import { getAuth } from "firebase/auth";
 
 // Application local imports
 import logo from "./assets/images/logo.png";
@@ -20,11 +21,19 @@ import ErrorPage from "./layout/errorPage";
 import { logout } from "./controller/firebase/auth";
 import { builderConfig } from "./temp/Data";
 import Orders from "./controller/order/orders";
-import { Data, InitialStates } from "./controller/types";
-import Order from './controller/order/order'
-import Module from './features/actions/modal/modal'
+import { Data } from "./controller/types";
+import Order from "./controller/order/order";
+import Module from "./features/actions/modal/modal";
+
+
 const getAuthState = () => {
-  return true;
+  const auth = getAuth();
+  const user = auth.currentUser
+  if (user) {
+    return true;
+  } else {
+    return false
+  }
 };
 
 class ErrorBoundary extends React.Component {
@@ -37,7 +46,6 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error: any) {
-    // Update state so the next render will show the fallback UI.
     console.error(error);
     return { hasError: true };
   }
@@ -50,7 +58,6 @@ class ErrorBoundary extends React.Component {
       </div>
     );
   }
-  //Renders Fallback
   render() {
     if (this.state.hasError) {
       return (
@@ -68,7 +75,7 @@ class ErrorBoundary extends React.Component {
 const NoMatch = () => {
   return (
     <div className="NothingFound">
-      <Toolbar/>
+      <Toolbar />
       <h1>Link not existing.</h1>
       <p>Check link and if you believe this is unintended</p>
       <p>Contact administration via purgatory.com</p>
@@ -76,13 +83,40 @@ const NoMatch = () => {
   );
 };
 
+function updateStateOrder() {
+  console.log("updateStateOrder");
+  if (builderConfig.activeData !== undefined) {
+    console.log("test1");
+    if (!builderConfig.activeData?.buying) {
+      console.log("test2");
+      builderConfig.activeData.buying = true;
+    } else {
+      builderConfig.activeData.buying = false;
+    }
+  } else {
+    console.log("test3");
+    throw new Error("failed to get data");
+  }
+  console.log(builderConfig);
+  return undefined;
+}
+
 function Home() {
   return (
     <div className="content">
       <Builder activeData={builderConfig.activeData} />
+      {builderConfig.activeData !== undefined ? (
+            builderConfig.activeData.buying ? (
+              <RenderOrder activeData={builderConfig.activeData} />
+            ) : (
+              <div></div>
+            )
+          ) : null}
+      <button onClick={() => updateStateOrder()}>Order</button>
     </div>
   );
 }
+
 function Toolbar() {
   if (getAuthState() === false) {
     return (
@@ -145,7 +179,6 @@ function App() {
     <div className="App">
       <ErrorBoundary>
         <Router>
-          {/* <RenderOrder activeData={builderConfig.activeData} /> */}
           <Toolbar />
           <Routes>
             <Route

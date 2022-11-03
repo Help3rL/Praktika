@@ -1,6 +1,6 @@
 import { Data } from "../controller/types";
 
-export const builderConfig: Data = {
+export let builderConfig: Data = {
   activeData: {
     loading: true,
     ingr: {

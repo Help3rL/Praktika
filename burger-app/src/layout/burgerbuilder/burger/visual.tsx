@@ -18,6 +18,7 @@ const visual = (props: InitialStates) => {
     });
     return temphold;
   };
+  
   return (
     <div className="burgervisual">
       <div className="topbun">

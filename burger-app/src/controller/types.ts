@@ -1,3 +1,5 @@
+import { MouseEventHandler } from "react";
+
 export type order = {
     ingrName: StaticIngrData,
     orderCost: number,
@@ -41,6 +43,7 @@ export type StaticIngrData = {
 }
 
 export type Data = {
+    startorder?: undefined;
     ingrData?: StaticIngrData
     orderData?: order
     userData?: UserState

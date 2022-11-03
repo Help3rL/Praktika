@@ -4,21 +4,8 @@ import Module from "../../../features/actions/modal/modal";
 import Order from "../../../controller/order/order";
 import { Data, InitialStates } from "../../../controller/types";
 export default function controller(props: Data) {
-  const renderOrder = (data?: InitialStates) => {
-    return (
-      <Module>
-        <Order activeData={data} />
-      </Module>
-    );
-  };
-  function logincheck() {
-    if (props.userData?.uid !== undefined){
+  function _onClick(){
 
-    } else if (props.userData?.uid === undefined){
-
-    } else {
-      
-    }
   }
   return (
     <div className="BuildControll">
@@ -30,14 +17,7 @@ export default function controller(props: Data) {
         building={false}
         buying={false}
       />
-      <div>
-        <button
-          type="submit"
-          className="button"
-          onClick={() => renderOrder()} >
-          Order
-        </button>
-      </div>
     </div>
   );
 }
+
