@@ -37,7 +37,7 @@
   }
 }
 .devider::after{
-  content: '========================================================';
+  content: '╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪╪';
   color: #61dafb;
 }
 button {
@@ -48,4 +48,15 @@ button {
   font-weight: bolder;
   color: white;
   background-color: #ffffff28;
+}
+button:hover{
+  background-color: #ffffff60;
+}
+h1:after {
+  content: 'Component';
+}
+.bordered {
+  font-size: 10vh;
+  font-weight: 900;
+  padding: 1vw;
 }
