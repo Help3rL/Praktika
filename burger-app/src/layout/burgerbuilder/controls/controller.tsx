@@ -1,21 +1,25 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import Control from "./control";
-import Module from "../../../features/actions/modal/modal";
-import Order from "../../../controller/order/order";
-import { Data, InitialStates } from "../../../controller/types";
-export default function controller(props: Data) {
+import { Data, InitialStates, StaticIngrData } from "../../../controller/types";
+import { ActionFunction } from "react-router";
+
+interface contorllerFace {
+  data: InitialStates
+  ingr: StaticIngrData
+  ingrUpdate: Dispatch<SetStateAction<StaticIngrData>>
+}
+
+//props ===> from BuilderMaster
+
+export default function controller(props: contorllerFace) {
   function _onClick(){
 
   }
   return (
     <div className="BuildControll">
       <Control
-        ingr={props.activeData?.ingr !== undefined ? props.activeData.ingr : {}}
-        loading={false}
-        totalPrice={0}
-        error={false}
-        building={false}
-        buying={false}
+        ingr={props.data} 
+        updateIngr={props.ingrUpdate}        
       />
     </div>
   );

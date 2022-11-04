@@ -1,9 +1,13 @@
 import { each } from "immer/dist/internal";
 import React from "react";
-import { Data, StaticIngrData } from "../types";
-import './orders.css'
-
-const Order = (props: Data) => {
+import { Data, InitialStates, StaticIngrData, UserState } from "../types";
+import {builderConfig} from '../../temp/Data'
+import "./orders.css";
+interface OrderFace {
+  activeData: InitialStates
+  userData: UserState
+}
+const Order = (props:OrderFace) => {
   function totalIngr(array: StaticIngrData | undefined) {
     let total: number = 0;
     if (array !== undefined) {
@@ -29,28 +33,30 @@ const Order = (props: Data) => {
     }
     return "Error";
   }
-  const ingrGenerator = (array: StaticIngrData |undefined, data: Data) => {
+  const ingrGenerator = (array: StaticIngrData | undefined, data: Data) => {
     let hold: any = [];
-    if(array !== undefined){
+    if (array !== undefined) {
       Object.keys(array).forEach((ele: string) => {
-      hold.push(
-        <tr>
-          <th className="textToRight">{ele}</th>
-          <td>{(Number(array[ele][1]) / 100).toFixed(2)}$</td>
-          <td>{data.activeData?.ingr[ele][2]}</td>
-          <td>{((Number(array[ele][2]) * array[ele][1])/100).toFixed(2)}$</td>
-        </tr>
-      );
-    });
+        hold.push(
+          <tr>
+            <th className="textToRight">{ele}</th>
+            <td>{(Number(array[ele][1]) / 100).toFixed(2)}$</td>
+            <td>{data.activeData?.ingr[ele][2]}</td>
+            <td>
+              {((Number(array[ele][2]) * array[ele][1]) / 100).toFixed(2)}€
+            </td>
+          </tr>
+        );
+      });
     }
-    
+
     return hold;
   };
   return (
     <div className="order">
       <h3>Order information</h3>
       <p>
-        Burger's base price:<span>{"4.00$"}</span>
+        Burger's base price:<span>{props.activeData?.DeliveryCost}€</span>
       </p>
       <div className="information">
         <div className="ingredients">
@@ -63,11 +69,7 @@ const Order = (props: Data) => {
                 <th>Cost</th>
               </tr>
             </thead>
-            <tbody>
-              {
-                ingrGenerator(props.activeData?.ingr, props)
-              }
-            </tbody>
+            <tbody>{ingrGenerator(props.activeData.ingr, props)}</tbody>
           </table>
         </div>
         <div className="total">
@@ -90,25 +92,35 @@ const Order = (props: Data) => {
                   : undefined,
                 props.activeData?.totalPrice
               )}
-              $
+              €
             </span>
           </p>
-          <p>
-            Delivery cost:{" "}
-            <span className="deliveryCost">
-              {(Number(props.activeData?.DeliveryCost) / 100).toFixed(2)}$
-            </span>
-          </p>
+          {Number(props.activeData.DeliveryCost) == undefined ? (
+            ""
+          ) : (
+            <p>
+              Delivery cost:{" "}
+              <span className="deliveryCost">
+                {(Number(props.activeData?.DeliveryCost) / 100).toFixed(2)}€
+              </span>
+            </p>
+          )}
+
           <p>
             <strong>Sub Total:</strong>
             <span className="subTotal">
-              {(Number(totalIngrCost(
-                  props.activeData?.ingr !== undefined
-                    ? props.activeData.ingr
-                    : undefined,
-                  props.activeData?.totalPrice
-                )) + (Number(props.activeData?.DeliveryCost) / 100)).toFixed(2)}
-              $
+              {(
+                Number(
+                  totalIngrCost(
+                    props.activeData?.ingr !== undefined
+                      ? props.activeData.ingr
+                      : undefined,
+                    props.activeData?.totalPrice
+                  )
+                ) +
+                Number(props.activeData?.DeliveryCost) / 100
+              ).toFixed(2)}
+              €
             </span>
           </p>
         </div>
@@ -122,12 +134,18 @@ const Order = (props: Data) => {
               name="address"
               id="address"
               placeholder="Address"
-              defaultValue={props.userData?.userAddress !== undefined? props.userData.userAddress : ''}
+              defaultValue={
+                props.userData?.userAddress !== undefined
+                  ? props.userData.userAddress
+                  : ""
+              }
             />
           </div>
         </div>
       </div>
-      <button type="submit" onClick={() => alert('place order')}>Place order</button>
+      <button type="submit" onClick={() => alert("place order")}>
+        Place order
+      </button>
     </div>
   );
 };

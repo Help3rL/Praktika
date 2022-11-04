@@ -3,16 +3,16 @@ import { Link, useNavigate, Navigate } from "react-router-dom";
 import { auth, logInWithEmailAndPassword } from "../firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./auth.css";
+import Loader from "../../layout/loader/loader";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-  console.error(error)
   useEffect(() => {
     if (loading) {
-      // maybe trigger a loading screen
-      return;
+     <Loader/>
+      return ;
     }
     if (user) navigate("/");
   }, [user, loading]);

@@ -43,22 +43,14 @@ export type StaticIngrData = {
 }
 
 export type Data = {
-    startorder?: undefined;
     ingrData?: StaticIngrData
-    orderData?: order
     userData?: UserState
-    activeData?: InitialStates
-    activeProps?: activeProps
+    activeData: InitialStates
 }
 export type error = {
-    [Element: string]: any
+    [Element: string]: Object
 }
 
-export type activeProps = {
-    sendSubmit?: string,
-    activateNuclear?: string,
-    activatePurge?: string    
-}
 export type rootReducers ={
     userDataReducer?: userDataAction
     activeDataReducer?: activeDataAction

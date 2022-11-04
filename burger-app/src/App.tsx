@@ -1,5 +1,5 @@
 // Application external imports
-import React, { useState } from "react";
+import React, { lazy, useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Navigate,
@@ -32,9 +32,11 @@ import Module from "./features/actions/modal/modal";
 const getAuthState = () => {
   const auth = getAuth();
   const user = auth.currentUser;
-  if (user) {
+  if (user !== null) {
+    console.log(user?.getIdToken + " + " + user?.displayName);
     return true;
   } else {
+    console.log(user + " false");
     return false;
   }
 };
@@ -86,42 +88,53 @@ const NoMatch = () => {
   );
 };
 
-function updateStateOrder() {
-  console.log("updateStateOrder");
-  if (builderConfig.activeData !== undefined) {
-    console.log("test1");
-    if (!builderConfig.activeData?.buying) {
-      console.log("test2");
-      builderConfig.activeData.buying = true;
-    } else {
-      builderConfig.activeData.buying = false;
-    }
-  } else {
-    console.log("test3");
-    throw new Error("failed to get data");
-  }
-  console.log(builderConfig);
-  return undefined;
-}
-
 function Home() {
   const [State, setState] = useState(false);
 
   return (
     <div className="content">
-      <Builder activeData={builderConfig.activeData} />
-      {State == true ?
-      <RenderOrder activeData={builderConfig.activeData} />:
-      ''
-      }
-
-      <button onClick={() => setState(true)}>Order</button>
+      <Builder
+        ingr={builderConfig.activeData !== undefined?builderConfig.activeData?.ingr: {}}
+        userData={
+          builderConfig.userData !== undefined
+            ? builderConfig.userData
+            : {
+                userName: "",
+                uid: "",
+                userAddress: "",
+                userEmail: "",
+                userlogoutTime: 0,
+                userOrders: [],
+                userSurname: "",
+              }
+        }
+        activedata={
+          builderConfig.activeData !== undefined
+            ? builderConfig.activeData
+            : {
+                loading: true,
+                ingr: {},
+                totalPrice: 0,
+                error: false,
+                building: true,
+                buying: false,
+                DeliveryCost: 0,
+              }
+        }
+      />
     </div>
   );
 }
 
 function Toolbar() {
-  if (getAuthState() === false) {
+  const [AuthState, setAuthState] = useState(false);
+  useEffect(() => {
+    console.log(AuthState);
+    return () => {
+      setAuthState(getAuthState());
+    };
+  });
+  if (AuthState === false) {
     return (
       <header>
         <nav className="Toolbar">
@@ -141,7 +154,9 @@ function Toolbar() {
         </nav>
       </header>
     );
-  } else if (getAuthState() === true) {
+  }
+
+  if (AuthState === true) {
     return (
       <header>
         <nav className="Toolbar">
@@ -168,15 +183,9 @@ function Toolbar() {
       </header>
     );
   }
-  return <div>Error</div>;
+  return <div></div>;
 }
-const RenderOrder = (data: Data) => {
-  return (
-    <Module>
-      <Order activeData={data.activeData} />
-    </Module>
-  );
-};
+
 function App() {
   return (
     <div className="App">
@@ -216,7 +225,7 @@ function App() {
               <Route path="/account/settings" element="" />
               <Route
                 path="/account/orders"
-                element={<Orders orderData={builderConfig.orderData} />}
+                element={<Orders activeData={builderConfig.activeData}/>}
               />
             </Route>
             <Route path="*" element={<NoMatch />} />

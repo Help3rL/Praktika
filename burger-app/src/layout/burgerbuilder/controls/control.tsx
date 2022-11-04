@@ -1,19 +1,25 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { InitialStates, StaticIngrData } from "../../../controller/types";
 import {addIngredient, removeIngredient} from '../../../controller/redux/actions/burgerBuilderActions'
-
+import {builderConfig} from '../../../temp/Data'
 let hold = 1 || undefined;
-export default function control(props: InitialStates) {
+
+interface controlFace {
+  ingr: InitialStates,
+  updateIngr: Dispatch<SetStateAction<StaticIngrData>>
+}
+// props ===> from controller
+export default function control(props: controlFace) {
   const holdd = (action: string, ingrName: string) => {
-    hold = (props.ingr[ingrName][2] !== undefined ? Number(props.ingr[ingrName][2]) : hold);
+    hold = (props.ingr.ingr[ingrName][2] !== undefined ? Number(props.ingr.ingr[ingrName][2]) : hold);
     if (action === "Add" && hold < 100) {
       hold++;
-      let hart = props.ingr[ingrName][2];
-      addIngredient(props.ingr[ingrName][0])
+      let hart = props.ingr.ingr[ingrName][2];
+      console.log(props.updateIngr)
     } else if (action === "Substract" && hold > 0) {
       hold--;
-      let hart = props.ingr[ingrName][2];
-      removeIngredient(props.ingr[ingrName][0])
+      let hart = props.ingr.ingr[ingrName][2];
+      
     } else {
       console.debug("MAX/MIN" + hold);
     }
@@ -29,6 +35,7 @@ export default function control(props: InitialStates) {
     return undefined;
   }
   const generator = (hen: StaticIngrData) => {
+    console.debug(hen)
     const tempHold = [];
     for (const [key, value] of Object.entries(hen)) {
       tempHold.push(
@@ -37,7 +44,7 @@ export default function control(props: InitialStates) {
             {key}: {(Number(value[1]) / 100).toFixed(2)}€
           </label>
           <div id="buttons">
-            <button className="More" onClick={() => holdd("Add", key)}>
+            <button className="More" onClick={() => builderConfig.activeData.ingr[key][2] !== undefined ? builderConfig.activeData.ingr[key][2] =+ 1 : builderConfig.activeData.ingr[key][2]}>
               More
             </button>
             <button className="Less" onClick={() => holdd("Substract", key)}>
@@ -51,5 +58,5 @@ export default function control(props: InitialStates) {
     return tempHold;
   };
 
-  return <div className="BuildControl">{generator(props.ingr)}</div>;
+  return <div className="BuildControl">{generator(props.ingr.ingr)}</div>;
 }
