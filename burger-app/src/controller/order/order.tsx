@@ -1,7 +1,7 @@
 import { each } from "immer/dist/internal";
 import React from "react";
 import { Data, InitialStates, StaticIngrData, UserState } from "../types";
-import {builderConfig} from '../../temp/Data'
+
 import "./orders.css";
 interface OrderFace {
   activeData: InitialStates

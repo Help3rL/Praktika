@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticIngrData } from "../../../controller/types";
-import {builderConfig} from '../../../temp/Data'
+
 interface visualFace{ 
   ingr: StaticIngrData
 }
@@ -28,7 +28,7 @@ const visual = (props: visualFace) => {
         <div className="Seed1"></div>
         <div className="Seed2"></div>
       </div>
-      <div className="ingredients">{genIngr(builderConfig.activeData !== undefined? builderConfig.activeData.ingr : {})}</div>
+      <div className="ingredients">{genIngr(props.ingr)}</div>
       <div className="bottombun"></div>
     </div>
   );

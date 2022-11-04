@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { InitialStates, StaticIngrData } from "../../../controller/types";
 import {addIngredient, removeIngredient} from '../../../controller/redux/actions/burgerBuilderActions'
-import {builderConfig} from '../../../temp/Data'
+
 let hold = 1 || undefined;
 
 interface controlFace {
@@ -44,7 +44,7 @@ export default function control(props: controlFace) {
             {key}: {(Number(value[1]) / 100).toFixed(2)}€
           </label>
           <div id="buttons">
-            <button className="More" onClick={() => builderConfig.activeData.ingr[key][2] !== undefined ? builderConfig.activeData.ingr[key][2] =+ 1 : builderConfig.activeData.ingr[key][2]}>
+            <button className="More" onClick={() => holdd("Add", key)}>
               More
             </button>
             <button className="Less" onClick={() => holdd("Substract", key)}>
