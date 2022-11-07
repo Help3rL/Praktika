@@ -5,12 +5,10 @@ interface OrderFace {
   userData: UserState;
 }
 const Order = (props: OrderFace) => {
-  console.log(props);
   function totalIngr(array: StaticIngrData | undefined) {
     let total: number = 0;
     if (array !== undefined) {
       Object.keys(array).forEach((ele: string) => {
-        console.log(array[ele][2]);
         total += Number(array[ele][2]);
       });
       return total;
@@ -39,7 +37,6 @@ const Order = (props: OrderFace) => {
     if (array !== undefined && basecost !== undefined) {
       let total = basecost;
       Object.keys(array).forEach((ele: string) => {
-        console.log(array[ele][2]);
         total += Number(array[ele][2]) * Number(array[ele][1]);
       });
       return (total / 100).toFixed(2);
@@ -69,7 +66,7 @@ const Order = (props: OrderFace) => {
     <div className="order">
       <h3>Order information</h3>
       <p>
-        Burger's base price:<span>{props.activeData.totalPrice}€</span>
+        Burger's base price:<span>{(props.activeData.basecost /100).toFixed(2)}€</span>
       </p>
       <div className="information">
         <div className="ingredients">
@@ -142,9 +139,9 @@ const Order = (props: OrderFace) => {
           </div>
         </div>
       </div>
-      {/* <button type="submit" onClick={() => registerOrder(props.activeData)}>
+      <button type="submit" onClick={() =>'a'}/*{() => registerOrder(props.activeData)}*/>
         Place order
-      </button> */}
+      </button>
     </div>
   );
 };

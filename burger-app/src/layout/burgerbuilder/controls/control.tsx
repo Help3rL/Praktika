@@ -13,7 +13,6 @@ interface controlFace {
 export default function control(props: controlFace) {
 
   const generator = (hen: StaticIngrData) => {
-    console.debug(hen);
     const tempHold = [];
     for (const [key, value] of Object.entries(hen)) {
       tempHold.push(

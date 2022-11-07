@@ -21,6 +21,7 @@ import ErrorPage from "./layout/errorPage";
 import { logout } from "./controller/firebase/auth";
 import { builderConfig } from "./temp/Data";
 import Orders from "./controller/order/orders";
+import Visual from "./layout/burgerbuilder/burger/visual";
 
 // React hooks for basic local routing
 
@@ -33,7 +34,6 @@ const getAuthState = () => {
     console.log(user?.getIdToken + " + " + user?.displayName);
     return true;
   } else {
-    console.log(user + " false");
     return false;
   }
 };
@@ -86,11 +86,16 @@ const NoMatch = () => {
 };
 
 function Home() {
-
+  const [Ingr, setIngr] = useState(builderConfig.activeData.ingr);
+  useEffect(() => {
+  
+  }, [Ingr])
+  
   return (
     <div className="content">
       <Builder
-        ingr={builderConfig.activeData !== undefined?builderConfig.activeData?.ingr: {}}
+        ingr={Ingr}
+        setIngrData={setIngr}
         userData={
           builderConfig.userData !== undefined
             ? builderConfig.userData
@@ -115,6 +120,7 @@ function Home() {
                 building: true,
                 buying: false,
                 DeliveryCost: 0,
+                basecost: 400
               }
         }
       />
@@ -125,7 +131,6 @@ function Home() {
 function Toolbar() {
   const [AuthState, setAuthState] = useState(false);
   useEffect(() => {
-    console.log(AuthState);
     return () => {
       setAuthState(getAuthState());
     };

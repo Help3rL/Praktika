@@ -13,6 +13,7 @@ export let builderConfig: Data = {
     error: false,
     building: true,
     buying: false,
+    basecost: 400,
     update: () => {},
   },
   userData: {

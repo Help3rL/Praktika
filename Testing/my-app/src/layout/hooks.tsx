@@ -1,6 +1,8 @@
 import React from 'react'
-
-export const Component = (props:any) => {
+interface temp {
+    data: number
+}
+export const Component = (props:temp) => {
     return(
         <div>
             <h1>React Hooks </h1>

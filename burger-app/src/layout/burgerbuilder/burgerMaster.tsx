@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Controls from "./controls/controller";
 import Visual from "./burger/visual";
 import "./burger.css";
@@ -14,13 +14,13 @@ import Order from "../../controller/order/order";
 
 // props ===> from App
 interface builderFace {
+  setIngrData: Dispatch<SetStateAction<StaticIngrData>>;
   activedata: InitialStates;
   ingr: StaticIngrData;
   userData: UserState;
 }
 
 const Builder = (props: builderFace) => {
-  const [Ingr, setIngr] = useState(props.ingr);
   useEffect(() => {
     document.getElementById("burger");
   });
@@ -35,20 +35,21 @@ const Builder = (props: builderFace) => {
   const [State, setState] = useState(false);
   return (
     <div className="Builder">
-      <Visual ingr={Ingr} />
+      <Visual ingr={props.ingr} />
       <Controls
         data={props.activedata}
-        ingr={Ingr}
-        ingrUpdate={() => setIngr}
+        ingr={props.ingr}
+        ingrUpdate={() => props.setIngrData}
       />
       {State === true ? (
         <RenderOrder
           loading={false}
-          ingr={Ingr}
+          ingr={props.ingr}
           totalPrice={1560}
           error={props.activedata.error}
           building={props.activedata.building}
           buying={props.activedata.buying}
+          basecost={props.activedata.basecost}
         />
       ) : (
         ""
