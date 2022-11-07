@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import './background.css'
 
-const background = (props:any) => (
-            <div className="backdrop" onClick={()=>false}>{props.children}</div>
+interface background {
+    click: Dispatch<SetStateAction<boolean>>
+    children: any
+}
+
+const background = (props:background) => (
+            <div className="backdrop" onClick={()=>props.click(false)}>{props.children}</div>
     );
 
 export default background;

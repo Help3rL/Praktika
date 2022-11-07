@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { connect } from 'react-redux';
 import './modal.css'
 import Backdrop from './background/background'
-function mapStateToProps(state:any) {
-    return {
-
-    };
+interface modal {
+    click: Dispatch<SetStateAction<boolean>>
+    children: any
 }
 
-const modal = (props:any) => {
+const modal = (props:modal) => {
         return (
-                <Backdrop>
+                <Backdrop click={props.click}>
                     <div className='modal'>
                         {props.children}
                     </div>
@@ -18,6 +17,4 @@ const modal = (props:any) => {
         );
 }
 
-export default connect(
-    mapStateToProps,
-)(modal);
+export default modal;

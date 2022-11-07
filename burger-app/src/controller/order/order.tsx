@@ -1,14 +1,19 @@
-import { each } from "immer/dist/internal";
+import { database } from "firebase-admin";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import React from "react";
+import { redirect } from "react-router";
+import { db } from "../firebase/auth";
+import {firebaseConfig as firebase} from '../firebase/firebase_config'
 import { Data, InitialStates, StaticIngrData, UserState } from "../types";
-
+import { initializeApp, applicationDefault, cert } from "firebase-admin/app";
+import { getFirestore, Timestamp, FieldValue } from "firebase-admin/firestore";
 import "./orders.css";
 interface OrderFace {
   activeData: InitialStates;
   userData: UserState;
 }
 const Order = (props: OrderFace) => {
-  console.log(props)
+  console.log(props);
   function totalIngr(array: StaticIngrData | undefined) {
     let total: number = 0;
     if (array !== undefined) {
@@ -20,10 +25,25 @@ const Order = (props: OrderFace) => {
     }
     return 0;
   }
-  function totalIngrCost(
-    array: StaticIngrData,
-    basecost: number | undefined
-  ) {
+  // async function registerOrder(arg: InitialStates) {
+  //   const auth = getAuth();
+  //   initializeApp(firebase);
+  //   const db = getFirestore();
+  //   await onAuthStateChanged(auth, async (user) => {
+  //     if (user) {
+  //       const snapshot = await db.collection('users').doc(user.uid).get();
+  //       let ordersss = snapshot.data() || [];
+  //       let orders = []
+  //       orders = ordersss.data['orders']
+  //       orders.push(arg)
+  //       db.collection('users').doc(user.uid).update({orders: orders})
+  //     } else {
+  //       redirect("/login");
+  //     }
+  //   });
+  //   return undefined;
+  // }
+  function totalIngrCost(array: StaticIngrData, basecost: number | undefined) {
     if (array !== undefined && basecost !== undefined) {
       let total = basecost;
       Object.keys(array).forEach((ele: string) => {
@@ -99,16 +119,13 @@ const Order = (props: OrderFace) => {
           <p>
             <strong>Sub Total:</strong>
             <span className="subTotal">
-              {(
-                Number(
-                  totalIngrCost(
-                    props.activeData.ingr !== undefined
-                      ? props.activeData.ingr
-                      : props.activeData.ingr,
-                    props.activeData.totalPrice
-                  )
-                ) +
-                Number(props.activeData.DeliveryCost) / 100
+              {Number(
+                totalIngrCost(
+                  props.activeData.ingr !== undefined
+                    ? props.activeData.ingr
+                    : props.activeData.ingr,
+                  props.activeData.totalPrice
+                )
               ).toFixed(2)}
               €
             </span>
@@ -133,9 +150,9 @@ const Order = (props: OrderFace) => {
           </div>
         </div>
       </div>
-      <button type="submit" onClick={() => alert("place order")}>
+      {/* <button type="submit" onClick={() => registerOrder(props.activeData)}>
         Place order
-      </button>
+      </button> */}
     </div>
   );
 };

@@ -232,9 +232,9 @@ function App() {
           </Routes>
         </Router>
       </ErrorBoundary>
-      <div className="temp">
+      {/* <div className="temp">
         <button onClick={() => addRandomOrders(20)}>Add random orders</button>
-      </div>
+      </div> */}
     </div>
   );
 }
