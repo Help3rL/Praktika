@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Controls from "./controls/controller";
 import Visual from "./burger/visual";
 import "./burger.css";
@@ -22,9 +22,9 @@ interface builderFace {
 const Builder = (props: builderFace) => {
   const [Ingr, setIngr] = useState(props.ingr);
   useEffect(() => {
-  document.getElementById('burger')
-})
-  
+    document.getElementById("burger");
+  });
+
   const RenderOrder = (data: InitialStates) => {
     return (
       <Module click={() => setState(false)}>
@@ -35,7 +35,7 @@ const Builder = (props: builderFace) => {
   const [State, setState] = useState(false);
   return (
     <div className="Builder">
-      <Visual ingr={Ingr}/>
+      <Visual ingr={Ingr} />
       <Controls
         data={props.activedata}
         ingr={Ingr}
