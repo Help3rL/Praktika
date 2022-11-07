@@ -22,9 +22,6 @@ interface builderFace {
 
 const Builder = (props: builderFace) => {
   const [Ingr, setIngr] = useState(props.ingr);
-  const setIngrData = (Ingrs: StaticIngrData) => {
-    setIngr(Ingrs);
-  };
   const RenderOrder = (data: InitialStates) => {
     return (
       <Module>
@@ -39,7 +36,7 @@ const Builder = (props: builderFace) => {
       <Controls
         data={props.activedata}
         ingr={Ingr}
-        ingrUpdate={() => setIngrData(Ingr)}
+        ingrUpdate={() => setIngr}
       />
       {State == true ? (
         <RenderOrder

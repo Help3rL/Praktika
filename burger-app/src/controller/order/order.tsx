@@ -4,10 +4,11 @@ import { Data, InitialStates, StaticIngrData, UserState } from "../types";
 
 import "./orders.css";
 interface OrderFace {
-  activeData: InitialStates
-  userData: UserState
+  activeData: InitialStates;
+  userData: UserState;
 }
-const Order = (props:OrderFace) => {
+const Order = (props: OrderFace) => {
+  console.log(props)
   function totalIngr(array: StaticIngrData | undefined) {
     let total: number = 0;
     if (array !== undefined) {
@@ -20,7 +21,7 @@ const Order = (props:OrderFace) => {
     return 0;
   }
   function totalIngrCost(
-    array: StaticIngrData | undefined,
+    array: StaticIngrData,
     basecost: number | undefined
   ) {
     if (array !== undefined && basecost !== undefined) {
@@ -56,7 +57,7 @@ const Order = (props:OrderFace) => {
     <div className="order">
       <h3>Order information</h3>
       <p>
-        Burger's base price:<span>{props.activeData?.DeliveryCost}€</span>
+        Burger's base price:<span>{props.activeData.totalPrice}€</span>
       </p>
       <div className="information">
         <div className="ingredients">
@@ -87,38 +88,27 @@ const Order = (props:OrderFace) => {
             Total ingredients cost:{" "}
             <span className="cost">
               {totalIngrCost(
-                props.activeData?.ingr !== undefined
+                props.activeData.ingr !== undefined
                   ? props.activeData.ingr
-                  : undefined,
-                props.activeData?.totalPrice
+                  : props.activeData.ingr,
+                props.activeData.totalPrice
               )}
               €
             </span>
           </p>
-          {Number(props.activeData.DeliveryCost) == undefined ? (
-            ""
-          ) : (
-            <p>
-              Delivery cost:{" "}
-              <span className="deliveryCost">
-                {(Number(props.activeData?.DeliveryCost) / 100).toFixed(2)}€
-              </span>
-            </p>
-          )}
-
           <p>
             <strong>Sub Total:</strong>
             <span className="subTotal">
               {(
                 Number(
                   totalIngrCost(
-                    props.activeData?.ingr !== undefined
+                    props.activeData.ingr !== undefined
                       ? props.activeData.ingr
-                      : undefined,
-                    props.activeData?.totalPrice
+                      : props.activeData.ingr,
+                    props.activeData.totalPrice
                   )
                 ) +
-                Number(props.activeData?.DeliveryCost) / 100
+                Number(props.activeData.DeliveryCost) / 100
               ).toFixed(2)}
               €
             </span>

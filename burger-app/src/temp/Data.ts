@@ -9,12 +9,11 @@ export let builderConfig: Data = {
       lettuce: ["lettuce", 300, 1],
       tomato: ["tomato", 400,1],
     },
-    totalPrice: 0,
+    totalPrice: 500,
     error: false,
     building: true,
     buying: false,
     update: () => {},
-    DeliveryCost: 250
   },
   userData: {
     userName: "",
