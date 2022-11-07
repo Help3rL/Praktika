@@ -1,12 +1,12 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import './background.css'
 
-interface background {
+interface backgrounde {
     click: Dispatch<SetStateAction<boolean>>
     children: any
 }
 
-const background = (props:background) => (
+const background = (props:backgrounde) => (
             <div className="backdrop" onClick={()=>props.click(false)}>{props.children}</div>
     );
 

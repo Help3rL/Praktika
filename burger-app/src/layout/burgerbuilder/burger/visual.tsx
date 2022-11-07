@@ -23,7 +23,7 @@ const visual = (props: visualFace) => {
   };
   
   return (
-    <div className="burgervisual">
+    <div className="burgervisual" id="burger">
       <div className="topbun">
         <div className="Seed1"></div>
         <div className="Seed2"></div>

@@ -1,12 +1,4 @@
-import { database } from "firebase-admin";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import React from "react";
-import { redirect } from "react-router";
-import { db } from "../firebase/auth";
-import {firebaseConfig as firebase} from '../firebase/firebase_config'
 import { Data, InitialStates, StaticIngrData, UserState } from "../types";
-import { initializeApp, applicationDefault, cert } from "firebase-admin/app";
-import { getFirestore, Timestamp, FieldValue } from "firebase-admin/firestore";
 import "./orders.css";
 interface OrderFace {
   activeData: InitialStates;

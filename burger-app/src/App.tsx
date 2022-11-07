@@ -1,5 +1,5 @@
 // Application external imports
-import React, { lazy, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Navigate,
@@ -21,9 +21,6 @@ import ErrorPage from "./layout/errorPage";
 import { logout } from "./controller/firebase/auth";
 import { builderConfig } from "./temp/Data";
 import Orders from "./controller/order/orders";
-import { Data } from "./controller/types";
-import Order from "./controller/order/order";
-import Module from "./features/actions/modal/modal";
 
 // React hooks for basic local routing
 
@@ -89,7 +86,6 @@ const NoMatch = () => {
 };
 
 function Home() {
-  const [State, setState] = useState(false);
 
   return (
     <div className="content">

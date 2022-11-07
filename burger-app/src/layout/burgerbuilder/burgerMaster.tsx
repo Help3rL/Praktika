@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import Controls from "./controls/controller";
 import Visual from "./burger/visual";
 import "./burger.css";
 import {
-  Data,
   InitialStates,
   StaticIngrData,
   UserState,
 } from "../../controller/types";
-import * as actions from "../../controller/redux/actions/index";
-import { connect } from "react-redux";
+// import * as actions from "../../controller/redux/actions/index";
+// import { connect } from "react-redux";
 import Module from "../../features/actions/modal/modal";
 import Order from "../../controller/order/order";
 
@@ -22,7 +21,10 @@ interface builderFace {
 
 const Builder = (props: builderFace) => {
   const [Ingr, setIngr] = useState(props.ingr);
-
+  useEffect(() => {
+  document.getElementById('burger')
+})
+  
   const RenderOrder = (data: InitialStates) => {
     return (
       <Module click={() => setState(false)}>
@@ -33,13 +35,13 @@ const Builder = (props: builderFace) => {
   const [State, setState] = useState(false);
   return (
     <div className="Builder">
-      <Visual ingr={Ingr} />
+      <Visual ingr={Ingr}/>
       <Controls
         data={props.activedata}
         ingr={Ingr}
         ingrUpdate={() => setIngr}
       />
-      {State == true ? (
+      {State === true ? (
         <RenderOrder
           loading={false}
           ingr={Ingr}
