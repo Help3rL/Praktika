@@ -21,7 +21,6 @@ import ErrorPage from "./layout/errorPage";
 import { logout } from "./controller/firebase/auth";
 import { builderConfig } from "./temp/Data";
 import Orders from "./controller/order/orders";
-import Visual from "./layout/burgerbuilder/burger/visual";
 
 // React hooks for basic local routing
 
