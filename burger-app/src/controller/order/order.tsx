@@ -1,5 +1,9 @@
+import { getAuth, onAuthStateChanged, User } from "firebase/auth";
+import { app, db } from "../firebase/firebase_config";
 import { Data, InitialStates, StaticIngrData, UserState } from "../types";
 import "./orders.css";
+import { initializeApp, applicationDefault, cert } from "firebase-admin/app";
+import { getFirestore, Timestamp, FieldValue } from "firebase-admin/firestore";
 interface OrderFace {
   activeData: InitialStates;
   userData: UserState;
@@ -15,24 +19,25 @@ const Order = (props: OrderFace) => {
     }
     return 0;
   }
-  // async function registerOrder(arg: InitialStates) {
-  //   const auth = getAuth();
-  //   initializeApp(firebase);
-  //   const db = getFirestore();
-  //   await onAuthStateChanged(auth, async (user) => {
-  //     if (user) {
-  //       const snapshot = await db.collection('users').doc(user.uid).get();
-  //       let ordersss = snapshot.data() || [];
-  //       let orders = []
-  //       orders = ordersss.data['orders']
-  //       orders.push(arg)
-  //       db.collection('users').doc(user.uid).update({orders: orders})
-  //     } else {
-  //       redirect("/login");
-  //     }
-  //   });
-  //   return undefined;
-  // }
+  async function registerOrder(arg: InitialStates) {
+    if (localStorage.getItem("userData") !== null) {
+      const rawUserData: string =
+        localStorage.getItem("userData") === null
+          ? ""
+          : String(localStorage.getItem("userData"));
+      const userData: User = JSON.parse(rawUserData);
+      const database = getFirestore(app);
+      database
+        .collection("users")
+        .doc(userData.uid)
+        .update({
+          orders: FieldValue.arrayUnion({
+            ...arg
+          }),
+        });
+    }
+    return undefined;
+  }
   function totalIngrCost(array: StaticIngrData, basecost: number | undefined) {
     if (array !== undefined && basecost !== undefined) {
       let total = basecost;
@@ -66,7 +71,8 @@ const Order = (props: OrderFace) => {
     <div className="order">
       <h3>Order information</h3>
       <p>
-        Burger's base price:<span>{(props.activeData.basecost /100).toFixed(2)}€</span>
+        Burger's base price:
+        <span>{(props.activeData.basecost / 100).toFixed(2)}€</span>
       </p>
       <div className="information">
         <div className="ingredients">
@@ -139,7 +145,10 @@ const Order = (props: OrderFace) => {
           </div>
         </div>
       </div>
-      <button type="submit" onClick={() =>'a'}/*{() => registerOrder(props.activeData)}*/>
+      <button
+        type="submit"
+        onClick={() => registerOrder(props.activeData)}
+      >
         Place order
       </button>
     </div>
