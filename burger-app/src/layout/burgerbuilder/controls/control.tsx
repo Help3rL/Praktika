@@ -8,10 +8,11 @@ import { InitialStates, StaticIngrData } from "../../../controller/types";
 interface controlFace {
   ingr: InitialStates;
   updateIngr: Dispatch<SetStateAction<StaticIngrData>>;
+  refresh: Dispatch<SetStateAction<number>>;
+  refreshData: number
 }
 // props ===> from controller
 export default function control(props: controlFace) {
-
   const generator = (hen: StaticIngrData) => {
     const tempHold = [];
     for (const [key, value] of Object.entries(hen)) {
@@ -23,7 +24,7 @@ export default function control(props: controlFace) {
           <div id="buttons">
             <button
               className="More"
-              onClick={() =>
+              onClick={() => {
                 props.updateIngr({
                   ...hen,
                   key: [
@@ -31,14 +32,16 @@ export default function control(props: controlFace) {
                     value[1],
                     value[2] !== undefined ? value[2]++ : value[2],
                   ],
-                })
+                });
+                props.refresh(1)
+              }
               }
             >
               More
             </button>
             <button
               className="Less"
-              onClick={() =>
+              onClick={() => {
                 props.updateIngr({
                   ...hen,
                   key: [
@@ -46,9 +49,10 @@ export default function control(props: controlFace) {
                     value[1],
                     value[2] !== undefined ? value[2]-- : value[2],
                   ],
-                })
+                });
+                props.refresh(1)
               }
-            >
+              }>
               Less
             </button>
           </div>

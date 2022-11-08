@@ -33,6 +33,7 @@ const Builder = (props: builderFace) => {
     );
   };
   const [State, setState] = useState(false);
+  let [refresh, setRefresh] = useState(0)
   return (
     <div className="Builder">
       <Visual ingr={props.ingr} />
@@ -40,6 +41,8 @@ const Builder = (props: builderFace) => {
         data={props.activedata}
         ingr={props.ingr}
         ingrUpdate={() => props.setIngrData}
+        refresh={() => setRefresh(refresh+=3)}
+        refreshData={refresh}
       />
       {State === true ? (
         <RenderOrder
@@ -54,7 +57,7 @@ const Builder = (props: builderFace) => {
       ) : (
         ""
       )}
-
+      
       <button
         onClick={() => {
           setState(!State);

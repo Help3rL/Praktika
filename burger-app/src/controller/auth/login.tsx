@@ -4,6 +4,8 @@ import { auth, logInWithEmailAndPassword } from "../firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./auth.css";
 import Loader from "../../layout/loader/loader";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { app } from "../firebase/firebase_config";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,8 +13,8 @@ function Login() {
   const navigate = useNavigate();
   useEffect(() => {
     if (loading) {
-     <Loader/>
-      return ;
+      <Loader />;
+      return;
     }
     if (user) navigate("/");
   }, [user, loading]);
@@ -35,7 +37,13 @@ function Login() {
         />
         <button
           className="login__btn"
-          onClick={() => logInWithEmailAndPassword(email, password)}
+          onClick={() =>
+            signInWithEmailAndPassword(getAuth(app),email, password).then((userCred) => {
+              let user = userCred.user
+              console.log(user)
+              localStorage.setItem('userData', JSON.stringify(user))
+            })
+          }
         >
           Login
         </button>

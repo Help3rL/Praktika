@@ -83,6 +83,7 @@ const sendPasswordReset = async (email: string) => {
 };
 const logout = () => {
   signOut(auth);
+  localStorage.removeItem('userData')
 };
 export {
   auth,

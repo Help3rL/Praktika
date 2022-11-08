@@ -7,7 +7,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { getAuth } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 
 // Application local imports
 import logo from "./assets/images/logo.png";
@@ -18,22 +18,26 @@ import Register from "./controller/auth/signup";
 import Reset from "./controller/auth/reset";
 import Account from "./layout/account/account";
 import ErrorPage from "./layout/errorPage";
-import { logout } from "./controller/firebase/auth";
 import { builderConfig } from "./temp/Data";
 import Orders from "./controller/order/orders";
-
+import { app } from "./controller/firebase/firebase_config";
 // React hooks for basic local routing
 
 ///
 
 const getAuthState = () => {
-  const auth = getAuth();
-  const user = auth.currentUser;
-  if (user !== null) {
-    console.log(user?.getIdToken + " + " + user?.displayName);
-    return true;
+  if (localStorage.getItem("userData") === null) {
+    console.log('1st ' + localStorage.getItem('userData'))
+    return false
   } else {
-    return false;
+    const user = getAuth(app).currentUser;
+    console.log(user);
+    if (user === null) {
+      localStorage.setItem("userData", JSON.stringify(user));
+      return false
+    } else {
+      return true
+    }
   }
 };
 
@@ -86,10 +90,8 @@ const NoMatch = () => {
 
 function Home() {
   const [Ingr, setIngr] = useState(builderConfig.activeData.ingr);
-  useEffect(() => {
-  
-  }, [Ingr])
-  
+  useEffect(() => {}, [Ingr]);
+
   return (
     <div className="content">
       <Builder
@@ -119,7 +121,7 @@ function Home() {
                 building: true,
                 buying: false,
                 DeliveryCost: 0,
-                basecost: 400
+                basecost: 400,
               }
         }
       />
@@ -128,13 +130,7 @@ function Home() {
 }
 
 function Toolbar() {
-  const [AuthState, setAuthState] = useState(false);
-  useEffect(() => {
-    return () => {
-      setAuthState(getAuthState());
-    };
-  });
-  if (AuthState === false) {
+  if (getAuthState() === false) {
     return (
       <header>
         <nav className="Toolbar">
@@ -156,7 +152,7 @@ function Toolbar() {
     );
   }
 
-  if (AuthState === true) {
+  if (getAuthState() === true) {
     return (
       <header>
         <nav className="Toolbar">
@@ -175,7 +171,7 @@ function Toolbar() {
             <li className="navElement">
               <NavLink to="/account/orders">Orders</NavLink>
             </li>
-            <li className="navElement" onClick={logout}>
+            <li className="navElement" onClick={() => {signOut(getAuth(app)); localStorage.removeItem('userData')}}>
               <NavLink to="/">Logout</NavLink>
             </li>
           </ul>
@@ -225,7 +221,7 @@ function App() {
               <Route path="/account/settings" element="" />
               <Route
                 path="/account/orders"
-                element={<Orders activeData={builderConfig.activeData}/>}
+                element={<Orders activeData={builderConfig.activeData} />}
               />
             </Route>
             <Route path="*" element={<NoMatch />} />
